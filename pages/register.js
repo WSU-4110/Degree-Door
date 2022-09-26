@@ -36,6 +36,19 @@ export default function Register() {
         <div className="register-page p-20 w-3/5">
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
+          <div className="form-wrapper">
+            <form className="form-section grid grid-cols-2 text-xl gap-8">
+              <label className="form-label mb-2">First Name</label>
+              <input 
+                className="form-input border outline-0 rounded-md w-full mt-2 p-4"
+                type="text"
+                placeholder="First name"
+                onChange={handleChange}
+                name="firstName"
+                value={formData.firstName}
+              /> 
+            </form>
+          </div>
         </div>
         <div className="register-right w-2/5 relative">
           <Image src="/oldMain.jpg" alt="Old Main WSU" layout="fill" objectFit="contain" />
