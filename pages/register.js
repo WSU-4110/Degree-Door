@@ -16,7 +16,7 @@ export default function Register() {
   // In React, create a handleChange function
   // for the data of the form fields.
   function handleChange(event) {
-    const { name, value, type} = event.target
+    const { name, value } = event.target // Destruct props from event.target
     setFormData(prevFormData => {
       return {
         ...prevFormData,
