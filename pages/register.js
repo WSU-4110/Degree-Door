@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 export default function Register() {
 
   // Form state to keep track of what user is inputting
@@ -29,6 +31,11 @@ export default function Register() {
   return (
     <div className="register-page max-h-screen">
       <nav>Hello</nav>
+      <section>
+        <div className="register-right w-2/5 relative">
+          <Image src="/oldMain.jpg" alt="Old Main WSU" layout="fill" objectFit="contain" />
+        </div>
+      </section>
     </div>
 
   )
