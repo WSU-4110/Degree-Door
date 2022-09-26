@@ -91,6 +91,17 @@ export default function Register() {
                   <option value="Professor">Professor</option>
                 </select>
               </div>
+              <div className="field-wrapper col">
+                <label className="field-label mb-2">Email</label>
+                <input
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  type="text"
+                  placeholder="Email"
+                  onChange={handleChange}
+                  name="email"
+                  value={formData.email}
+                />
+              </div>
             </form>
           </div>
         </div>
