@@ -38,6 +38,16 @@ export default function Register() {
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
           <div className="form-wrapper">
             <form className="form-section grid grid-cols-2 text-xl gap-8">
+              {/*
+                Each field-wrapper div will resize itself to fit within the grid
+                column.
+
+                For each field label, it will have a margin-bottom of
+                0.5 rem. For each input field, each box will have a rounded 
+                border of 0.375 rem, an outline of 0 when typing, a margin-top
+                of 0.5 rem, and a padding of 4. Additionally, they will take
+                up the max width of the div they are in.
+              */}
               <div className="field-wrapper col">
                 <label className="form-label mb-2">First Name</label>
                 <input 
