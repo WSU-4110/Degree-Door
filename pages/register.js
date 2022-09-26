@@ -25,7 +25,11 @@ export default function Register() {
     })
   }
 
+  // Render the following onto the register page.
   return (
-    <div>Register</div>
+    <div className="register-page max-h-screen">
+      <nav>Hello</nav>
+    </div>
+
   )
 }
