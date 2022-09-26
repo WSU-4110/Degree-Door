@@ -102,6 +102,17 @@ export default function Register() {
                   value={formData.email}
                 />
               </div>
+              <div className="field-wrapper col">
+                <label className="field-label mb-2">Password</label>
+                <input
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  type="text"
+                  placeholder="Password"
+                  onChange={handleChange}
+                  name="password"
+                  value={formData.password}
+                />
+              </div>
             </form>
           </div>
         </div>
