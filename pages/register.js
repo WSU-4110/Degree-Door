@@ -55,7 +55,7 @@ export default function Register() {
                 <input 
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
                   type="text"
-                  placeholder="First name"
+                  placeholder="First Name"
                   onChange={handleChange}
                   name="firstName"
                   value={formData.firstName}
@@ -66,7 +66,7 @@ export default function Register() {
                 <input
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
                   type="text"
-                  placeholder="Last name"
+                  placeholder="Last Name"
                   onChange={handleChange}
                   name="lastName"
                   value={formData.lastName}
@@ -111,6 +111,17 @@ export default function Register() {
                   onChange={handleChange}
                   name="password"
                   value={formData.password}
+                />
+              </div>
+              <div className="field-wrapper col">
+                <label className="field-label mb-2">Confirm Password</label>
+                <input
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  type="text"
+                  placeholder="Confirm Password"
+                  onChange={handleChange}
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
                 />
               </div>
             </form>
