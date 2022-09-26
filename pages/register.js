@@ -43,15 +43,17 @@ export default function Register() {
                 column.
 
                 For each field label, it will have a margin-bottom of
-                0.5 rem. For each input field, each box will have a rounded 
+                0.5 rem. 
+                
+                For each input field, each box will have a rounded 
                 border of 0.375 rem, an outline of 0 when typing, a margin-top
                 of 0.5 rem, and a padding of 4. Additionally, they will take
                 up the max width of the div they are in.
               */}
               <div className="field-wrapper col">
-                <label className="form-label mb-2">First Name</label>
+                <label className="field-label mb-2">First Name</label>
                 <input 
-                  className="form-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
                   type="text"
                   placeholder="First name"
                   onChange={handleChange}
@@ -59,16 +61,35 @@ export default function Register() {
                   value={formData.firstName}
                 /> 
               </div>
-              <div className="input-wrapper col">
-                <label className="form-label mb-2">Last Name</label>
+              <div className="field-wrapper col">
+                <label className="field-label mb-2">Last Name</label>
                 <input
-                  className="form-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
                   type="text"
                   placeholder="Last name"
                   onChange={handleChange}
                   name="lastName"
                   value={formData.lastName}
                 />
+              </div>
+              <div className="field-wrapper col">
+                <label className="field-label mb-2">Status</label>
+                <select
+                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  id="status"
+                  onChange={handleChange}
+                  name="status"
+                  value={formData.status}
+                >
+                  <option value="Upcoming Student">Upcoming Student</option>
+                  <option value="Freshman">Freshman</option>
+                  <option value="Sophomore">Sophomore</option>
+                  <option value="Junior">Junior</option>
+                  <option value="Senior">Senior</option>
+                  <option value="Graduate">Graduate</option>
+                  <option value="Alumni">Alumni</option>
+                  <option value="Professor">Professor</option>
+                </select>
               </div>
             </form>
           </div>
