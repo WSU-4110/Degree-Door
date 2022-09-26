@@ -49,6 +49,17 @@ export default function Register() {
                   value={formData.firstName}
                 /> 
               </div>
+              <div className="input-wrapper col">
+                <label className="form-label mb-2">Last Name</label>
+                <input
+                  className="form-input border outline-0 rounded-md w-full mt-2 p-4"
+                  type="text"
+                  placeholder="Last name"
+                  onChange={handleChange}
+                  name="lastName"
+                  value={formData.lastName}
+                />
+              </div>
             </form>
           </div>
         </div>
