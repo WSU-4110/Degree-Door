@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function Register() {
 
@@ -32,6 +33,7 @@ export default function Register() {
     <div className="register-page max-h-screen">
       <nav>Hello</nav>
       <section>
+        <div>Left Side</div>
         <div className="register-right w-2/5 relative">
           <Image src="/oldMain.jpg" alt="Old Main WSU" layout="fill" objectFit="contain" />
         </div>
