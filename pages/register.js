@@ -33,7 +33,10 @@ export default function Register() {
     <div className="register-page max-h-screen">
       <nav>Hello</nav>
       <section>
-        <div>Left Side</div>
+        <div className="register-page p-20 w-3/5">
+          <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
+          <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
+        </div>
         <div className="register-right w-2/5 relative">
           <Image src="/oldMain.jpg" alt="Old Main WSU" layout="fill" objectFit="contain" />
         </div>
