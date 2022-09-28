@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword , signOut} from 'firebase/auth'
 
@@ -34,18 +35,22 @@ export default function Register() {
     })
   }
 
-  // Attempt to sign up user with email and password.
+  // Attempt to sign up user with email and password from formData.
   function handleSubmit(event) {
     event.preventDefault()
-    createUserWithEmailAndPassword(auth, email, password)
+    createUserWithEmailAndPassword(auth, formData.email, formData.password)
     .then((_) => {
-      // Signed in 
+      // Signed in, try to sign out user then move to login page.
       signOut(auth).then(() => {
         // Sign-out successful.
+        const router = useRouter()
+        router.push("/")
+
       }).catch((error) => {
         // An error happened.
         error.code;
         error.message;
+
       });
     })
     .catch((error) => {
