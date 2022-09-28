@@ -2,13 +2,14 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { createUserWithEmailAndPassword , signOut} from 'firebase/auth'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 import { auth } from '../firebase'
 
 export default function Register() {
   let errorCode;
   let errorMessage;
+  const router = useRouter()
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -38,20 +39,12 @@ export default function Register() {
   // Attempt to sign up user with email and password from formData.
   function handleSubmit(event) {
     event.preventDefault()
-    createUserWithEmailAndPassword(auth, formData.email, formData.password)
+    createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
     .then((_) => {
       // Signed in, try to sign out user then move to login page.
-      signOut(auth).then(() => {
-        // Sign-out successful.
-        const router = useRouter()
+      auth.signOut.then(
         router.push("/")
-
-      }).catch((error) => {
-        // An error happened.
-        error.code;
-        error.message;
-
-      });
+      )
     })
     .catch((error) => {
       errorCode = error.code;
@@ -161,7 +154,7 @@ export default function Register() {
               >
                 Sign-up!
               </button>
-              <Link href="/login">
+              <Link href="/">
                 <button className="signup-submit-button bg-lime-600 hover:bg-lime-500 hover:scale-90 duration-300
                   ease-in-out text-white rounded-lg mt-6 p-4 cursor-pointer justify-between items-center"
                   type="button"
