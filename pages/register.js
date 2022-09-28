@@ -1,8 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
+import { createUserWithEmailAndPassword , signOut} from 'firebase/auth'
+
+import { auth } from '../firebase'
 
 export default function Register() {
+  let errorCode;
+  let errorMessage;
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -29,6 +34,26 @@ export default function Register() {
     })
   }
 
+  // Attempt to sign up user with email and password.
+  function handleSubmit(event) {
+    event.preventDefault()
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((_) => {
+      // Signed in 
+      signOut(auth).then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        // An error happened.
+        error.code;
+        error.message;
+      });
+    })
+    .catch((error) => {
+      errorCode = error.code;
+      errorMessage = error.message;
+    });
+  }
+
   // Render the following onto the register page.
   return (
     <div className="register-page max-h-screen">
@@ -38,7 +63,7 @@ export default function Register() {
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
           <div className="form-wrapper">
-            <form className="form-section grid grid-cols-2 text-xl gap-8">
+            <form className="form-section grid grid-cols-2 text-xl gap-8" onSubmit={handleSubmit}>
               {/*
                 Each field-wrapper div will resize itself to fit within the grid
                 column.
