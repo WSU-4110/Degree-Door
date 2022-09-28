@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Register() {
@@ -33,7 +34,7 @@ export default function Register() {
     <div className="register-page max-h-screen">
       <nav>Hello</nav>
       <section className="register-wrapper flex">
-        <div className="register-page p-20 w-3/5">
+        <div className="register-left p-20 w-3/5">
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
           <div className="form-wrapper">
@@ -124,6 +125,20 @@ export default function Register() {
                   value={formData.confirmPassword}
                 />
               </div>
+              <button className="signup-submit-button bg-lime-600 hover:bg-lime-500 hover:scale-90 duration-300
+                ease-in-out text-white rounded-lg mt-6 p-4 cursor-pointer justify-between items-center"
+                type="submit"
+              >
+                Sign-up!
+              </button>
+              <Link href="/login">
+                <button className="signup-submit-button bg-lime-600 hover:bg-lime-500 hover:scale-90 duration-300
+                  ease-in-out text-white rounded-lg mt-6 p-4 cursor-pointer justify-between items-center"
+                  type="button"
+                >
+                  Return to login!
+                </button>
+              </Link>
             </form>
           </div>
         </div>
@@ -132,6 +147,5 @@ export default function Register() {
         </div>
       </section>
     </div>
-
   )
 }
