@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Alert from '@mui/material/Alert';
+import { Zoom } from '@mui/material'
 
 import { auth } from '../firebase'
 
@@ -53,22 +54,22 @@ export default function Register() {
         // Signed in, try to sign out user then move to login page.
         auth.signOut()
         .then((_) => {
-          setAlertSeverity("Success")
+          setAlertSeverity("success")
           setAlertMessage("Registration successful! Return to login page.")
         })
         .catch((error) => {
-          setAlertSeverity("Error")
+          setAlertSeverity("error")
           setAlertMessage(`${error.message}`)
         })
       })
       .catch((error) => {
-        setAlertSeverity("Error")
+        setAlertSeverity("error")
         setAlertMessage(`${error.message}`)
       })
       setShowAlert(true)
     }
     else {
-      setAlertSeverity("Error")
+      setAlertSeverity("error")
       setAlertMessage("Make sure your passwords are matching.")
     }
   }
@@ -80,7 +81,17 @@ export default function Register() {
         Navbar
       </nav>
       <div className="register-wrapper flex">
-        <div className="register-left p-20 w-3/5">
+        <div className="register-left p-20 w-3/5 relative">
+        <Zoom in={showAlert} style={{ transitionDelay: showAlert ? '500ms' : '0ms' }}>
+          <Alert 
+            variant="filled" 
+            sx={{zIndex: 100, position: "absolute", fontSize: "1.5rem",  right: "5rem"}} 
+            severity={alertSeverity}
+            onClose={() => setShowAlert(false)}
+          >
+            {alertMessage}
+          </Alert>
+        </Zoom>
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
           <div className="form-wrapper bg-white rounded shadow-md px-6 py-8">
