@@ -3,26 +3,21 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import Alert from '@mui/material/Alert';
 
 import { auth } from '../firebase'
 
 export default function Register() {
   const router = useRouter() // Router object to push to other pages.
 
-  // Keep track of state to show an dialog.
-  const [showDialog, setShowDialog] = useState(false)
+  // Keep track of state to show an alert.
+  const [showAlert, setShowAlert] = useState(false)
 
-  // Keep track of dialog message state.
-  const [dialogMessage, setDialogMessage] = useState("")
+  // Keep track of alert message state.
+  const [alertMessage, setAlertMessage] = useState("")
 
-  // Keep track of dialog severity.
-  const [dialogSeverity, setDialogSeverity] = useState("")
+  // Keep track of alert severity.
+  const [alertSeverity, setAlertSeverity] = useState("")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -58,49 +53,29 @@ export default function Register() {
         // Signed in, try to sign out user then move to login page.
         auth.signOut()
         .then((_) => {
-          setDialogSeverity("Success")
-          setDialogMessage("Registration successful! Return to login page.")
+          setAlertSeverity("Success")
+          setAlertMessage("Registration successful! Return to login page.")
         })
         .catch((error) => {
-          setDialogSeverity("Error")
-          setDialogMessage(`${error.message}`)
+          setAlertSeverity("Error")
+          setAlertMessage(`${error.message}`)
         })
       })
       .catch((error) => {
-        setDialogSeverity("Error")
-        setDialogMessage(`${error.message}`)
+        setAlertSeverity("Error")
+        setAlertMessage(`${error.message}`)
       })
-      setShowDialog(true)
+      setShowAlert(true)
     }
     else {
-      setDialogSeverity("Error")
-      setDialogMessage("Make sure your passwords are matching.")
+      setAlertSeverity("Error")
+      setAlertMessage("Make sure your passwords are matching.")
     }
   }
 
   // Render the following onto the register page.
   return (
     <div className="register-page min-h-screen min-w-screen bg-gray-100">
-      <Dialog
-        open={showDialog}
-        keepMounted
-        onClose={() => setShowDialog(false)}
-        aria-describedby="alert-dialog--description"
-      >
-        <DialogTitle 
-          sx={dialogSeverity === "Error" ? { color: "red", fontSize: "2rem" } : { color:"green", fontSize: "2rem" }}
-        >
-          {dialogSeverity}
-        </DialogTitle>
-        <DialogContent>
-          <DialogContentText sx={{ color: "black", fontSize:"1.5rem" }} id="alert-dialog-slide-description">
-            {dialogMessage}
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setShowDialog(false)}>Close</Button>
-        </DialogActions>
-      </Dialog>
       <nav className="flex justify-items-center align-center">
         Navbar
       </nav>
