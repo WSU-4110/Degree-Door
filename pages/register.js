@@ -75,7 +75,8 @@ export default function Register() {
       setShowAlert(true) // Show alert to the user.
     }
     else {
-      setAlertSeverity("error")
+      // Notify user that the password and password confirmation did not match.
+      setAlertSeverity("error") 
       setAlertMessage("Make sure your passwords are matching.")
     }
   }
