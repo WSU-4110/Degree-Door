@@ -16,7 +16,7 @@ export default function Register() {
   const [alertMessage, setAlertMessage] = useState("")
 
   // Keep track of alert severity.
-  const [alertSeverity, setAlertSeverity] = useState("")
+  const [alertSeverity, setAlertSeverity] = useState("error")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
