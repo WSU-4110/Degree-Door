@@ -3,12 +3,26 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 import { auth } from '../firebase'
 
 export default function Register() {
-  let errorMessage;
-  const router = useRouter()
+  const router = useRouter() // Router object to push to other pages.
+
+  // Keep track of state to show an dialog.
+  const [showDialog, setShowDialog] = useState(false)
+
+  // Keep track of dialog message state.
+  const [dialogMessage, setDialogMessage] = useState("")
+
+  // Keep track of dialog severity.
+  const [dialogSeverity, setDialogSeverity] = useState("")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -38,23 +52,58 @@ export default function Register() {
   // Attempt to sign up user with email and password from formData.
   function handleSubmit(event) {
     event.preventDefault()
-    createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-    .then((_) => {
-      // Signed in, try to sign out user then move to login page.
-      auth.signOut.then(
-        router.push("/")
-      )
-    })
-    .catch((error) => {
-      errorCode = error.code;
-      errorMessage = error.message;
-    });
+    if (formData.password.trim() === formData.confirmPassword.trim()) {
+      createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
+      .then((_) => {
+        // Signed in, try to sign out user then move to login page.
+        auth.signOut()
+        .then((_) => {
+          setDialogSeverity("Success")
+          setDialogMessage("Registration successful! Return to login page.")
+        })
+        .catch((error) => {
+          setDialogSeverity("Error")
+          setDialogMessage(`${error.message}`)
+        })
+      })
+      .catch((error) => {
+        setDialogSeverity("Error")
+        setDialogMessage(`${error.message}`)
+      })
+      setShowDialog(true)
+    }
+    else {
+      setDialogSeverity("Error")
+      setDialogMessage("Make sure your passwords are matching.")
+    }
   }
 
   // Render the following onto the register page.
   return (
     <div className="register-page min-h-screen min-w-screen bg-gray-100">
-      <nav>Hello</nav>
+      <Dialog
+        open={showDialog}
+        keepMounted
+        onClose={() => setShowDialog(false)}
+        aria-describedby="alert-dialog--description"
+      >
+        <DialogTitle 
+          sx={dialogSeverity === "Error" ? { color: "red", fontSize: "2rem" } : { color:"green", fontSize: "2rem" }}
+        >
+          {dialogSeverity}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText sx={{ color: "black", fontSize:"1.5rem" }} id="alert-dialog-slide-description">
+            {dialogMessage}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setShowDialog(false)}>Close</Button>
+        </DialogActions>
+      </Dialog>
+      <nav className="flex justify-items-center align-center">
+        Navbar
+      </nav>
       <div className="register-wrapper flex">
         <div className="register-left p-20 w-3/5">
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
@@ -77,7 +126,7 @@ export default function Register() {
                 <label className="field-label mb-2">First Name</label>
                 <input 
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
-                  type="email"
+                  type="text"
                   placeholder="First Name"
                   onChange={handleChange}
                   name="firstName"
@@ -118,7 +167,7 @@ export default function Register() {
                 <label className="field-label mb-2">Email</label>
                 <input
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   onChange={handleChange}
                   name="email"
