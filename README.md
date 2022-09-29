@@ -77,7 +77,7 @@ on a degree.
 ## Contributing
 
 If you have a suggestion that would make this project better or more optimal, 
-please fork the repo and create a pull request. Alternatively, you can open an issue with the tag "enhancement" as well.
+please fork the repo and create a pull request.
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/NewFeature`)
@@ -112,7 +112,6 @@ Distributed under the MIT License. See `LICENSE.md` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/WSU-4110/Degree-Door?style=for-the-badge
 [license-url]: https://github.com/WSU-4110/Degree-Door/blob/main/LICENSE.md
 [product-screenshot]: src/assets/demo.png
