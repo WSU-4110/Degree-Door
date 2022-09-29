@@ -54,19 +54,25 @@ export default function Register() {
         // Signed in, try to sign out user then move to login page.
         auth.signOut()
         .then((_) => {
+          // After async successful sign out, set the alert severity
+          // to success and notify the user that their registration was successful.
           setAlertSeverity("success")
           setAlertMessage("Registration successful! Return to login page.")
         })
         .catch((error) => {
+          // If async sign out failed, set the alert severity
+          // as an error and notify the user that their signout was unsuccessful.
           setAlertSeverity("error")
-          setAlertMessage(`${error.message}`)
+          setAlertMessage(`${error.message}, but you registered successfully`)
         })
       })
       .catch((error) => {
+        // If account creation failed, set the alert severity to error and notify the user
+        // that their account was not created successfully.
         setAlertSeverity("error")
         setAlertMessage(`${error.message}`)
       })
-      setShowAlert(true)
+      setShowAlert(true) // Show alert to the user.
     }
     else {
       setAlertSeverity("error")
@@ -82,6 +88,9 @@ export default function Register() {
       </nav>
       <div className="register-wrapper flex">
         <div className="register-left p-20 w-3/5 relative">
+        {/* The following component is a Material UI component that will
+        render an animated Alert message to the screen after the user submits
+        the form for registering an account.*/}
         <Zoom in={showAlert} style={{ transitionDelay: showAlert ? '500ms' : '0ms' }}>
           <Alert 
             variant="filled" 
