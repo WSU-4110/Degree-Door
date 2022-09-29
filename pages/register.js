@@ -3,12 +3,22 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
+import Alert from '@mui/material/Alert';
+import { Zoom } from '@mui/material'
 
 import { auth } from '../firebase'
 
 export default function Register() {
-  let errorMessage;
-  const router = useRouter()
+  const router = useRouter() // Router object to push to other pages.
+
+  // Keep track of state to show an alert.
+  const [showAlert, setShowAlert] = useState(false)
+
+  // Keep track of alert message state.
+  const [alertMessage, setAlertMessage] = useState("")
+
+  // Keep track of alert severity.
+  const [alertSeverity, setAlertSeverity] = useState("")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -38,25 +48,60 @@ export default function Register() {
   // Attempt to sign up user with email and password from formData.
   function handleSubmit(event) {
     event.preventDefault()
-    createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-    .then((_) => {
-      // Signed in, try to sign out user then move to login page.
-      auth.signOut.then(
-        router.push("/")
-      )
-    })
-    .catch((error) => {
-      errorCode = error.code;
-      errorMessage = error.message;
-    });
+    if (formData.password.trim() === formData.confirmPassword.trim()) {
+      createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
+      .then((_) => {
+        // Signed in, try to sign out user then move to login page.
+        auth.signOut()
+        .then((_) => {
+          // After async successful sign out, set the alert severity
+          // to success and notify the user that their registration was successful.
+          setAlertSeverity("success")
+          setAlertMessage("Registration successful! Return to login page.")
+        })
+        .catch((error) => {
+          // If async sign out failed, set the alert severity
+          // as an error and notify the user that their signout was unsuccessful.
+          setAlertSeverity("error")
+          setAlertMessage(`${error.message}, but you registered successfully`)
+        })
+      })
+      .catch((error) => {
+        // If account creation failed, set the alert severity to error and notify the user
+        // that their account was not created successfully.
+        setAlertSeverity("error")
+        setAlertMessage(`${error.message}`)
+      })
+      setShowAlert(true) // Show alert to the user.
+    }
+    else {
+      // Notify user that the password and password confirmation did not match.
+      setAlertSeverity("error") 
+      setAlertMessage("Make sure your passwords are matching.")
+    }
   }
 
   // Render the following onto the register page.
   return (
     <div className="register-page min-h-screen min-w-screen bg-gray-100">
-      <nav>Hello</nav>
+      <nav className="flex justify-items-center align-center">
+        Navbar
+      </nav>
       <div className="register-wrapper flex">
-        <div className="register-left p-20 w-3/5">
+        <div className="register-left p-20 w-3/5 relative">
+        {/* The following component is a Material UI component that will
+        render an animated Alert message to the screen after the user submits
+        the form for registering an account.*/}
+        <Zoom in={showAlert} style={{ transitionDelay: showAlert ? '500ms' : '0ms' }}>
+          <Alert 
+            variant="filled" 
+            sx={{zIndex: 100, position: "absolute", fontSize: "1.5rem",  right: "5rem"}} 
+            severity={alertSeverity}
+            onClose={() => setShowAlert(false)}
+          >
+            {alertMessage}
+          </Alert>
+        </Zoom>
           <h1 className="signup-h1 mb-4 text-2xl">Sign up for DegreeDoor!</h1>
           <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can verify your email.</h6>
           <div className="form-wrapper bg-white rounded shadow-md px-6 py-8">
@@ -77,7 +122,7 @@ export default function Register() {
                 <label className="field-label mb-2">First Name</label>
                 <input 
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
-                  type="email"
+                  type="text"
                   placeholder="First Name"
                   onChange={handleChange}
                   name="firstName"
@@ -118,7 +163,7 @@ export default function Register() {
                 <label className="field-label mb-2">Email</label>
                 <input
                   className="field-input border outline-0 rounded-md w-full mt-2 p-4"
-                  type="text"
+                  type="email"
                   placeholder="Email"
                   onChange={handleChange}
                   name="email"
