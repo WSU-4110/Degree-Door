@@ -47,7 +47,8 @@
 
 The project is a fullstack web application that will allow users to find information regarding the degrees and their relative courses 
 at Wayne State University. Users will be able to register an account to access the main functionalities of the website. From there,
-users can see forums with reviews posted by current or past students, alumni, or professors.
+users can see forums with reviews posted by current students, past students, alumni, or professors that have some insight
+on a degree.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
