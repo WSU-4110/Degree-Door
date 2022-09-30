@@ -1,3 +1,4 @@
+//Delete this comment Grey, also Hello!
 //import { auth, db } from '../firebase'
 
 //const colRef = collection(db, `Users/${context.query.id}`);
