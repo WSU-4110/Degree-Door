@@ -1,23 +1,21 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 import Alert from '@mui/material/Alert';
 
-
-
-
 import bg from '../public/oldMain.jpg'
 
 export default function Login() {
+  // Use router in Login page in case we need to redirect to home page.
+  const router = useRouter()
+
   // Keep track of state to show an alert.
   const [showAlert, setShowAlert] = useState(false)
 
   // Keep track of alert message state.
   const [alertMessage, setAlertMessage] = useState("")
-
-  // Keep track of alert severity.
-  const [alertSeverity, setAlertSeverity] = useState("error")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -43,8 +41,16 @@ export default function Login() {
   // Create a handleSubmit function for the data of the form.
   function handleSubmit(event) {
     event.preventDefault() // Prevent page from refreshing.
-    
-
+    signInWithEmailAndPassword(formData.email.trim(), formData.password.trim())
+    .then((_) => {
+      router.push('/') // Push to router, should not redirect to login page.
+    })
+    .catch((error) => {
+      // If login failed, display error message in the form
+      // of an alert dialog
+      setAlertMessage(`${error.message}`)
+      setShowAlert(true)
+    })
   }
 
   return (
@@ -63,7 +69,7 @@ export default function Login() {
             </div>
           </div>
           <div className="login-page-form flex justify-center self-center z-10">
-            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100">
+            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100" onSubmit={handleSubmit}>
               <div className="form-text mb-4">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
                 <p>Please sign into your Degree Door account</p>
