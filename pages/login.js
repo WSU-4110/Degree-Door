@@ -35,7 +35,7 @@ export default function Login() {
             </div>
           </div>
           <div className="login-page-form flex justify-center self-center z-10">
-            <form className="form-wrapper p-12 bg-white m-auto mb rounded-xl w-100">
+            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100">
               <div className="form-text mb-4">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
                 <p>Please sign into your Degree Door account.</p>
@@ -43,7 +43,7 @@ export default function Login() {
               <div className="field-wrapper m-2">
                 <label className="field-label font-semibold mb-2">Email</label>
                 <input 
-                  className="field-input border outline-0 rounded-md w-full my-2 p-4"
+                  className="field-input border outline-0 rounded-md w-full my-2 p-4 hover:shadow duration-200 ease-in-out"
                   type="email"
                   placeholder="Email Address"
                   onChange={handleChange}
@@ -54,7 +54,7 @@ export default function Login() {
               <div className="field-wrapper m-2">
                 <label className="field-label font-semibold mb-2">Password</label>
                 <input
-                  className="field-input border outline-0 rounded-md w-full my-2 p-4"
+                  className="field-input border outline-0 rounded-md w-full my-2 p-4 hover:shadow duration-200 ease-in-out"
                   type="text"
                   placeholder="Password"
                   onChange={handleChange}
@@ -62,7 +62,10 @@ export default function Login() {
                   value={formData.lastName}
                 />
               </div>
-              <button type="submit" class="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+              <button type="submit" class="w-full flex justify-center bg-green-400 
+               hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide 
+               font-semibold  shadow-lg cursor-pointer transition ease-in duration-500"
+              >
                 Sign in
               </button>
             </form>
