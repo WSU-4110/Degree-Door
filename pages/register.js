@@ -9,6 +9,8 @@ import { Zoom } from '@mui/material'
 import { auth } from '../firebase'
 
 export default function Register() {
+  const router = useRouter() // Router object to push to other pages.
+
   // Keep track of state to show an alert.
   const [showAlert, setShowAlert] = useState(false)
 
@@ -70,13 +72,13 @@ export default function Register() {
         setAlertSeverity("error")
         setAlertMessage(`${error.message}`)
       })
+      setShowAlert(true) // Show alert to the user.
     }
     else {
       // Notify user that the password and password confirmation did not match.
       setAlertSeverity("error") 
       setAlertMessage("Make sure your passwords are matching.")
     }
-    setShowAlert(true) // Show alert to the user.
   }
 
   // Render the following onto the register page.
