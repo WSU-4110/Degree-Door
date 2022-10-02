@@ -9,7 +9,8 @@ import { Zoom } from '@mui/material'
 import { auth } from '../firebase'
 
 export default function Register() {
-  const router = useRouter() // Router object to push to other pages.
+  // Keep style of input elements in the register page as one variable.
+  const commonInputStyle = "field-input border-2 border-slate-200 outline-0 rounded-md w-full mt-2 p-4 hover:shadow duration-200 ease-in-out"
 
   // Keep track of state to show an alert.
   const [showAlert, setShowAlert] = useState(false)
@@ -117,11 +118,14 @@ export default function Register() {
                 border of 0.375 rem, an outline of 0 when typing, a margin-top
                 of 0.5 rem, and a padding of 4. Additionally, they will take
                 up the max width of the div they are in.
+
+                Since each div uses the same style, we will store the constant and
+                reuse it for each input element.
               */}
               <div className="field-wrapper col">
                 <label className="field-label mb-2">First Name</label>
                 <input 
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   type="text"
                   placeholder="First Name"
                   onChange={handleChange}
@@ -132,7 +136,7 @@ export default function Register() {
               <div className="field-wrapper col">
                 <label className="field-label mb-2">Last Name</label>
                 <input
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   type="text"
                   placeholder="Last Name"
                   onChange={handleChange}
@@ -143,7 +147,7 @@ export default function Register() {
               <div className="field-wrapper col">
                 <label className="field-label mb-2">Status</label>
                 <select
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   id="status"
                   onChange={handleChange}
                   name="status"
@@ -162,7 +166,7 @@ export default function Register() {
               <div className="field-wrapper col">
                 <label className="field-label mb-2">Email</label>
                 <input
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   type="email"
                   placeholder="Email"
                   onChange={handleChange}
@@ -173,7 +177,7 @@ export default function Register() {
               <div className="field-wrapper col">
                 <label className="field-label mb-2">Password</label>
                 <input
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   type="password"
                   placeholder="Password"
                   onChange={handleChange}
@@ -184,7 +188,7 @@ export default function Register() {
               <div className="field-wrapper col">
                 <label className="field-label mb-2">Confirm Password</label>
                 <input
-                  className="field-input border outline-0 rounded-md w-full mt-2 p-4"
+                  className={commonInputStyle}
                   type="password"
                   placeholder="Confirm Password"
                   onChange={handleChange}
@@ -192,15 +196,15 @@ export default function Register() {
                   value={formData.confirmPassword}
                 />
               </div>
-              <button className="signup-submit-button bg-lime-600 hover:bg-lime-500 hover:scale-90 duration-300
-                ease-in-out text-white rounded-lg mt-6 p-4 cursor-pointer justify-between items-center"
+              <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
+                ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
                 type="submit"
               >
                 Sign-up!
               </button>
               <Link href="/">
-                <button className="signup-submit-button bg-lime-600 hover:bg-lime-500 hover:scale-90 duration-300
-                  ease-in-out text-white rounded-lg mt-6 p-4 cursor-pointer justify-between items-center"
+                <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
+                  ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
                   type="button"
                 >
                   Return to login!
