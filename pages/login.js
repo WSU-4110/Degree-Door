@@ -65,9 +65,9 @@ export default function Login() {
       <div className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative" style={{backgroundImage: `url(${bg.src})`}}>
         <div className="login-page-wrapper flex flex-col justify-center">
           <div className="login-page-welcome flex flex-col self-center p-8 z-10">
-            <div class="self-start flex flex-col items-center text-white">
-              <h1 class="login-message-h1 mb-3 font-bold text-8xl">Welcome to Degree Door</h1>
-              <p class="login-message-p text-2xl font-bold pr-3">Login to Degree Door and get started on looking at your degree!</p>
+            <div className="self-start flex flex-col items-center text-white">
+              <h1 className="login-message-h1 text-8xl font-bold mb-3 ">Welcome to Degree Door</h1>
+              <p className="login-message-p text-2xl font-bold pr-3">Login to Degree Door and get started on looking at your degree!</p>
             </div>
           </div>
           <div className="login-page-form flex justify-center self-center z-10">
@@ -85,7 +85,7 @@ export default function Login() {
               </Alert>
             </Zoom>
             <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100" onSubmit={handleSubmit}>
-              <div className="form-text mb-4">
+              <div className="form-text mb-4 flex flex-col items-center">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
                 <p>Please sign into your Degree Door account</p>
               </div>
@@ -111,16 +111,16 @@ export default function Login() {
                   value={formData.password}
                 />
               </div>
-              <button type="submit" class="w-full flex justify-center bg-green-600 
-               hover:bg-green-400 text-gray-100 p-3 mb-6 rounded-full tracking-wide 
-               font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
+              <button type="submit" className="login-btn w-full bg-green-600 
+               hover:bg-green-400 hover:scale-90 text-gray-100 p-3 mb-6 rounded-full tracking-wide 
+               font-semibold shadow-lg cursor-pointer transition ease-in-out duration-300"
               >
                 Sign in
               </button>
               <Link href="/register">
-                <button type="button" class="w-full flex justify-center bg-green-600 
-                hover:bg-green-400 text-gray-100 p-3  rounded-full tracking-wide 
-                font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
+                <button type="button" className="go-to-register-page-btn w-full justify-center bg-green-600 
+                hover:bg-green-400 hover:scale-90 text-gray-100 p-3 rounded-full tracking-wide 
+                font-semibold shadow-lg cursor-pointer transition ease-in-out duration-300"
                 >
                   Don't have an account? Sign up!
                 </button>
