@@ -6,6 +6,7 @@ import { Zoom } from '@mui/material'
 import Alert from '@mui/material/Alert';
 
 import bg from '../public/oldMain.jpg'
+import { auth } from '../firebase'
 
 export default function Login() {
   // Use router in Login page in case we need to redirect to home page.
@@ -41,14 +42,14 @@ export default function Login() {
   // Create a handleSubmit function for the data of the form.
   function handleSubmit(event) {
     event.preventDefault() // Prevent page from refreshing.
-    signInWithEmailAndPassword(formData.email.trim(), formData.password.trim())
+    signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
     .then((_) => {
       router.push('/') // Push to router, should not redirect to login page.
     })
     .catch((error) => {
       // If login failed, display error message in the form
       // of an alert dialog
-      setAlertMessage(`${error.message}`)
+      setAlertMessage("Wrong credentials")
       setShowAlert(true)
     })
   }
@@ -69,6 +70,19 @@ export default function Login() {
             </div>
           </div>
           <div className="login-page-form flex justify-center self-center z-10">
+            {/* The following component is a Material UI component that will
+            render an animated Alert message to the screen if the user 
+            fails to log in.*/}
+            <Zoom in={showAlert} style={{ transitionDelay: showAlert ? '500ms' : '0ms' }}>
+              <Alert 
+                variant="filled" 
+                sx={{zIndex: 100, position: "absolute", fontSize: "1.25rem"}} 
+                severity="error"
+                onClose={() => setShowAlert(false)}
+              >
+                {alertMessage}
+              </Alert>
+            </Zoom>
             <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100" onSubmit={handleSubmit}>
               <div className="form-text mb-4">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
@@ -81,19 +95,19 @@ export default function Login() {
                   type="email"
                   placeholder="Email Address"
                   onChange={handleChange}
-                  name="firstName"
-                  value={formData.firstName}
+                  name="email"
+                  value={formData.email}
                 /> 
               </div>
               <div className="field-wrapper m-2">
                 <label className="field-label font-semibold mb-2">Password</label>
                 <input
                   className="field-input border-2 border-slate-300 outline-0 rounded-md w-full my-2 p-4 hover:shadow duration-200 ease-in-out"
-                  type="text"
+                  type="password"
                   placeholder="Password"
                   onChange={handleChange}
                   name="password"
-                  value={formData.lastName}
+                  value={formData.password}
                 />
               </div>
               <button type="submit" class="w-full flex justify-center bg-green-600 
