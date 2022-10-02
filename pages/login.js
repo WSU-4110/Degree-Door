@@ -49,7 +49,8 @@ export default function Login() {
     .catch((error) => {
       // If login failed, display error message in the form
       // of an alert dialog
-      setAlertMessage("Wrong credentials")
+      if (`${error.code}` === "auth/wrong-password") setAlertMessage("Wrong email/password")
+      else setAlertMessage("Authentication failed.")
       setShowAlert(true)
     })
   }
