@@ -48,7 +48,7 @@ export default function Register() {
 
   // Attempt to sign up user with email and password from formData.
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault() // Prevent page from refreshing.
     if (formData.password.trim() === formData.confirmPassword.trim()) {
       createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
       .then((_) => {
