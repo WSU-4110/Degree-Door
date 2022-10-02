@@ -25,6 +25,7 @@ export default function Login() {
       }
     })
   }
+
   return (
     /* The Login page will have two sections to it:
       1. Welcome text that is displayed above the login form
@@ -44,7 +45,7 @@ export default function Login() {
             <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100">
               <div className="form-text mb-4">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
-                <p>Please sign into your Degree Door account.</p>
+                <p>Please sign into your Degree Door account</p>
               </div>
               <div className="field-wrapper m-2">
                 <label className="field-label font-semibold mb-2">Email</label>
@@ -86,8 +87,8 @@ export default function Login() {
           </div>
         </div>
       </div>
+      {/*Include another div that will provide the gradient for the login page.*/}
       <div className="login-page-gradient absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
-    </>
-    
+    </>  
   )
 }
