@@ -1,9 +1,23 @@
 import Link from 'next/link'
 import { useState } from 'react'
+import { signInWithEmailAndPassword } from 'firebase/auth'
+import { Zoom } from '@mui/material'
+import Alert from '@mui/material/Alert';
+
+
+
 
 import bg from '../public/oldMain.jpg'
 
 export default function Login() {
+  // Keep track of state to show an alert.
+  const [showAlert, setShowAlert] = useState(false)
+
+  // Keep track of alert message state.
+  const [alertMessage, setAlertMessage] = useState("")
+
+  // Keep track of alert severity.
+  const [alertSeverity, setAlertSeverity] = useState("error")
 
   // Form state to keep track of what user is inputting
   // into the input fields.
@@ -24,6 +38,13 @@ export default function Login() {
         [name]: value // ES6 computed name syntax for field
       }
     })
+  }
+
+  // Create a handleSubmit function for the data of the form.
+  function handleSubmit(event) {
+    event.preventDefault() // Prevent page from refreshing.
+    
+
   }
 
   return (
