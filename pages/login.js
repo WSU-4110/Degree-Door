@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useState } from 'react'
 
 import bg from '../public/oldMain.jpg'
@@ -25,6 +26,11 @@ export default function Login() {
     })
   }
   return (
+    /* The Login page will have two sections to it:
+      1. Welcome text that is displayed above the login form
+      2. The login form where the user can enter their credentials
+      or can go to the registration page.
+    */ 
     <>
       <div className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative" style={{backgroundImage: `url(${bg.src})`}}>
         <div className="login-page-wrapper flex flex-col justify-center">
@@ -62,12 +68,20 @@ export default function Login() {
                   value={formData.lastName}
                 />
               </div>
-              <button type="submit" class="w-full flex justify-center bg-green-500 
-               hover:bg-green-400 text-gray-100 p-3  rounded-full tracking-wide 
+              <button type="submit" class="w-full flex justify-center bg-green-600 
+               hover:bg-green-400 text-gray-100 p-3 mb-6 rounded-full tracking-wide 
                font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
               >
                 Sign in
               </button>
+              <Link href="/register">
+                <button type="button" class="w-full flex justify-center bg-green-600 
+                hover:bg-green-400 text-gray-100 p-3  rounded-full tracking-wide 
+                font-semibold  shadow-lg cursor-pointer transition ease-in duration-300"
+                >
+                  Don't have an account? Sign up!
+                </button>
+              </Link>
             </form>
           </div>
         </div>
