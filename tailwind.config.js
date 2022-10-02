@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       boxShadow: {
         'DEFAULT': '0 0 25px rgba(0, 0, 0, 0.2)',
+      },
+      backgroundColor: {
+        'whitesmoke': '#f5f5f5',
       }
     },
   },
