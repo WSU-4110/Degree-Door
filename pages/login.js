@@ -7,6 +7,7 @@ import Alert from '@mui/material/Alert';
 
 import bg from '../public/oldMain.jpg'
 import { auth } from '../firebase'
+import Navbar from "../components/Navbar"
 
 export default function Login() {
   // Use router in Login page in case we need to redirect to home page.
@@ -62,7 +63,10 @@ export default function Login() {
       or can go to the registration page.
     */ 
     <>
+      <Navbar/>
       <div className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative" style={{backgroundImage: `url(${bg.src})`}}>
+        {/*Include another div that will provide the gradient for the login page.*/}
+      <div className="login-page-gradient absolute bg-gradient-to-b min-w-screen min-h-screen from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
         <div className="login-page-wrapper flex flex-col justify-center">
           <div className="login-page-welcome flex flex-col self-center p-8 z-10">
             <div className="self-start flex flex-col items-center text-white">
@@ -129,8 +133,6 @@ export default function Login() {
           </div>
         </div>
       </div>
-      {/*Include another div that will provide the gradient for the login page.*/}
-      <div className="login-page-gradient absolute bg-gradient-to-b from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
     </>  
   )
 }

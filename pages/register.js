@@ -1,12 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import Alert from '@mui/material/Alert';
 import { Zoom } from '@mui/material'
 
 import { auth } from '../firebase'
+import Navbar from '../components/Navbar'
 
 export default function Register() {
   // Keep style of input elements in the register page as one variable.
@@ -85,9 +85,7 @@ export default function Register() {
   // Render the following onto the register page.
   return (
     <div className="register-page min-h-screen min-w-screen bg-gray-100">
-      <nav className="flex justify-items-center align-center">
-        Navbar
-      </nav>
+      <Navbar />
       <div className="register-wrapper flex">
         <div className="register-left p-20 w-3/5 relative">
         {/* The following component is a Material UI component that will
