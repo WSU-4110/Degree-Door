@@ -1,27 +1,23 @@
 //import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-import { Navbar, Nav } from "react-bootstrap";
-
 import Link from "next/link"
-
-// import "./stylesheets/NavBar.css";
 
 export default function NavBar() {
   return(
-    <Navbar className="flex justify-between h-12 items-center" bg="light" variant="light">
-      <Navbar.Brand>
+    <nav className="flex justify-between h-12 items-center" bg="light" variant="light">
+      <div className="navbar-brand ml-4">
         <Link href="/">Degree Door</Link>
-      </Navbar.Brand>
-      <Nav>
-        <Nav.Link>
+      </div>
+      <div className="navbar-links flex gap-4 mr-4">
+        <a>
           <Link href="/">Home</Link>
-        </Nav.Link>
-        <Nav.Link>
+        </a>
+        <a>
           <Link href="/register">Register</Link>
-        </Nav.Link>
-        <Nav.Link>
+        </a>
+        <a>
           <Link href="/login">Login</Link>
-        </Nav.Link>
-      </Nav>
-    </Navbar>
+        </a>
+      </div>
+    </nav>
   )
 }
