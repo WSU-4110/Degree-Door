@@ -1,7 +1,7 @@
 //import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
-import Link from "next/link"
+import Link from 'next/link'
 
-export default function NavBar() {
+export default function Navbar() {
   return(
     <nav className="flex justify-between h-12 items-center" bg="light" variant="light">
       <div className="navbar-brand ml-4">
