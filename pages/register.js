@@ -4,7 +4,7 @@ import Alert from '@mui/material/Alert';
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
-import { collection, addDoc } from 'firebase'
+import { doc, setDoc } from 'firebase/firestore'
 
 import { auth,db } from '../firebase'
 import Navbar from '../components/Navbar'
