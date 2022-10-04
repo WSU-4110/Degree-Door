@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import Alert from '@mui/material/Alert';
 import { useState } from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth'
-import Alert from '@mui/material/Alert';
 import { Zoom } from '@mui/material'
+import { collection, addDoc } from 'firebase'
 
-import { auth } from '../firebase'
+import { auth,db } from '../firebase'
 import Navbar from '../components/Navbar'
 
 export default function Register() {
@@ -47,39 +48,43 @@ export default function Register() {
   }
 
   // Attempt to sign up user with email and password from formData.
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
+    const userFirstName = formData.firstName.trim()
+    const userLastName = formData.lastName.trim()
+    const userEmail = formData.email.trim()
+    const userPass = formData.password.trim()
+    const userPassConfirm = formData.confirmPassword.trim()
+
     event.preventDefault() // Prevent page from refreshing.
-    if (formData.password.trim() === formData.confirmPassword.trim()) {
-      createUserWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-      .then((_) => {
-        // Signed in, try to sign out user then move to login page.
-        auth.signOut()
-        .then((_) => {
-          // After async successful sign out, set the alert severity
-          // to success and notify the user that their registration was successful.
-          setAlertSeverity("success")
-          setAlertMessage("Registration successful! Return to login page.")
-        })
-        .catch((error) => {
-          // If async sign out failed, set the alert severity
-          // as an error and notify the user that their signout was unsuccessful.
-          setAlertSeverity("error")
-          setAlertMessage(`${error.message}, but you registered successfully`)
-        })
-      })
-      .catch((error) => {
-        // If account creation failed, set the alert severity to error and notify the user
-        // that their account was not created successfully.
-        setAlertSeverity("error")
-        setAlertMessage(`${error.message}`)
-      })
-      setShowAlert(true) // Show alert to the user.
-    }
-    else {
-      // Notify user that the password and password confirmation did not match.
+
+    if (userPass !== userPassConfirm) { // If passwords don't match, set error alert
       setAlertSeverity("error") 
       setAlertMessage("Make sure your passwords are matching.")
+    } else {
+      try { // Try and register an account with Firebase and store information in Cloud Firestore
+        const newUser = await createUserWithEmailAndPassword(auth, userEmail, userPass)
+
+        const docRef = doc(db, "Users", newUser.user.uid) // Make a document reference to the new user
+        const userData = { // Set user data using the form data 
+          firstName: userFirstName,
+          lastName: userLastName,
+          status: formData.status,
+          email: userEmail,
+          about: "",
+        }
+
+        await setDoc(docRef, userData) // Create the new user document
+        await auth.signOut() // Sign user out
+
+        setAlertSeverity("success")
+        setAlertMessage("Registration successful! Return to login page.")
+
+      } catch(error) {
+        setAlertSeverity("error")
+        setAlertMessage(`${error.message}`)
+      }
     }
+    setShowAlert(true)
   }
 
   // Render the following onto the register page.
