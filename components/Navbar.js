@@ -9,17 +9,17 @@ export default function Navbar() {
         <img src="https://i.imgur.com/wvQkgzH.png"></img>
       </div>
       <div className="navbar-links flex gap-4 mr-4">
-      <button class="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
+      <button className="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
         <a>
           <Link href="/home">Home</Link>
         </a>
       </button>
-      <button class="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
+      <button className="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
         <a>
           <Link href="/register">Register</Link>
         </a>
       </button>
-      <button class="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
+      <button className="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
         <a>
           <Link href="/login">Login</Link>
         </a>
