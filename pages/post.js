@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import { db } from '../firebase'
+import Link from 'next/link'
 
+import { db } from '../firebase'
 export default function Post() {
   const [formData, setFormData] = useState({
     course: "",
@@ -73,6 +74,13 @@ export default function Post() {
             type="submit">
             SUBMIT
         </button>
+        <Link href="/">
+          <button className="submit-button bg-green-900 hover:scale-90 duration-300
+            text-white rounded-full h-10 w-20 mt-6 p-2 cursor-pointer justify-between items-center"
+              type="button">
+              HOME
+          </button>
+        </Link>
       </form>
     </div>
   )
