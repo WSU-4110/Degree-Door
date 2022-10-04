@@ -6,10 +6,13 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 import { doc, setDoc } from 'firebase/firestore'
 
-import { auth,db } from '../firebase'
 import Navbar from '../components/Navbar'
+import { useAuthContext } from '../context/AuthContext';
 
 export default function Register() {
+  // Gain auth and db from AuthContext
+  const { auth, db } = useAuthContext()
+
   // Keep style of input elements in the register page as one variable
   const commonInputStyle = "field-input border-2 border-slate-200 outline-0 rounded-md w-full mt-2 p-4 hover:shadow duration-200 ease-in-out"
 
