@@ -1,17 +1,20 @@
 import Link from 'next/link'
+import Alert from '@mui/material/Alert';
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
-import Alert from '@mui/material/Alert';
 
 import bg from '../public/oldMain.jpg'
-import { auth } from '../firebase'
 import Navbar from "../components/Navbar"
+import { useAuthContext } from '../context/AuthContext'
 
 export default function Login() {
   // Use router in Login page in case we need to redirect to home page.
   const router = useRouter()
+
+  // Gain auth from auth context
+  const { auth } = useAuthContext()
 
   // Keep track of state to show an alert.
   const [showAlert, setShowAlert] = useState(false)

@@ -1,9 +1,12 @@
+import Link from 'next/link'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
-import Link from 'next/link'
 
-import { db } from '../firebase'
+import { useAuthContext } from '../context/AuthContext'
+
 export default function Post() {
+  const { db } = useAuthContext() // Gain db from AuthContext
+
   const [formData, setFormData] = useState({
     course: "",
     pros: "",
