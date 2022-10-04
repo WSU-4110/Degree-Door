@@ -68,7 +68,7 @@ export default function Register() {
         const userData = { // Set user data using the form data 
           firstName: userFirstName,
           lastName: userLastName,
-          status: formData.status,
+          status: formData.status === "" ? "Upcoming Student" : formData.status,
           email: userEmail,
           about: "",
         }
