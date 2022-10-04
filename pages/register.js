@@ -10,20 +10,20 @@ import { auth,db } from '../firebase'
 import Navbar from '../components/Navbar'
 
 export default function Register() {
-  // Keep style of input elements in the register page as one variable.
+  // Keep style of input elements in the register page as one variable
   const commonInputStyle = "field-input border-2 border-slate-200 outline-0 rounded-md w-full mt-2 p-4 hover:shadow duration-200 ease-in-out"
 
-  // Keep track of state to show an alert.
+  // Keep track of state to show an alert
   const [showAlert, setShowAlert] = useState(false)
 
-  // Keep track of alert message state.
+  // Keep track of alert message state
   const [alertMessage, setAlertMessage] = useState("")
 
-  // Keep track of alert severity.
+  // Keep track of alert severity
   const [alertSeverity, setAlertSeverity] = useState("error")
 
   // Form state to keep track of what user is inputting
-  // into the input fields.
+  // into the input fields
   const [formData, setFormData] = useState(
     {
       firstName: "",
@@ -36,7 +36,7 @@ export default function Register() {
   )
 
   // In React, create a handleChange function
-  // for the data of the form fields.
+  // for the data of the form fields
   function handleChange(event) {
     const { name, value } = event.target // Destruct props from event.target
     setFormData(prevFormData => {
@@ -47,7 +47,7 @@ export default function Register() {
     })
   }
 
-  // Attempt to sign up user with email and password from formData.
+  // Attempt to sign up user with email and password from formData
   async function handleSubmit(event) {
     const userFirstName = formData.firstName.trim()
     const userLastName = formData.lastName.trim()
@@ -55,7 +55,7 @@ export default function Register() {
     const userPass = formData.password.trim()
     const userPassConfirm = formData.confirmPassword.trim()
 
-    event.preventDefault() // Prevent page from refreshing.
+    event.preventDefault() // Prevent page from refreshing
 
     if (userPass !== userPassConfirm) { // If passwords don't match, set error alert
       setAlertSeverity("error") 
@@ -76,18 +76,21 @@ export default function Register() {
         await setDoc(docRef, userData) // Create the new user document
         await auth.signOut() // Sign user out
 
+        // Set alert states to indicate a successful registration
         setAlertSeverity("success")
         setAlertMessage("Registration successful! Return to login page.")
 
       } catch(error) {
+
+        // Set alert states to indicate a failed registration
         setAlertSeverity("error")
         setAlertMessage(`${error.message}`)
       }
     }
-    setShowAlert(true)
+    setShowAlert(true) // Show the alert by setting the showAlert state to true
   }
 
-  // Render the following onto the register page.
+  // Render the following onto the register page
   return (
     <div className="register-page min-h-screen min-w-screen bg-gray-100">
       <Navbar />
