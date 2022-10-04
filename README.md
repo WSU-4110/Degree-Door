@@ -4,6 +4,8 @@
 [![MIT License][license-shield]][license-url]
 
 <!-- PROJECT LOGO -->
+
+It's just a placeholder.
 <br />
 <div align="center">
   
