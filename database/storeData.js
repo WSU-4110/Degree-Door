@@ -1,4 +1,4 @@
-import { auth, db } from '../firebase'
+import { db } from '../firebase'
 
 
 // Add a new user document to the users subcollection.
@@ -8,5 +8,6 @@ const userData = {
     lastName: input.lastName,
     status: input.status,
     email: formData.email,
+
 }
 await addDoc(usersRef, userData, "U.Id")

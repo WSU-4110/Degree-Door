@@ -41,19 +41,18 @@ export default function Login() {
   }
 
   // Create a handleSubmit function for the data of the form.
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault() // Prevent page from refreshing.
-    signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-    .then((_) => {
-      router.push('/') // Push to router, should not redirect to login page.
-    })
-    .catch((error) => {
+
+    try {
+      await signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
+      router.push('/') // Push to home page after successful login
+    } catch (error) {
       // If login failed, display error message in the form
       // of an alert dialog. Message depends on error code.
       if (`${error.code}` === "auth/wrong-password") setAlertMessage("Wrong email/password")
       else setAlertMessage("Authentication failed.")
-      setShowAlert(true)
-    })
+    }
   }
 
   return (
