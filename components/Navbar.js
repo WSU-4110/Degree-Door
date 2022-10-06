@@ -3,6 +3,9 @@ import { useRouter } from 'next/router'
 import { auth } from '../firebase'
 
 export default function Navbar({ links }) {
+  const buttonStyle = "bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded "
+  + "hover:scale-90 ease-in-out duration-300 cursor:pointer"
+
   const router = useRouter()
 
   async function handleClick() {
@@ -22,13 +25,16 @@ export default function Navbar({ links }) {
         {links.map((link, index) => (link.route === "/signOut" ?
           <button 
             key={index} 
-            className="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded"
+            className={buttonStyle}
             onClick={handleClick}
           >
             {link.name}
           </button>
           :
-          <button key={index} className="bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded">
+          <button 
+            key={index} 
+            className={buttonStyle}
+          >
             <Link href={link.route}>{link.name}</Link>
           </button>
         ))}
