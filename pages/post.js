@@ -6,7 +6,7 @@ import ProtectedRoute from '../components/ProtectedRoute'
 import { useAuthContext } from '../context/AuthContext'
 
 export default function Post() {
-  const { db } = useAuthContext() // Gain db from AuthContext
+  const { db, user } = useAuthContext() // Gain db from AuthContext
 
   const [formData, setFormData] = useState({
     course: "",
@@ -75,7 +75,7 @@ export default function Post() {
             type="submit">
             SUBMIT
           </button>
-          <Link href="/">
+          <Link href={`/${user.uid}`}>
             <button className="submit-button bg-green-900 hover:scale-90 duration-300
             text-white rounded-full h-10 w-20 mt-6 p-2 cursor-pointer justify-between items-center"
               type="button"

@@ -48,8 +48,8 @@ export default function Login() {
     event.preventDefault() // Prevent page from refreshing.
 
     try {
-      await signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-      router.push('/') // Push to home page after successful login
+      const userCredential = await signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
+      router.push(`/${userCredential.user.uid}`) // Push to home page after successful login
     } catch (error) {
       // If login failed, display error message in the form
       // of an alert dialog. Message depends on error code.
