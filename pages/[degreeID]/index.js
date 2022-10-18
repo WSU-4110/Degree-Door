@@ -1,7 +1,8 @@
 import {useRouter} from 'next/router'
 
 export default function DegreeHome() {
-
+  const router = useRouter()
+  console.log(router.query)
   return (
     <div>
       <div>
