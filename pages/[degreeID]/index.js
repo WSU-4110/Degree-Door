@@ -6,7 +6,7 @@ import { db } from '../../firebase'
 export default function DegreeHome({name, description}) {
   return (
     <div className="degree-home bg-white font-Karla relative">
-      <Navbar links={[{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
+      <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
       <header class="header-wrapper w-full container mx-auto pt-12">
         <div class="name-description-wrapper flex flex-col items-center py-12">
             <div class="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
