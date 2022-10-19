@@ -34,7 +34,7 @@ export default function Reviews({reviews}) {
 
 export async function getServerSideProps(context) {
   // Get a query on the sub collection for degree page reviews, sorting each review by timestamp
-  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timestamp"));
+  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp"));
   const reviewsSnapshot = await getDocs(reviewsQuery);
 
   const reviewData = reviewsSnapshot.docs.map((doc) => ({
@@ -43,6 +43,7 @@ export async function getServerSideProps(context) {
   }))
   .map((review) => ({
     ...review,
+    timeStamp: review.timeStamp.toDate().getTime()
   }))
   return {
     props: {
