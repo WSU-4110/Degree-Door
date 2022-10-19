@@ -6,7 +6,8 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      'Karla': ["Karla", "sans-serif"]
+      "Inter": ["Inter", "sans-serif"],
+      "Mogra": ["Mogra", "cursive"]
     },
     extend: {
       boxShadow: {
