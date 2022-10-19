@@ -5,6 +5,10 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      "Inter": ["Inter", "sans-serif"],
+      "Mogra": ["Mogra", "cursive"]
+    },
     extend: {
       boxShadow: {
         'DEFAULT': '0 0 25px rgba(0, 0, 0, 0.2)',
