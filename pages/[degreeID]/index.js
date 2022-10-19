@@ -26,7 +26,7 @@ export default function DegreeHome({name, description}) {
           </div>
         </div>
       </nav>
-      <div className="text-center">Hello, this is an overview of what the </div>
+      <div className="text-center">Hello, this is an overview of what the Overview page should look like.</div>
     </div>
   )
 }
