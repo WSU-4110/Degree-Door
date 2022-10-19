@@ -12,14 +12,22 @@ export default function DegreeHome({name, description}) {
             <div class="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
                 {name}
             </div>
-            <p class="text-lg text-gray-600">
+            <p class="text-lg text-gray-600 text-center">
                 {description}
             </p>
         </div>
       </header>
-      <div>Hello, check if Karla is working</div>
+      <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
+        <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+          <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
+            <a href="#" class="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
+          </div>
+        </div>
+      </nav>
+      <div className="text-center">Hello, this is an overview of what the </div>
     </div>
-
   )
 }
 
