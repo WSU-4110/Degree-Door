@@ -3,7 +3,8 @@ import { collection, query, getDocs, orderBy } from "firebase/firestore";
 
 import Navbar from '../../components/Navbar'
 import { db } from '../../firebase' 
-export default function Reviews() {
+export default function Reviews({reviews}) {
+  console.log(reviews)
   return (
     <div className="degree-home bg-white font-Karla relative">
       <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
@@ -29,5 +30,24 @@ export default function Reviews() {
       <div className="text-center">Hello, this is an overview of what the Review page should look like.</div>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+  // Get a query on the sub collection for degree page reviews, sorting each review by timestamp
+  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timestamp"));
+  const reviewsSnapshot = await getDocs(reviewsQuery);
+
+  const reviewData = reviewsSnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }))
+  .map((review) => ({
+    ...review,
+  }))
+  return {
+    props: {
+      reviews: JSON.stringify(reviewData)
+    }
+  }
 }
 
