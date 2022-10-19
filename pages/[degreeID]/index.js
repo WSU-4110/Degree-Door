@@ -21,12 +21,16 @@ export default function DegreeHome({name, description}) {
 }
 
 export async function getServerSideProps(context) {
-  const docRef = doc(db, "Degrees", `${context.params.degreeID}`);
-  const docSnap = await getDoc(docRef);
-  const degreeName = docSnap.data().degreeName;
+  const docRef = doc(db, "Degrees", `${context.params.degreeID}`); // Create doc reference
+  const docSnap = await getDoc(docRef); // Get document snapshot from firestore
+
+  // Get both degree name and description from the document.
+  const degreeName = docSnap.data().degreeName; 
   const degreeDescription = docSnap.data().description;
+
+  // Return server side props
   return {
-    props: {
+    props: { 
       name: degreeName,
       description: degreeDescription,
     }
