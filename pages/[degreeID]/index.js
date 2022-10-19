@@ -1,20 +1,13 @@
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { doc, getDoc } from 'firebase/firestore'
 
-import {db} from '../../firebase'
+import Navbar from '../../components/Navbar'
+import { db } from '../../firebase'
 export default function DegreeHome({name, description}) {
   return (
-    <div>
-      <div>
-      This is what the home page for a degree will look like. There is going to be
-      information that will be populated from the database into this home page. 
-      </div>
-      <div>
-        {name}
-      </div>
-      <div>
-        {description}
-      </div>
+    <div className="degree-home bg-white font-Karla">
+      <Navbar links={[{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
+      <div>Hello, check if Karla is working</div>
     </div>
 
   )
