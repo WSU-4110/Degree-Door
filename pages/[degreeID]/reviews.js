@@ -4,7 +4,6 @@ import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import Navbar from '../../components/Navbar'
 import { db } from '../../firebase' 
 export default function Reviews({reviews}) {
-  console.log(reviews)
   return (
     <div className="degree-home bg-white font-Karla relative">
       <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
@@ -28,6 +27,7 @@ export default function Reviews({reviews}) {
         </div>
       </nav>
       <div className="text-center">Hello, this is an overview of what the Review page should look like.</div>
+
     </div>
   )
 }
@@ -47,7 +47,7 @@ export async function getServerSideProps(context) {
   }))
   return {
     props: {
-      reviews: JSON.stringify(reviewData)
+      reviews: reviewData
     }
   }
 }
