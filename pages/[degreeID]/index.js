@@ -7,12 +7,12 @@ export default function DegreeHome({name, description}) {
   return (
     <div className="degree-home bg-white font-Karla relative">
       <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
-      <header class="header-wrapper w-full container mx-auto pt-12">
-        <div class="name-description-wrapper flex flex-col items-center py-12">
-            <div class="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
+      <header className="header-wrapper w-full container mx-auto pt-12">
+        <div className="name-description-wrapper flex flex-col items-center py-12">
+            <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
                 {name}
             </div>
-            <p class="text-lg text-gray-600 text-center">
+            <p className="text-lg text-gray-600 text-center">
                 {description}
             </p>
         </div>
