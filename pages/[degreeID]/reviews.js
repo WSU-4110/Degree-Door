@@ -1,4 +1,3 @@
-import { jsonEval } from "@firebase/util";
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 
 import Navbar from '../../components/Navbar'
@@ -56,10 +55,7 @@ export async function getServerSideProps(context) {
   const reviewData = reviewsSnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
-  }))
-  .map((review) => ({
-    ...review,
-    timeStamp: review.timeStamp.toDate().getTime()
+    timeStamp: doc.data().timeStamp.toDate().getTime()
   }))
   return {
     props: {
