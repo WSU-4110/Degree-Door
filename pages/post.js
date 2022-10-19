@@ -26,7 +26,7 @@ export default function Post() {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const reviewsRef = collection(db, "Reviews")
+    const reviewsRef = collection(db, "Degrees/cs/Reviews")
     const reviewData = {
       timeStamp: serverTimestamp(),
       course: formData.course,
@@ -86,6 +86,5 @@ export default function Post() {
         </form>
       </div>
     </ProtectedRoute>
-    
   )
 }
