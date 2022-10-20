@@ -48,7 +48,7 @@ export default function Reviews({reviews}) {
 
 export async function getServerSideProps(context) {
   // Get a query on the sub collection for degree page reviews, sorting each review by timestamp
-  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp"));
+  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp", "desc"));
   const reviewsSnapshot = await getDocs(reviewsQuery);
 
   // Make an array of each review object and its data
