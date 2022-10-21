@@ -1,5 +1,5 @@
 import Navbar from '../components/Navbar'
-import ProtectedRoute from '../components/ProtectedRoute'
+import ProtectedRoute from '../components/HOC/ProtectedRoute'
 
 export default function Home() {
   return(
