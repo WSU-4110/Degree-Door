@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { forwardRef, Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 
@@ -15,6 +16,7 @@ import { auth } from '../firebase'
 // })
 
 export default function Example() {
+  const router = useRouter()
   async function handleClick() {
     await auth.signOut()
     router.push("/login")
