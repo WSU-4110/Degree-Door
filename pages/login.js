@@ -90,7 +90,7 @@ export default function Login() {
                 {alertMessage}
               </Alert>
             </Zoom>
-            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100" onSubmit={handleSubmit}>
+            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100 shadow" onSubmit={handleSubmit}>
               <div className="form-text mb-4 flex flex-col items-center">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
                 <p>Please sign into your Degree Door account</p>
