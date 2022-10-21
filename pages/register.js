@@ -212,12 +212,14 @@ export default function Register() {
                 >
                   Sign-up!
                 </button>
-                <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
-                  ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
-                  type="button"
-                >
-                  <Link href="/login">Return to login!</Link>
-                </button>
+                <Link href="/login">
+                  <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
+                    ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
+                    type="button"
+                  >
+                    Return to login!
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
