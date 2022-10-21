@@ -1,11 +1,16 @@
+import Link from 'next/link'
 import { collection, query, getDocs, orderBy } from "firebase/firestore";
 
+import Dropdown from '../../components/Dropdown'
 import Navbar from '../../components/Navbar'
 import { db } from '../../firebase' 
+
 export default function Reviews({reviews}) {
   return (
     <div className="degree-home bg-white font-Inter relative">
-      <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
+      <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}]}>
+        <Dropdown />
+      </Navbar>
       <header className="header-wrapper w-full container mx-auto pt-12">
         <div className="name-description-wrapper flex flex-col items-center py-12">
           <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
@@ -19,9 +24,13 @@ export default function Reviews({reviews}) {
       <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
         <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <a href="/cs" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>
+            <Link href="/cs">
+              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
+            </Link>
             <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-            <a href="/cs/reviews" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
+            <Link href="/cs/reviews">
+              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
+            </Link>
           </div>
         </div>
       </nav>
