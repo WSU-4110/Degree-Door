@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { auth } from '../firebase'
 
-export default function Navbar({ links }) {
+export default function Navbar({ links, dropdown }) {
   const buttonStyle = "bg-white hover:bg-gray-400 text-black font-bold py-2 px-4 rounded "
   + "hover:scale-90 ease-in-out duration-300 cursor:pointer"
 
@@ -39,6 +39,8 @@ export default function Navbar({ links }) {
           </button>
         ))}
       </div>
+      {/*We render the dropdown component here*/}
+      {dropdown}
     </nav>
   )
 }
