@@ -106,7 +106,7 @@ export default function Register() {
           <Zoom in={showAlert} style={{ transitionDelay: showAlert ? '500ms' : '0ms' }}>
             <Alert 
               variant="filled" 
-              sx={{zIndex: 100, position: "absolute", fontSize: "1.5rem",  right: "5rem"}} 
+              sx={{zIndex: 100, position: "absolute", fontSize: "1.25rem",  right: "5rem"}} 
               severity={alertSeverity}
               onClose={() => setShowAlert(false)}
             >
