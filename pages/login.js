@@ -66,7 +66,10 @@ export default function Login() {
     */ 
     <>
       <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
-      <div className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative" style={{backgroundImage: `url(${bg.src})`}}>
+      <div 
+        className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
+        style={{backgroundImage: `url(${bg.src})`}}
+      >
         {/*Include another div that will provide the gradient for the login page.*/}
       <div className="login-page-gradient absolute bg-gradient-to-b min-w-screen min-h-screen from-green-400 to-green-300 opacity-75 inset-0 z-0"></div>
         <div className="login-page-wrapper flex flex-col justify-center">

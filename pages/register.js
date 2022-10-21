@@ -97,7 +97,7 @@ export default function Register() {
   return (
     <>
       <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
-      <div className="register-page min-h-screen min-w-screen bg-gray-100">
+      <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">
           {/* The following component is a Material UI component that will
