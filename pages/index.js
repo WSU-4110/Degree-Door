@@ -1,10 +1,13 @@
+import Dropdown from '../components/Dropdown'
 import Navbar from '../components/Navbar'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
 
 export default function Home() {
   return(
     <ProtectedRoute>
-      <Navbar links={[{route: "/cs", name: "Computer Science"}, {route: "/post", name: "Post Review"}, {route:"/signOut", name: "Sign Out"}]}/>
+      <Navbar links={[{route: "/cs", name: "Computer Science"}, {route: "/post", name: "Post Review"}]}>
+        <Dropdown />
+      </Navbar>
       <div className="relative">
         <img src='homepage2.png' alt='waynestate-banner'/>
         <h1 className="absolute text-5xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black font-bold">Degree Door</h1>
