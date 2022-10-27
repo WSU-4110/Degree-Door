@@ -7,7 +7,7 @@ export default function Searchbar() {
         name="search" 
         placeholder="Search" 
         className="bg-white border-2 border-neutral-600 w-6/12
-        max-w-xl h-12 px-5 pr-10 rounded-full text-sm focus:outline-none" 
+        max-w-xl h-12 px-5 pr-10 rounded-full text-sm focus:outline-none font-Inter" 
       />
       <BsSearch className="text-black relative left-[-2.5rem]"/>
     </form>
