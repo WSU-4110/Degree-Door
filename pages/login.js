@@ -52,9 +52,9 @@ export default function Login() {
       router.push('/') // Push to home page after successful login
     } catch (error) {
       // If login failed, display error message in the form
-      // of an alert dialog. Message depends on error code.
-      if (`${error.code}` === "auth/wrong-password") setAlertMessage("Wrong email/password")
-      else setAlertMessage("Authentication failed.")
+      // of an alert dialog.
+      setAlertMessage("Wrong email/password")
+      setShowAlert(true)
     }
   }
 
@@ -66,9 +66,12 @@ export default function Login() {
     */ 
     <>
       <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
-      <div className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative" style={{backgroundImage: `url(${bg.src})`}}>
+      <div 
+        className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
+        style={{backgroundImage: `url(${bg.src})`}}
+      >
         {/*Include another div that will provide the gradient for the login page.*/}
-      <div className="login-page-gradient absolute bg-gradient-to-b min-w-screen min-h-screen from-green-500 to-green-400 opacity-75 inset-0 z-0"></div>
+      <div className="login-page-gradient absolute bg-gradient-to-b min-w-screen min-h-screen from-green-400 to-green-300 opacity-75 inset-0 z-0"></div>
         <div className="login-page-wrapper flex flex-col justify-center">
           <div className="login-page-welcome flex flex-col self-center p-8 z-10">
             <div className="self-start flex flex-col items-center text-white">
@@ -90,7 +93,7 @@ export default function Login() {
                 {alertMessage}
               </Alert>
             </Zoom>
-            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100" onSubmit={handleSubmit}>
+            <form className="form-wrapper p-10 bg-white m-auto mb rounded-xl w-100 shadow-float" onSubmit={handleSubmit}>
               <div className="form-text mb-4 flex flex-col items-center">
                 <h2 className="font-bold text-2xl mb-4">Sign In</h2>
                 <p>Please sign into your Degree Door account</p>

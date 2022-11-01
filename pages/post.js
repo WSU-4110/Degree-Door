@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
-import ProtectedRoute from '../components/ProtectedRoute'
+import ProtectedRoute from '../components/HOC/ProtectedRoute'
 import { useAuthContext } from '../context/AuthContext'
 
 export default function Post() {
@@ -26,7 +26,7 @@ export default function Post() {
 
   async function handleSubmit(event) {
     event.preventDefault()
-    const reviewsRef = collection(db, "Reviews")
+    const reviewsRef = collection(db, "Degrees/cs/Reviews")
     const reviewData = {
       timeStamp: serverTimestamp(),
       course: formData.course,
@@ -86,6 +86,5 @@ export default function Post() {
         </form>
       </div>
     </ProtectedRoute>
-    
   )
 }
