@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 
 import bg from '../public/oldMain.jpg'
-import Navbar from "../components/Navbar"
+import NavbarHOC from '../components/HOC/NavbarHOC';
 import { useAuthContext } from '../context/AuthContext'
 
 export default function Login() {
@@ -64,8 +64,7 @@ export default function Login() {
       2. The login form where the user can enter their credentials
       or can go to the registration page.
     */ 
-    <>
-      <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+    <NavbarHOC routes={[{name: "Register", route: "/register"}]} authenticated={false}>
       <div 
         className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
         style={{backgroundImage: `url(${bg.src})`}}
@@ -138,6 +137,7 @@ export default function Login() {
           </div>
         </div>
       </div>
-    </>  
+    </NavbarHOC>
+      
   )
 }

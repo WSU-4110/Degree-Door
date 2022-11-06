@@ -6,7 +6,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 import { doc, setDoc } from 'firebase/firestore'
 
-import Navbar from '../components/Navbar'
+import NavbarHOC from '../components/HOC/NavbarHOC';
 import { useAuthContext } from '../context/AuthContext';
 
 export default function Register() {
@@ -95,8 +95,7 @@ export default function Register() {
 
   // Render the following onto the register page
   return (
-    <>
-      <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+    <NavbarHOC routes={[{name: "Login", route: "/login"}]} authenticated={false}>
       <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">
@@ -228,6 +227,6 @@ export default function Register() {
           </div>
         </div>
       </div>
-    </>
+    </NavbarHOC>
   )
 }
