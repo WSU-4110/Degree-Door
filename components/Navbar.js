@@ -22,7 +22,7 @@ export default function Navbar({ links, children }) {
       <div className="navbar-links flex gap-4 mr-4">
         {/* We will map each link in the links array and map a
           different link to the Link component's href attribute */}
-        {links.map((link, index) => (
+        {links && links.map((link, index) => (
           <Link href={link.route} key={index}>
             <button 
               key={index} 
