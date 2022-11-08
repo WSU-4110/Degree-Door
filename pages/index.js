@@ -1,23 +1,24 @@
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore";
 
 import Dropdown from '../components/Dropdown'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
 import { db } from '../firebase'
+import { useAuthContext } from "../context/AuthContext";
 
 export default function Home({degreeDocs}) {
-
+  const { user } = useAuthContext()
   return(
     <ProtectedRoute>
-      <Navbar links={[{route: "/cs", name: "Computer Science"}, {route: "/post", name: "Post Review"}]}>
+      <Navbar links={[]}>
         <Dropdown />
       </Navbar>
       <div className="relative">
         <img src='homepage2.png' alt='waynestate-banner'/>
         <h1 className="absolute text-5xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black font-bold">Degree Door</h1>
       </div>
-      <Searchbar degrees={degreeDocs}/>
+      <Searchbar degrees={degreeDocs} user={user?.uid}/>
       <div className='font-mono mt-80 ml-10'>
         <h1>Degrees</h1>
       </div>
