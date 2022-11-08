@@ -5,7 +5,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 
 export default function FavoritesDialog({ favoriteHandler, initFavState}) {
   const [open, setOpen] = useState(false) // State to determine if the dialog is open
-  const [isFavorite, setIsFavorite] = useState({initFavState}) // State to determine if the degree is favorited
+  const [isFavorite, setIsFavorite] = useState(initFavState) // State to determine if the degree is favorited
   const theme = useTheme() // Theme object to gather styling of the DOM element
   const fullScreen = useMediaQuery(theme.breakpoints.down('md')) // Media query to make dialog full screen
 
