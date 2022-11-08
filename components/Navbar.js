@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { auth } from '../firebase'
 
-export default function Navbar({ links, children }) {
+export default function Navbar({ user, links, children }) {
 
   const router = useRouter()
 
@@ -13,7 +13,7 @@ export default function Navbar({ links, children }) {
 
   return(
     <nav className="fixed z-50 w-full top-0 flex justify-between h-16 items-center bg-[#242526] text-white shadow font-Inter" bg="light" variant="light">
-      <Link href="/">
+      <Link href={{pathname: "/", query: {userID: user}}}>
         <div className="navbar-brand cursor-pointer flex ml-4">
           Degree Door
           <img src="https://i.imgur.com/wvQkgzH.png"></img>
@@ -22,7 +22,7 @@ export default function Navbar({ links, children }) {
       <div className="navbar-links flex gap-4 mr-4">
         {/* We will map each link in the links array and map a
           different link to the Link component's href attribute */}
-        {links.map((link, index) => (
+        {links && links.map((link, index) => (
           <Link href={link.route} key={index}>
             <button 
               key={index} 
