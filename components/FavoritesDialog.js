@@ -36,6 +36,19 @@ export default function FavoritesDialog({ favoriteHandler, initFavState}) {
         onClose={handleClose}
         aria-labelledby="responsive-dialog-title"
       >
+        <DialogTitle id="responsive-dialog-title">
+          {isFavorite === true ? "Success!" : "Removing from Favorites"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            {isFavorite === true ? "You are now following the degree!" : "You are no following the degree!"}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Ok
+          </Button>
+        </DialogActions>
       </Dialog>
     </div>
   )
