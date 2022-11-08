@@ -1,12 +1,16 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
+import Dropdown from '../components/Dropdown'
+import Navbar from '../components/Navbar'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
 import { useAuthContext } from '../context/AuthContext'
 
 export default function Post() {
   const { db } = useAuthContext() // Gain db from AuthContext
+  const router = useRouter()
 
   const [formData, setFormData] = useState({
     course: "",
@@ -25,7 +29,6 @@ export default function Post() {
   }
 
   async function handleSubmit(event) {
-    event.preventDefault()
     const reviewsRef = collection(db, "Degrees/cs/Reviews")
     const reviewData = {
       timeStamp: serverTimestamp(),
@@ -34,12 +37,17 @@ export default function Post() {
       cons: formData.cons
     }
     await addDoc(reviewsRef, reviewData)
+    router.push('/')
   }
 
   return (
     <ProtectedRoute>
-      <div class="box-border h-max-[100vh] w-30 p-20"> 
-        <div className="form-wrapper w-1/2 m-auto placeholder:p-4 border-4 bg-gradient-to-b from-gray-200 to-gray-100 opacity-75 inset-0 z-0 bg-white rounded shadow-md px-6 py-8 flex items-center justify-center">
+       <Navbar>
+        <Dropdown />
+      </Navbar>
+      <div className="box-border h-max-[100vh] w-30 p-20"> 
+      {/* add confirmation message for submit button (also add an X to close) */}
+        <div className="form-wrapper w-1/2 m-auto mt-8 placeholder:p-4 border-4 bg-gradient-to-b from-gray-200 to-gray-100 opacity-75 inset-0 z-0 bg-white rounded shadow-md px-6 py-8 flex items-center justify-center">
           <form className="flex flex-col w-full gap-10" onSubmit={handleSubmit}>
             <div className="flex flex-col">
               <label><b>COURSE</b></label>
