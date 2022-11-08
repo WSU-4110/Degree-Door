@@ -30,6 +30,13 @@ export default function FavoritesDialog({ favoriteHandler, initFavState}) {
         {/* Conditionally render either a filled start or an empty star*/}
         {isFavorite === true ? <AiFillStar color="orange"/> : <AiOutlineStar />}
       </div>
+      <Dialog
+        fullScreen={fullScreen}
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="responsive-dialog-title"
+      >
+      </Dialog>
     </div>
   )
 }
