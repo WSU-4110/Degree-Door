@@ -5,6 +5,7 @@ import { collection, query, getDocs, orderBy } from "firebase/firestore";
 import Dropdown from '../../components/Dropdown'
 import Navbar from '../../components/Navbar'
 import { db } from '../../firebase' 
+import DecoratorReview from '../../components/DecoratorReview';
 
 export default function Reviews({reviews}) {
   const router = useRouter()
@@ -39,18 +40,8 @@ export default function Reviews({reviews}) {
       </nav>
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
-        {reviews.map((review) => (
-          <div key={review.id} className="review-component bg-[#67A25B] w-5/6 flex flex-col justify-start p-6 m-8 border-slate-400 rounded">
-            <p className="course-name text-white font-bold uppercase pb-4">{review.course}</p>
-            <div className="pros-wrapper bg-white flex flex-col p-4 mb-12 border-2 rounded-lg">
-              <p className="text-3xl font-bold hover:text-gray-700 pb-4">Pros</p>
-              <p className="text-xl">{review.pros}</p>
-            </div>
-            <div className="cons-wrapper bg-white flex flex-col p-4 mb-12 border-2 rounded-lg">
-              <p className="text-3xl font-bold hover:text-gray-700 pb-4">Cons</p>
-              <p className="text-xl">{review.cons}</p>
-            </div>
-          </div>
+        {reviews.map((review, index) => (
+          <DecoratorReview key={index} data={review} />
         ))}
       </div>
       <div className="text-center">Hello, this is an overview of what the Review page should look like.</div>
