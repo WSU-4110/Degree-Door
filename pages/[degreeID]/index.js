@@ -18,12 +18,12 @@ export default function DegreeHome({name, description}) {
             <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
                 {name}
             </div>
-            <p className="text-lg text-gray-600 text-center">
+            <p className="text-lg text-gray-600 text-center translate-y-5">
                 {description}
             </p>
         </div>
       </header>
-      <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
+      <nav className="degree-page-nav w-full py-2 border-t border-b bg-gray-100">
         <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
             <Link href={`/${router.query.degreeID}/`}>
@@ -36,7 +36,29 @@ export default function DegreeHome({name, description}) {
           </div>
         </div>
       </nav>
-      <div className="text-center">Hello, this is an overview of what the Overview page should look like.</div>
+
+      <body>
+
+        <div className='float-left pr-5 pt-5 pl-5 bg-black'>
+        <img className='' src="https://upload.wikimedia.org/wikipedia/commons/3/38/MacabeesBuilding2010.jpg" alt="Wayne State Building" width="400"></img>
+        </div>
+        
+        <div className='bg-red-200 p-3 font-Inter'>
+
+          <p>
+          Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
+          </p>
+
+          <p>
+          At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service.
+          </p>
+          
+          <p> Click <a href="https://engineering.wayne.edu/computer-science">here</a> for more information about Wayne State's Computer Science Program!</p>
+
+        </div>
+
+      </body>
+
     </div>
   )
 }
