@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
-export default function Searchbar({degrees}) {
+export default function Searchbar({degrees, user}) {
   const [filteredData, setFilteredData] = useState([])
   const [inputData, setInputData] = useState("")
 
@@ -39,7 +39,7 @@ export default function Searchbar({degrees}) {
         absolute">
           {filteredData.slice(0,10).map((degree, index) => {
             return (
-              <Link href={`/${degree.link}`} key={index}>
+              <Link href={{pathname: `/${degree.link}`, query: {userID: user}}} key={index}>
                 <a className="degree-item w-[36rem] h-[50px] flex items-center p-4 text-black border-2
                 border-gray-600">
                   <p>{degree.name}</p>
