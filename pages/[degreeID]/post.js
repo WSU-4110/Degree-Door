@@ -41,7 +41,7 @@ export default function Post() {
   }
 
   async function handleSubmit() {
-    const reviewsRef = collection(db, "Degrees/cs/Reviews")
+    const reviewsRef = collection(db, `Degrees/${router.query.degreeID}/Reviews`)
     const reviewData = {
       timeStamp: serverTimestamp(),
       course: formData.course,
