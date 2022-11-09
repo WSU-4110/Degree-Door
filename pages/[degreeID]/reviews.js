@@ -53,7 +53,7 @@ export default function Reviews({reviews}) {
           <div key={review.id} className="review-component bg-[#67A25B] w-5/6 flex flex-col justify-start p-6 m-8 border-slate-400 rounded">
             <div className="flex items-center">
               <p className="course-name text-white font-bold uppercase pb-4">{review.course}</p>
-              {router.query.userID === review.user && 
+              {router.query.userID === review.userID && 
               <button
                 className="bg-white rounded p-1"
                 type="button"
