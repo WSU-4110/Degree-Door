@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { collection, query, getDocs, orderBy } from "firebase/firestore";
+import { useState } from 'react'
+import { collection, query, getDocs, orderBy, deleteDoc, doc } from "firebase/firestore";
 
 import Dropdown from '../../components/Dropdown'
 import Navbar from '../../components/Navbar'
@@ -8,6 +9,12 @@ import { db } from '../../firebase'
 
 export default function Reviews({reviews}) {
   const router = useRouter()
+  const [reviewData, setReviewData] = useState(reviews)
+
+  const handleDelete = async (event) => {
+    await deleteDoc(doc(db, `Degrees/${router.query.degreeID}/Reviews`, event.target.id))
+    setReviewData((oldReviews) => oldReviews.filter((review) => review.id !== event.target.id))
+  }
   
   return (
     <div className="degree-home bg-white font-Inter relative">
@@ -27,21 +34,35 @@ export default function Reviews({reviews}) {
       <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
         <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
           <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-          <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
+            <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
               <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
             </Link>
             <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
             <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`}}}>
               <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
             </Link>
+            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
+              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Post a Review</a>
+            </Link>
           </div>
         </div>
       </nav>
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
-        {reviews.map((review) => (
+        {reviewData.map((review) => (
           <div key={review.id} className="review-component bg-[#67A25B] w-5/6 flex flex-col justify-start p-6 m-8 border-slate-400 rounded">
-            <p className="course-name text-white font-bold uppercase pb-4">{review.course}</p>
+            <div className="flex items-center">
+              <p className="course-name text-white font-bold uppercase pb-4">{review.course}</p>
+              {router.query.userID === review.user && 
+              <button
+                className="bg-white rounded p-1"
+                type="button"
+                id={review.id}
+                onClick={handleDelete}
+              >
+                Delete
+              </button>}
+            </div>
             <div className="pros-wrapper bg-white flex flex-col p-4 mb-12 border-2 rounded-lg">
               <p className="text-3xl font-bold hover:text-gray-700 pb-4">Pros</p>
               <p className="text-xl">{review.pros}</p>
@@ -75,4 +96,3 @@ export async function getServerSideProps(context) {
     }
   }
 }
-
