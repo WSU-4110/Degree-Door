@@ -24,7 +24,7 @@ export default function Home({degreeDocs, favDegrees}) {
 
       <div className='font-mono mt-80 ml-10'>
         <div class="flex flex-col">
-          <h2 class="mb-4 text-2xl font-bold">Degrees</h2>
+          <h2 class="mb-4 text-2xl font-bold">Favorited Degrees</h2>
              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 
               <div className='after:: content-none clear-both table mx-auto w-full h-full'>
@@ -38,9 +38,11 @@ export default function Home({degreeDocs, favDegrees}) {
                     </div>
                     <div>
                     <br></br>
-                    <p class="text-align: right-5">{degree.name}</p>
-                    Description: 
-                    <p class="mt-2 text-sm text-gray-500">test test test</p>
+                    <p class="text-align: right-5 text-center">{degree.name}</p>
+                    Info: 
+                    <p class="mt-2 text-sm text-gray-500">Lorem ipsum dolor sit amet, ei his summo accumsan. Ex sed timeam quaeque efficiantur, ex soleat efficiendi usu. Fugit praesent eos ut, ut pro eius consul accusamus, iudicabit maluisset disputando per ad. </p>
+                    <br></br>
+                    <p class="text-center"> x </p>
                   </div>
                   </div>
               </Link>
