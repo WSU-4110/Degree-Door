@@ -53,7 +53,7 @@ export default function DegreeHome({name, description, initFavState}) {
                 <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
               </Link>
               <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`}}}>
+              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: name}}}>
                 <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
               </Link>
               { <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>}
