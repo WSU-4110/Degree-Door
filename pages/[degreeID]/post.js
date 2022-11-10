@@ -69,7 +69,7 @@ export default function Post() {
       
        {/* begin warning for required text field */}
        {openError && 
-       <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+       <div className="relative z-10">
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
         <div className="fixed inset-0 z-10 overflow-y-auto">
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -138,35 +138,34 @@ export default function Post() {
       {/* end cancel dialog box */}
 
       {/* begin dialog box confirmation message for submit button */}
-      {open && <div className="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+      {open && 
+      <div className="relative z-10">
         <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
         <div className="fixed inset-0 z-10 overflow-y-auto">
-          <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm">
-              <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                <div className="sm:flex sm:items-start">
-                  <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                    <h3 className="text-lg font-medium leading-6 text-gray-900" id="modal-title">CONFIRMATION</h3>
-                    <div className="mt-2">
-                      <p className="text-sm text-gray-500">Do you want to continue with submission?</p>
+          <div className="flex min-h-full justify-center p-4 items-center">
+            <div className="relative transform overflow-hidden rounded-lg shadow-xl w-full max-w-sm">
+                <div className="bg-gray-50 p-4 pb-4 flex">
+                  <div className="mt-0 ml-10 text-center">
+                    <h3 className="mt-2 font-semibold text-gray-800">CONFIRMATION</h3>
+                    <div>
+                      <p className="mt-2 text-sm text-gray-500">Do you want to continue with submission?</p>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+              <div className="bg-white py-3 flex flex-row-reverse px-6">
                 <button 
                   type="button" 
-                  className="inline-flex w-auto justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="flex-1 px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md"
                   onClick={handleSubmit}
                 >
-                  Yes
+                  YES
                 </button>
                 <button 
                   type="button" 
-                  className="mt-3 inline-flex w-auto justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
+                  className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
                   onClick={() => setOpen(false)}
                 >
-                  No
+                  NO
                 </button>
               </div>
             </div>
