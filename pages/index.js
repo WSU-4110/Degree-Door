@@ -41,7 +41,7 @@ export default function Home({degreeDocs, favDegrees}) {
                   Info: 
                   <p class="mt-2 text-sm text-gray-500">Lorem ipsum dolor sit amet, ei his summo accumsan. Ex sed timeam quaeque efficiantur, ex soleat efficiendi usu. Fugit praesent eos ut, ut pro eius consul accusamus, iudicabit maluisset disputando per ad. </p>
                   <br></br>
-                  <p class="text-center"> x </p>
+                  <button type="button" class="inline-grid px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Visit</button>
                 </div>
                 </div>
               </Link>
