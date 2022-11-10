@@ -31,7 +31,7 @@ export default function DegreeHome({name, description, initFavState}) {
     <ProtectedRoute>
       <div className="degree-home bg-white font-Inter relative">
         <DecorateNavbar> 
-        {Navbar}
+        <Navbar/>
         </DecorateNavbar>
           </div>
         </header>
