@@ -30,17 +30,9 @@ export default function DegreeHome({name, description, initFavState}) {
   return (
     <ProtectedRoute>
       <div className="degree-home bg-white font-Inter relative">
-        <Navbar user={router.query.userID}>
-          <Dropdown />
-        </Navbar>
-        <header className="header-wrapper w-full container mx-auto pt-12">
-          <div className="name-description-wrapper flex flex-col items-center py-12">
-              <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
-                  {name}
-              </div>
-              <p className="text-lg text-gray-600 text-center">
-                  {description}
-              </p>
+        <DecorateNavbar> 
+        {Navbar}
+        </DecorateNavbar>
           </div>
         </header>
         {/* The following component is a Material UI component that will
@@ -53,7 +45,7 @@ export default function DegreeHome({name, description, initFavState}) {
                 <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
               </Link>
               <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: name}}}>
+              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`}}}>
                 <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
               </Link>
               { <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>}
