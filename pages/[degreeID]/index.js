@@ -14,13 +14,13 @@ export default function DegreeHome({name, description}) {
         <Dropdown />
       </Navbar>
       <header>
-        <img className='w-full h-[400px]' src="https://cdn.nbyula.com/public/community/6274d27f54121f0014506fe7/bannerImage/1651823982672-6274d27f54121f0014506fe7.jpeg" alt="Computer Science Banner"></img>
+        <img className='blur-sm w-full h-[400px]' src="https://cdn.nbyula.com/public/community/6274d27f54121f0014506fe7/bannerImage/1651823982672-6274d27f54121f0014506fe7.jpeg" alt="Computer Science Banner"></img>  
         <div className="name-description-wrapper flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
             <div className="display-degree-name font-bold text-black uppercase hover:text-gray-700 text-5xl -translate-y-24">
               {name}
             </div>
             <p className="text-xl font-bold text-black text-center -translate-y-20">
-                {description}
+              {description}
             </p>
         </div>
       </header>
@@ -46,7 +46,7 @@ export default function DegreeHome({name, description}) {
           <div className='p-3 font-Inter'>
             <p> Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve. </p>
             <p> At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service. </p>
-            <p> Click <a href="https://engineering.wayne.edu/computer-science">here</a> for more information about Wayne State's Computer Science Program!</p>
+            <p> Click <a href="https://engineering.wayne.edu/computer-science"><span className='text-lime-500'>here</span></a> for more information about Wayne State's Computer Science Program!</p>
         </div>
       </body>
     </div>
