@@ -27,21 +27,7 @@ export default function DegreeHome({name, description}) {
         </p>
         </div>
       </header>
-
-      <nav className="degree-page-nav w-full py-2 border-t border-b bg-gray-100">
-        <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-          <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <Link href={`/${router.query.degreeID}/`}>
-              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
-            </Link>
-            <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-            <Link href={`/${router.query.degreeID}/reviews`}>
-              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
-            </Link>
-          </div>
-        </div>
-      </nav>
-
+      <DecoratorDegreeTab degree={router.query.degreeID}/>
       <body>
         <div className='float-left pr-5 pt-5 pl-5'>
           <img className='' src="https://upload.wikimedia.org/wikipedia/commons/3/38/MacabeesBuilding2010.jpg" alt="Wayne State Building" width="400"></img>

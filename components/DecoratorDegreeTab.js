@@ -1,12 +1,17 @@
-export default function DecoratorDegreeTab({data1, data2}){
+export default function DecoratorDegreeTab({degree}){
   return (
-        <div className="name-description-wrapper flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="display-degree-name font-bold text-black uppercase hover:text-gray-700 text-5xl -translate-y-24">
-          {data1.name}
+    <nav className="degree-page-nav w-full py-2 border-t border-b bg-gray-100">
+      <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+        <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+          <Link href={`/${degree}/`}>
+            <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
+          </Link>
+          <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
+          <Link href={`/${degree}/reviews`}>
+            <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
+          </Link>
         </div>
-        <p className="text-xl font-bold text-black text-center -translate-y-20">
-          {data2.description}
-        </p>
-        </div>
+      </div>
+    </nav>
   )
 }
