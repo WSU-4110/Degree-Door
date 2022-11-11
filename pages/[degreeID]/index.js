@@ -5,8 +5,9 @@ import { doc, getDoc } from 'firebase/firestore'
 import Dropdown from '../../components/Dropdown'
 import Navbar from '../../components/Navbar'
 import { db } from '../../firebase'
+import DecoratorDegreeHeader from '../../components/DecoratorDegreeHeader'
 
-import DecoratorDegreeTab from '../../components/DecoratorDegreeTab'
+
 
 export default function DegreeHome({name, description}) {
   const router = useRouter()
@@ -16,18 +17,20 @@ export default function DegreeHome({name, description}) {
       <Navbar links={[{route: "/", name: "Home"},{route: "/post", name: "Post Review"}]}>
         <Dropdown />
       </Navbar>
-      <header>
-        <img className='w-full h-[400px]' src="https://cdn.nbyula.com/public/community/6274d27f54121f0014506fe7/bannerImage/1651823982672-6274d27f54121f0014506fe7.jpeg" alt="Computer Science Banner"></img>
-        <div className="name-description-wrapper flex flex-col items-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <div className="display-degree-name font-bold text-black uppercase hover:text-gray-700 text-5xl -translate-y-24">
-          {name}
+      <DecoratorDegreeHeader name={name} description={description} />
+      <nav className="degree-page-nav w-full py-2 border-t border-b bg-gray-100">
+      <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
+        <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
+          <Link href={`/${router.query.degreeID}/`}>
+            <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
+          </Link>
+          <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
+          <Link href={`/${router.query.degreeID}/reviews`}>
+            <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
+          </Link>
         </div>
-        <p className="text-xl font-bold text-black text-center -translate-y-20">
-          {description}
-        </p>
-        </div>
-      </header>
-      <DecoratorDegreeTab degree={router.query.degreeID}/>
+      </div>
+    </nav>
       <body>
         <div className='float-left pr-5 pt-5 pl-5'>
           <img className='' src="https://upload.wikimedia.org/wikipedia/commons/3/38/MacabeesBuilding2010.jpg" alt="Wayne State Building" width="400"></img>
