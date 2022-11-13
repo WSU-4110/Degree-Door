@@ -47,6 +47,7 @@ export default function Post() {
       course: formData.course,
       pros: formData.pros,
       cons: formData.cons,
+      userID: router.query.userID
     }
     await addDoc(reviewsRef, reviewData)
     setFormData({
@@ -109,7 +110,7 @@ export default function Post() {
                   <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                     <h3 className="text-lg font-medium leading-6 text-gray-900" id="modal-title">WARNING</h3>
                     <div className="mt-2">
-                      <p className="text-sm text-gray-500">You have unsaved changes. Are you sure you want to leave this page?</p>
+                      <p className="text-sm text-gray-500">Are you sure you want to leave this page?</p>
                     </div>
                   </div>
                 </div>
@@ -230,7 +231,7 @@ export default function Post() {
                     className="mt-3 inline-flex w-auto justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
                     onClick={() => setOpenCancellation(true)}
                     >
-                      CANCEL
+                      GO BACK
                     </button>
                   <button 
                     type="button" 
