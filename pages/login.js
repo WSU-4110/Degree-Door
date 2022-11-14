@@ -123,6 +123,11 @@ export default function Login() {
                   value={formData.password}
                 />
               </div>
+              <div className="field-wrapper m-4 flex justify-end">
+                <Link href="/reset">
+                  <a className="cursor-pointer no-underline hover:underline">Forgot password?</a>
+                </Link>
+              </div>
               <button type="submit" className="login-btn w-full bg-green-600 
                hover:bg-green-400 hover:scale-90 text-gray-100 p-3 mb-6 rounded-full tracking-wide 
                font-semibold shadow-lg cursor-pointer transition ease-in-out duration-300"
