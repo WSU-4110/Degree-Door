@@ -40,9 +40,7 @@ export default function DegreeHome({name, description, initFavState}) {
               <img class="w-6 h-6 ml-2" src="https://i.imgur.com/ITzOzDt.png"></img>
             </div>
             <div className="flex md:order-2">
-                <button type="button" className="text-white bg-green-800 hover:bg-green-700 rounded-lg text-sm px-5 py-2.5">
-                  SIGN OUT
-                </button>
+                <Dropdown />
             </div>
             <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
               <ul className="flex flex-col p-4 mt-4 items-center bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
