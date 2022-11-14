@@ -93,7 +93,7 @@ export default function DegreeHome({name, description, initFavState}) {
               </p>
             </div>
 
-          <div className="grid grid-cols-3 gap-8 ml-[100px] w-[1150px]">
+          <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-gray-900 dark:bg-gray-200">
                 <div className="ml-3 text-sm font-medium text-gray-700">
                   Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
