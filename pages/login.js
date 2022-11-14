@@ -68,7 +68,7 @@ export default function Login() {
       or can go to the registration page.
     */ 
     <>
-      <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
       <div 
         className="login-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
         style={{backgroundImage: `url(${bg.src})`}}
