@@ -45,7 +45,7 @@ export default function DegreeHome({name, description, initFavState}) {
                 </button>
             </div>
             <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
-              <ul className="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+              <ul className="flex flex-col p-4 mt-4 items-center bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
                 <li>
                   <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                     <b>OVERVIEW</b>
@@ -64,6 +64,9 @@ export default function DegreeHome({name, description, initFavState}) {
                     <b>POST A REVIEW</b>
                   </p>
                 </Link>
+                </li>
+                <li>
+                  <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>
                 </li>
               </ul>
             </div>
