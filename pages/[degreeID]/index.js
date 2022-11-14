@@ -36,10 +36,10 @@ export default function DegreeHome({name, description, initFavState}) {
         </Navbar>
         <header className=" header-wrapper flex items-center justify-center w-full h-[300px] container mx-auto pt-12 bg-[url('https://cdn.nbyula.com/public/community/6274d27f54121f0014506fe7/bannerImage/1651823982672-6274d27f54121f0014506fe7.jpeg')]">
           <div className="name-description-wrapper flex flex-col items-center py-12 ">
-            <div className="display-degree-name font-bold text-black uppercase hover:text-gray-700 text-5xl">
+            <div className="display-degree-name font-bold text-white uppercase hover:text-gray-700 text-5xl">
                 {name}
             </div>
-            <p className="text-lg text-black text-center">
+            <p className="text-lg text-white text-center">
                 {description}
             </p>
           </div>
