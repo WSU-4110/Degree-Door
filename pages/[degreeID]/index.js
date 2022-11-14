@@ -35,10 +35,12 @@ export default function DegreeHome({name, description, initFavState}) {
         fails to log in.*/}
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
-            <div className="navbar-brand cursor-pointer flex">
-              <b>DegreeDoor</b>
-              <img class="w-6 h-6 ml-2" src="https://i.imgur.com/ITzOzDt.png"></img>
-            </div>
+            <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+              <div className="navbar-brand cursor-pointer flex">
+                <b>DegreeDoor</b>
+                <img class="w-6 h-6 ml-2" src="https://i.imgur.com/ITzOzDt.png"></img>
+              </div>
+            </Link>
             <div className="flex md:order-2">
                 <Dropdown />
             </div>
