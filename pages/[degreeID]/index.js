@@ -72,16 +72,6 @@ export default function DegreeHome({name, description, initFavState}) {
             </div>
           </div>
         </nav>
-        {/* <nav className="justify-between degree-page-nav w-full py-4 border-t border-b bg-gray-100">
-          <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase px-6 py-2">
-              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: name}}}>
-                <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
-              </Link>
-              { <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>}
-            </div>
-          </div>
-        </nav> */}
 
         <div class="p-8 h-[430px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
             <div>

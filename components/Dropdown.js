@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { forwardRef, Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
+import { BsFillGearFill } from 'react-icons/bs'
 
 import { auth } from '../firebase'
 // const MyLink = forwardRef((props, ref) => {
@@ -27,9 +28,9 @@ export default function Example() {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button 
-            className="text-white bg-green-800 hover:bg-green-700 rounded-lg text-sm px-5 py-2.5"
+            className="text-white bg-green-800 hover:bg-green-700 rounded-lg text-sm px-2.5 py-2.5"
           >
-            OPTIONS
+            <BsFillGearFill className="text-lg"/>
           </Menu.Button>
         </div>
         <Transition
