@@ -17,7 +17,8 @@ export default function DegreeHome({name, description, initFavState}) {
     const docSnap = await getDoc(docRef)
     if (!docSnap.exists()) {
       const favoriteData = {
-        degreeName: name
+        degreeName: name,
+        description: description
       }
       await setDoc(docRef, favoriteData)
       return true;
