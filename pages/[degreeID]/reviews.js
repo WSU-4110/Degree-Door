@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { IoMdThumbsUp, IoMdThumbsDown } from 'react-icons/io'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { collection, query, getDocs, orderBy, deleteDoc, doc } from "firebase/firestore";
@@ -68,7 +69,8 @@ export default function Reviews({reviews}) {
               <div className="flex">
                 <div className="bg-[#3d4e57] w-16 text-center p-2">
                   <div className="flex justify-center fill-current text-white h-full items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/></svg>
+                    {/* Thumbs up icon */}
+                    <IoMdThumbsUp className='text-lg'/>
                   </div>
                 </div>
                 <div className="bg-white border-r-4 border-[#3d4e57] w-full p-4">
@@ -86,7 +88,7 @@ export default function Reviews({reviews}) {
               <div className="flex">
                 <div className="bg-[#94a9b4] w-16 text-center p-2 mt-3">
                   <div className="flex justify-center fill-current text-white h-full items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg>
+                    <IoMdThumbsDown className="text-lg"/>
                   </div>
                 </div>
                 <div className="bg-white border-r-4 border-[#94a9b4] w-full p-4 mt-3">
