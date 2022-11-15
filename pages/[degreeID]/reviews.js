@@ -19,6 +19,7 @@ export default function Reviews({reviews, initFavState}) {
   
   return (
     <div className="degree-home bg-white font-Inter relative">
+    {/* begin nav bar for degree name */}
     <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <ul className="m-auto md:text-sm md:bg-[#292c2c]">
@@ -30,6 +31,9 @@ export default function Reviews({reviews, initFavState}) {
         </ul>
       </div>
     </nav>
+    {/* end nav bar for degree name */}
+
+    {/* begin nav bar */}
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
@@ -55,7 +59,7 @@ export default function Reviews({reviews, initFavState}) {
               </p>
             </li>
             <li>
-            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
+            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`, degreeName: `${router.query.degreeName}`}}}>
               <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
                 <b>POST A REVIEW</b>
               </p>
@@ -68,12 +72,15 @@ export default function Reviews({reviews, initFavState}) {
         </div>
       </div>
     </nav>
+    {/* end nav bar */}
+
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
         {reviewData.map((review) => (
           <div className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between pb-4">
               <p className="course-name text-gray-700 font-bold uppercase">{review.course}</p>
+              {/* begin button to delete reviews */}
               {router.query.userID === review.userID && 
                 <div
                   onClick={() => handleDelete(review.id)}
@@ -83,7 +90,9 @@ export default function Reviews({reviews, initFavState}) {
                     <path onClick={() => handleDelete(review.id)} d="M3 6v18h18v-18h-18zm5 14c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm5 0c0 .552-.448 1-1 1s-1-.448-1-1v-10c0-.552.448-1 1-1s1 .448 1 1v10zm4-18v2h-20v-2h5.711c.9 0 1.631-1.099 1.631-2h5.315c0 .901.73 2 1.631 2h5.712z"></path>
                   </svg>
                 </div>}
+              {/* end delete button */}
             </div>
+
             {/* starting pros block */}
             <div>
               <div className="flex">

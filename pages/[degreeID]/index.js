@@ -6,12 +6,14 @@ import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import { db } from '../../firebase'
+
 export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
-
+  
   return (
     <ProtectedRoute>
       <div className="degree-home font-Inter">
+      {/* begin nav bar for degree name */}
       <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
               <ul className="m-auto md:text-sm md:bg-[#292c2c]">
@@ -23,9 +25,9 @@ export default function DegreeHome({info, initFavState}) {
               </ul>
           </div>
         </nav>
-        {/* The following component is a Material UI component that will
-        render an animated Dialog message to the screen if the user 
-        fails to log in.*/}
+        {/* end nav bar for degree name */}
+
+        {/* begin nav bar */}
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
             <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
@@ -51,7 +53,7 @@ export default function DegreeHome({info, initFavState}) {
                   </Link>
                 </li>
                 <li>
-                <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
+                <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`, degreeName: `${info.degreeName}`}}}>
                   <p className="cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
                     <b>POST A REVIEW</b>
                   </p>
@@ -64,6 +66,9 @@ export default function DegreeHome({info, initFavState}) {
             </div>
           </div>
         </nav>
+        {/* end nav bar */}
+
+        {/* begin component that dislays degree name/description */}
         <div class="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
             <div>
               <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
@@ -73,8 +78,10 @@ export default function DegreeHome({info, initFavState}) {
                   {info.description}
               </p>
             </div>
+            {/* end degree name/description component */}
+
+          {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
-            
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-[#f9f9f9] border-t-4 border-[#de9b61] dark:bg-gray-200">
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
@@ -91,6 +98,7 @@ export default function DegreeHome({info, initFavState}) {
                 </div>
             </div>
           </div>
+          {/* end grid */}
         </div>
       </div>
     </ProtectedRoute>
