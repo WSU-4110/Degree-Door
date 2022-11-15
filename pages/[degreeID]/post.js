@@ -136,7 +136,7 @@ export default function Post({initFavState}) {
               <div className="bg-white py-3 flex flex-row-reverse px-6">
                 <button 
                   type="button"
-                  className="flex-1 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
+                  className="flex-1 px-4 py-2 bg-[#292c2c] hover:bg-gray-200 text-gray-800 text-sm font-medium rounded-md"
                   onClick={() => setOpenError(false)}
                 >
                   OK
@@ -204,7 +204,7 @@ export default function Post({initFavState}) {
             <div className="bg-white py-3 flex flex-row-reverse px-6">
               <button 
                 type="button" 
-                className="flex-1 px-4 py-2 ml-2 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-md"
+                className="flex-1 px-4 py-2 ml-2 bg-green-700 hover:bg-green-600 text-white text-sm font-medium rounded-md"
                 onClick={handleSubmit}
               >
                 YES
@@ -282,7 +282,7 @@ export default function Post({initFavState}) {
                       </button>
                     <button 
                       type="button" 
-                      className="inline-flex w-auto justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                      className="inline-flex w-auto justify-center rounded-md border border-transparent bg-green-700 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                       onClick={validateForm}
                     >
                       SUBMIT
