@@ -237,32 +237,32 @@ export default function Post({initFavState}) {
     </div>}
     {/* end success alert */}
 
-    <div className="form-wrapper w-1/2 m-auto mt-8 placeholder:p-4 pl-10 pr-10 border-4 bg-gradient-to-b from-gray-200 to-gray-100 opacity-75 inset-0 z-0 rounded shadow-md px-6 py-8 flex items-center justify-center">
-      <form className="flex flex-col w-full gap-10" onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <label><b>COURSE</b></label>
+    <div className="form-wrapper w-1/2 mt-[-20px] m-auto pl-10 pr-10 border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8">
+      <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
+        <div className="flex flex-col text-[#292c2c]">
+          <b>COURSE</b>
           <textarea
-            className="overflow-auto border border-slate-400 border-solid rounded p-2"
+            className="overflow-auto border border-gray-300 border-solid rounded p-2"
             placeholder="Course name"
             name="course"
             value={formData.course}
             onChange={handleChange}
           />
         </div>
-        <div className="flex flex-col">
-          <label><b>PROS</b></label>
+        <div className="flex flex-col text-[#292c2c]">
+          <b>PROS</b>
           <textarea
-            className="overflow-auto border border-slate-400 border-solid rounded p-2"
+            className="overflow-auto border border-gray-300 border-solid rounded p-2"
             placeholder="List the positives of this course"
             name="pros"
             value={formData.pros}
             onChange={handleChange}
           />
         </div>
-        <div className="flex flex-col">
-          <label><b>CONS</b></label>
+        <div className="flex flex-col text-[#292c2c]">
+          <b>CONS</b>
           <textarea
-            className="overflow-auto border border-slate-400 border-solid rounded p-2"
+            className="overflow-auto border border-gray-300 border-solid rounded p-2"
             placeholder="List the negatives of this course"
             name="cons"
             value={formData.cons}
