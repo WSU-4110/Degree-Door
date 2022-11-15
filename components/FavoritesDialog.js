@@ -25,7 +25,7 @@ export default function FavoritesDialog({ favoriteHandler, initFavState}) {
     <div className="dialog-wrapper">
       <div className="cursor-pointer" onClick={handleClickOpen}>
         {/* Conditionally render either a filled start or an empty star*/}
-        {isFavorite === true ? <AiFillStar className="text-3xl" color="orange"/> : <AiOutlineStar className="text-3xl"/>}
+        {isFavorite === true ? <AiFillStar className="text-3xl" color="#de9b61"/> : <AiOutlineStar className="text-3xl"/>}
       </div>
       <Dialog
         fullScreen={fullScreen}

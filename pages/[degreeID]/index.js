@@ -37,15 +37,14 @@ export default function DegreeHome({name, description, initFavState}) {
           <div class="container flex flex-wrap justify-between items-center mx-auto">
             <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
               <div className="navbar-brand cursor-pointer flex">
-                <b>DegreeDoor</b>
-                <img class="w-6 h-6 ml-2" src="https://i.imgur.com/ITzOzDt.png"></img>
+                <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
               </div>
             </Link>
             <div className="flex md:order-2">
                 <Dropdown />
             </div>
-            <div className="hidden justify-between items-center w-full md:flex md:w-auto md:order-1">
-              <ul className="flex flex-col p-4 mt-4 items-center bg-gray-50 rounded-lg border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white">
+            <div className="md:flex md:w-auto">
+              <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
                 <li>
                   <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                     <b>OVERVIEW</b>
@@ -84,17 +83,18 @@ export default function DegreeHome({name, description, initFavState}) {
             </div>
 
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
-            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-gray-900 dark:bg-gray-200">
+            
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
                 <div className="ml-3 text-sm font-medium text-gray-700">
                   Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
                 </div>
             </div>
-            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-gray-900 dark:bg-gray-200">
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
                 <div className="ml-3 text-sm font-medium text-gray-700">
                   <p> At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service. </p>
                 </div>
             </div>
-            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-gray-900 dark:bg-gray-200">
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
                 <div className="ml-3 text-sm font-medium text-gray-700">
                   <p> Click <a href="https://engineering.wayne.edu/computer-science"><span className='text-lime-500'>here</span></a> for more information about Wayne State's Computer Science Program!</p>
                 </div>

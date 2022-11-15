@@ -28,7 +28,7 @@ export default function Example() {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button 
-            className="text-white bg-green-800 hover:bg-green-700 rounded-lg text-sm px-2.5 py-2.5"
+            className="text-white bg-[#0f1212] hover:bg-gray-800 rounded-lg text-sm px-2.5 py-2.5"
           >
             <BsFillGearFill className="text-lg"/>
           </Menu.Button>
