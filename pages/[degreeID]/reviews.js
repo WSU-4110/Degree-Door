@@ -19,7 +19,7 @@ export default function Reviews({reviews, initFavState}) {
   
   return (
     <div className="degree-home bg-white font-Inter relative">
-    <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 m-auto items-center">
+    <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <ul className="m-auto md:text-sm md:bg-[#292c2c]">
           <li>
@@ -50,7 +50,7 @@ export default function Reviews({reviews, initFavState}) {
               </Link>
             </li>
             <li>
-              <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+              <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                 <b>REVIEWS</b>
               </p>
             </li>
@@ -71,7 +71,7 @@ export default function Reviews({reviews, initFavState}) {
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
         {reviewData.map((review) => (
-          <div className="review-component w-2/3 p-5 mb-4 bg-gray-50 rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+          <div className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
             <div className="flex items-center justify-between pb-4">
               <p className="course-name text-gray-700 font-bold uppercase">{review.course}</p>
               {router.query.userID === review.userID && 
@@ -87,15 +87,15 @@ export default function Reviews({reviews, initFavState}) {
             {/* starting pros block */}
             <div>
               <div className="flex">
-                <div className="bg-[#3d4e57] w-16 text-center p-2">
-                  <div className="flex justify-center fill-current text-white h-full items-center">
+                <div className="bg-white border-[2.5px] border-green-700 w-16 text-center p-2">
+                  <div className="flex justify-center fill-current text-green-700 h-full items-center">
                     {/* Thumbs up icon */}
                     <IoMdThumbsUp className='text-lg'/>
                   </div>
                 </div>
-                <div className="bg-white border-r-4 border-[#3d4e57] w-full p-4">
+                <div className="bg-white border-r-4 border-green-700 w-full p-4">
                   <div>
-                    <p className="text-gray-600 font-bold">PROS</p>
+                    <p className="text-green-700 font-bold">PROS</p>
                     <p className="text-gray-600 text-sm"><p>{review.pros}</p></p>
                   </div>
                 </div>
@@ -106,14 +106,14 @@ export default function Reviews({reviews, initFavState}) {
             {/* starting cons block */}
             <div>
               <div className="flex">
-                <div className="bg-[#94a9b4] w-16 text-center p-2 mt-3">
-                  <div className="flex justify-center fill-current text-white h-full items-center">
+                <div className="bg-white border-[2.5px] border-[#de9b61] w-16 text-center p-2 mt-3">
+                  <div className="flex justify-center fill-current text-[#de9b61] h-full items-center">
                     <IoMdThumbsDown className="text-lg"/>
                   </div>
                 </div>
-                <div className="bg-white border-r-4 border-[#94a9b4] w-full p-4 mt-3">
+                <div className="bg-white border-r-4 border-[#de9b61] w-full p-4 mt-3">
                   <div>
-                    <p className="text-gray-600 font-bold">CONS</p>
+                    <p className="text-[#de9b61] font-bold">CONS</p>
                     <p className="text-gray-600 text-sm"><p>{review.cons}</p></p>
                   </div>
                 </div>
