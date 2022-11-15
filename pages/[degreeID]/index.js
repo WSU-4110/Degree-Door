@@ -64,9 +64,9 @@ export default function DegreeHome({info, initFavState}) {
             </div>
           </div>
         </nav>
-        <div class="p-8 h-[340px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
+        <div class="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
             <div>
-              <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[80px]">
+              <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
                   {info.degreeName}
               </div>
               <p className="text-lg text-white uppercase text-center mb-20">
