@@ -8,7 +8,7 @@ beforeEach(() => render(<MockLogin />))
 // Group unit tests together with the 'describe' function.
 // This test suite will test whether the Login page is rendered correctly.
 describe('Login UI', () => {
-  it('The login page should render a heading that says "Welcome tp Degree Door" ', () => {
+  it('The login page should render a heading that says "Welcome to Degree Door" ', () => {
 
     const welcomeHeading = screen.getByRole('heading', {
       name: /Welcome to Degree Door/i,
