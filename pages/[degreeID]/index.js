@@ -1,31 +1,13 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 
 import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
-import Navbar from '../../components/Navbar'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import { db } from '../../firebase'
-import { useAuthContext } from '../../context/AuthContext'
-export default function DegreeHome({name, description, initFavState}) {
+export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
-  const { user } = useAuthContext()
-
-  async function handleFavorites() {
-    const docRef = doc(db,`Users/${user.uid}/Favorites`,`${router.query.degreeID}`)
-    const docSnap = await getDoc(docRef)
-    if (!docSnap.exists()) {
-      const favoriteData = {
-        degreeName: name
-      }
-      await setDoc(docRef, favoriteData)
-      return true;
-    }
-
-    await deleteDoc(docRef)
-    return false;
-  }
 
   return (
     <ProtectedRoute>
@@ -65,23 +47,21 @@ export default function DegreeHome({name, description, initFavState}) {
                 </Link>
                 </li>
                 <li>
-                  <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>
+                  <FavoritesDialog degree={router.query.degreeID} initFavState={initFavState}/>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-
         <div class="p-8 h-[430px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
             <div>
               <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
-                  {name}
+                  {info.degreeName}
               </div>
               <p className="text-lg text-white uppercase text-center mb-20">
-                  {description}
+                  {info.description}
               </p>
             </div>
-
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
@@ -116,15 +96,13 @@ export async function getServerSideProps(context) {
 
   // Get both degree name and description from the document.
   const initFavState = favSnap.exists();
-  const degreeName = docSnap.data().degreeName; 
-  const degreeDescription = docSnap.data().description;
+  const degreeInfo = docSnap.data();
 
   // Return server side props
   return {
     props: { 
       initFavState: initFavState,
-      name: degreeName,
-      description: degreeDescription,
+      info: degreeInfo,
     }
   };
 }
