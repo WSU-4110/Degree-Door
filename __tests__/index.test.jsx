@@ -37,10 +37,13 @@ describe('Login UI', () => {
     expect(screen.getByRole('textbox', { name: "" })).toHaveValue("")
   })
 
-  it('The login page Sign In Form should render two buttons', () => {
+  it('The login page Sign In Form should render a sign in button', () => {
     const loginButton = screen.getByRole('button', {name: /Sign in/i})
-    const registerButton = screen.getByRole('button', {name: /Don't have an account\? Sign up!/i})
     expect(loginButton).toBeInTheDocument()
+  })
+
+  it('The login page Sign In Form should render a register button', () => {
+    const registerButton = screen.getByRole('button', {name: /Don't have an account\? Sign up!/i})
     expect(registerButton).toBeInTheDocument()
   })
 
