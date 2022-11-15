@@ -2,13 +2,13 @@ import Link from 'next/link'
 import { IoMdThumbsUp, IoMdThumbsDown } from 'react-icons/io'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { collection, query, getDocs, orderBy, deleteDoc, doc } from "firebase/firestore";
+import { collection, query, getDocs, getDoc, orderBy, deleteDoc, doc } from "firebase/firestore";
 
 import Dropdown from '../../components/Dropdown'
-import Navbar from '../../components/Navbar'
+import FavoritesDialog from '../../components/FavoritesDialog'
 import { db } from '../../firebase' 
 
-export default function Reviews({reviews}) {
+export default function Reviews({reviews, initFavState}) {
   const router = useRouter()
   const [reviewData, setReviewData] = useState(reviews)
 
@@ -19,9 +19,44 @@ export default function Reviews({reviews}) {
   
   return (
     <div className="degree-home bg-white font-Inter relative">
-      <Navbar user={router.query.userID}>
-        <Dropdown />
-      </Navbar>
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
+      <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+          <div className="navbar-brand cursor-pointer flex">
+            <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+          </div>
+        </Link>
+        <div className="flex md:order-2">
+            <Dropdown />
+        </div>
+        <div className="md:flex md:w-auto">
+          <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
+            <li>
+              <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
+                <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                  <b>OVERVIEW</b>
+                </p>
+              </Link>
+            </li>
+            <li>
+              <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+                <b>REVIEWS</b>
+              </p>
+            </li>
+            <li>
+            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
+              <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                <b>POST A REVIEW</b>
+              </p>
+            </Link>
+            </li>
+            <li>
+              <FavoritesDialog degree={router.query.degreeID} initFavState={initFavState}/>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
       <header className="header-wrapper w-full container mx-auto pt-12">
         <div className="name-description-wrapper flex flex-col items-center py-12">
           <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
@@ -108,6 +143,11 @@ export default function Reviews({reviews}) {
 }
 
 export async function getServerSideProps(context) {
+
+  // Check if the user is following the degree
+  const favRef = doc(db,`Users/${context.query.userID}/Favorites`,`${context.params.degreeID}`)
+  const favSnap = await getDoc(favRef)
+
   // Get a query on the sub collection for degree page reviews, sorting each review by timestamp
   const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp", "desc"));
   const reviewsSnapshot = await getDocs(reviewsQuery);
@@ -118,8 +158,13 @@ export async function getServerSideProps(context) {
     ...doc.data(),
     timeStamp: doc.data().timeStamp.toDate().getTime()
   }))
+
+  // True if user has the degree favorited
+  const initFavState = favSnap.exists()
+
   return {
     props: {
+      initFavState: initFavState,
       reviews: reviewData
     }
   }
