@@ -19,6 +19,17 @@ export default function Reviews({reviews, initFavState}) {
   
   return (
     <div className="degree-home bg-white font-Inter relative">
+    <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 m-auto items-center">
+      <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <ul className="m-auto md:text-sm md:bg-[#292c2c]">
+          <li>
+            <p className="text-white md:p-0 uppercase">
+              <b>{router.query.degreeName}</b>
+            </p>
+          </li>
+        </ul>
+      </div>
+    </nav>
     <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
@@ -57,32 +68,6 @@ export default function Reviews({reviews, initFavState}) {
         </div>
       </div>
     </nav>
-      <header className="header-wrapper w-full container mx-auto pt-12">
-        <div className="name-description-wrapper flex flex-col items-center py-12">
-          <div className="display-degree-name font-bold text-gray-800 uppercase hover:text-gray-700 text-5xl">
-            {router.query.degreeName} Reviews
-          </div>
-          <p className="text-lg text-gray-600 text-center">
-            Here you can check out all of the reviews for {router.query.degreeName}!
-          </p>
-        </div>
-      </header>
-      <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
-        <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-          <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-            <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
-              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
-            </Link>
-            <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-            <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: `${router.query.degreeName}`}}}>
-              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
-            </Link>
-            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
-              <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Post a Review</a>
-            </Link>
-          </div>
-        </div>
-      </nav>
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
         {reviewData.map((review) => (

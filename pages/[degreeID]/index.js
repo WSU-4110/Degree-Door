@@ -11,11 +11,22 @@ export default function DegreeHome({info, initFavState}) {
 
   return (
     <ProtectedRoute>
-      <div className="degree-home bg-white font-Inter relative">
+      <div className="degree-home font-Inter">
+      <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 m-auto items-center">
+          <div class="container flex flex-wrap justify-between items-center mx-auto">
+              <ul className="m-auto md:text-sm md:bg-[#292c2c]">
+                <li>
+                  <p className="text-white md:p-0 uppercase">
+                  <b>{info.degreeName}</b>
+                  </p>
+                </li>
+              </ul>
+          </div>
+        </nav>
         {/* The following component is a Material UI component that will
         render an animated Dialog message to the screen if the user 
         fails to log in.*/}
-        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
             <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
               <div className="navbar-brand cursor-pointer flex">
@@ -34,14 +45,14 @@ export default function DegreeHome({info, initFavState}) {
                 </li>
                 <li>
                   <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: `${info.degreeName}`}}}>
-                    <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                    <p className="cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
                       <b>REVIEWS</b>
                     </p>
                   </Link>
                 </li>
                 <li>
                 <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`}}}>
-                  <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                  <p className="cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
                     <b>POST A REVIEW</b>
                   </p>
                 </Link>
@@ -65,17 +76,17 @@ export default function DegreeHome({info, initFavState}) {
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
-                <div className="ml-3 text-sm font-medium text-gray-700">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
                 </div>
             </div>
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
-                <div className="ml-3 text-sm font-medium text-gray-700">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   <p> At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service. </p>
                 </div>
             </div>
             <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-gray-100 border-t-4 border-[#de9b61] dark:bg-gray-200">
-                <div className="ml-3 text-sm font-medium text-gray-700">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   <p> Click <a href="https://engineering.wayne.edu/computer-science"><span className='text-lime-500'>here</span></a> for more information about Wayne State's Computer Science Program!</p>
                 </div>
             </div>
