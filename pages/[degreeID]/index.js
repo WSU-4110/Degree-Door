@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 
 import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
-import Navbar from '../../components/Navbar'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import { db } from '../../firebase'
 import { useAuthContext } from '../../context/AuthContext'
@@ -28,49 +27,98 @@ export default function DegreeHome({name, description, initFavState}) {
     return false;
   }
 
+export default function DegreeHome({info, initFavState}) {
+  const router = useRouter()
+  
   return (
     <ProtectedRoute>
-      <div className="degree-home bg-white font-Inter relative">
-        <Navbar user={router.query.userID}>
-          <Dropdown />
-        </Navbar>
-        <header className=" header-wrapper flex items-center justify-center w-full h-[300px] container mx-auto pt-12 bg-[url('https://cdn.nbyula.com/public/community/6274d27f54121f0014506fe7/bannerImage/1651823982672-6274d27f54121f0014506fe7.jpeg')]">
-          <div className="name-description-wrapper flex flex-col items-center py-12 ">
-            <div className="display-degree-name font-bold text-white uppercase hover:text-gray-700 text-5xl">
-                {name}
-            </div>
-            <p className="text-lg text-white text-center">
-                {description}
-            </p>
+      <div className="degree-home font-Inter">
+        {/* begin nav bar for degree name */}
+        <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
+          <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <ul className="m-auto md:text-sm md:bg-[#292c2c]">
+              <li>
+                <p className="text-white md:p-0 uppercase">
+                <b>{info.degreeName}</b>
+                </p>
+              </li>
+            </ul>
           </div>
-        </header>
-        {/* The following component is a Material UI component that will
-        render an animated Dialog message to the screen if the user 
-        fails to log in.*/}
-        <nav className="degree-page-nav w-full py-4 border-t border-b bg-gray-100">
-          <div className="w-full flex-grow sm:flex sm:items-center sm:w-auto">
-            <div className="w-full container mx-auto flex flex-col sm:flex-row items-center justify-center text-sm font-bold uppercase mt-0 px-6 py-2">
-              <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
-                <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Overview</a>  
-              </Link>
-              <a href="#" className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Links</a>
-              <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: name}}}>
-                <a className="hover:bg-gray-400 rounded py-2 px-4 mx-2">Reviews</a>
-              </Link>
-              { <FavoritesDialog favoriteHandler={handleFavorites} initFavState={initFavState}/>}
+         </nav>
+         {/* end nav bar for degree name */}
+
+        {/* begin nav bar */}
+        <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
+          <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+              <div className="navbar-brand cursor-pointer flex">
+                <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+              </div>
+            </Link>
+            <div className="flex md:order-2">
+                <Dropdown />
+            </div>
+            <div className="md:flex md:w-auto">
+              <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
+                <li>
+                  <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+                    <b>OVERVIEW</b>
+                  </p>
+                </li>
+                <li>
+                  <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: `${info.degreeName}`}}}>
+                    <p className="cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                      <b>REVIEWS</b>
+                    </p>
+                  </Link>
+                </li>
+                <li>
+                <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`, degreeName: `${info.degreeName}`}}}>
+                  <p className="cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
+                    <b>POST A REVIEW</b>
+                  </p>
+                </Link>
+                </li>
+                <li>
+                  <FavoritesDialog degree={router.query.degreeID} initFavState={initFavState}/>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
-        <div className="text-center">Hello, this is an overview of what the Overview page should look like.</div>
-        <div>
-          <div className='float-left pr-5 pt-5 pl-5'>
-            <img className='' src="https://upload.wikimedia.org/wikipedia/commons/3/38/MacabeesBuilding2010.jpg" alt="Wayne State Building" width="400"></img>
+        {/* end nav bar */}
+
+        {/* begin component that dislays degree name/description */}
+        <div class="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
+          <div>
+            <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
+              {info.degreeName}
             </div>
-            <div className='p-3 font-Inter'>
-              <p> Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve. </p>
-              <p> At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service. </p>
-              <p> Click <a href="https://engineering.wayne.edu/computer-science"><span className='text-lime-500'>here</span></a> for more information about Wayne State's Computer Science Program!</p>
+            <p className="text-lg text-white uppercase text-center mb-20">
+              {info.description}
+            </p>
           </div>
+          {/* end degree name/description component */}
+
+          {/* begin grid to display degree info */}
+          <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-[#f9f9f9] border-t-4 border-[#de9b61] dark:bg-gray-200">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
+                  Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
+                </div>
+            </div>
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-[#f9f9f9] border-t-4 border-[#de9b61] dark:bg-gray-200">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
+                  <p> At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service. </p>
+                </div>
+            </div>
+            <div className="flex items-center justify-center rounded-md p-4 mb-4 shadow-md bg-[#f9f9f9] border-t-4 border-[#de9b61] dark:bg-gray-200">
+                <div className="ml-3 text-sm font-medium text-[#292c2c]">
+                  <p> Click <a href="https://engineering.wayne.edu/computer-science"><span className='text-lime-500'>here</span></a> for more information about Wayne State's Computer Science Program!</p>
+                </div>
+            </div>
+          </div>
+          {/* end grid */}
         </div>
       </div>
     </ProtectedRoute>
@@ -87,15 +135,13 @@ export async function getServerSideProps(context) {
 
   // Get both degree name and description from the document.
   const initFavState = favSnap.exists();
-  const degreeName = docSnap.data().degreeName; 
-  const degreeDescription = docSnap.data().description;
+  const degreeInfo = docSnap.data();
 
   // Return server side props
   return {
     props: { 
       initFavState: initFavState,
-      name: degreeName,
-      description: degreeDescription,
+      info: degreeInfo,
     }
   };
 }

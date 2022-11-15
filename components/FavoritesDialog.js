@@ -2,16 +2,42 @@ import { useState } from 'react'
 import {  Button, Dialog, DialogActions, DialogContent,
 DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
+import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore'
 
-export default function FavoritesDialog({ favoriteHandler, initFavState}) {
+import { useAuthContext } from '../context/AuthContext'
+import { db } from '../firebase'
+
+export default function FavoritesDialog({degree, initFavState}) {
+  const { user } = useAuthContext()
   const [open, setOpen] = useState(false) // State to determine if the dialog is open
   const [isFavorite, setIsFavorite] = useState(initFavState) // State to determine if the degree is favorited
   const theme = useTheme() // Theme object to gather styling of the DOM element
   const fullScreen = useMediaQuery(theme.breakpoints.down('md')) // Media query to make dialog full screen
 
   // Handles opening the dialog and either setting or removing the dialog as a favorite
+  async function handleFavorites() {
+    const favRef = doc(db,`Users/${user.uid}/Favorites`,`${degree}`)
+    const favSnap = await getDoc(favRef)
+    if (!favSnap.exists()) {
+      const degreeRef = doc(db, "Degrees", `${degree}`); // Create doc reference
+      const degreeSnap = await getDoc(degreeRef); // Get document snapshot from firestore
+      const degreeData = JSON.parse(JSON.stringify(degreeSnap.data()));
+
+      const favoriteData = {
+        degreeName: degreeData.degreeName,
+        description: degreeData.description
+      }
+
+      await setDoc(favRef, favoriteData)
+      return true;
+    }
+
+    await deleteDoc(docRef)
+    return false;
+  }
+
   const handleClickOpen = async () => {
-    const res = await favoriteHandler() // Function to favoriting the state
+    const res = await handleFavorites() // Function to favoriting the state
     setIsFavorite(res)
     setOpen(true)
   }
@@ -23,12 +49,9 @@ export default function FavoritesDialog({ favoriteHandler, initFavState}) {
 
   return (
     <div className="dialog-wrapper">
-      <div 
-        className="icon-wrapper rounded px-4 mx-2 cursor-pointer text-4xl"
-        onClick={handleClickOpen}
-      >
+      <div className="cursor-pointer" onClick={() => handleClickOpen()}>
         {/* Conditionally render either a filled start or an empty star*/}
-        {isFavorite === true ? <AiFillStar color="orange"/> : <AiOutlineStar />}
+        {isFavorite === true ? <AiFillStar className="text-3xl" color="#de9b61"/> : <AiOutlineStar className="text-3xl"/>}
       </div>
       <Dialog
         fullScreen={fullScreen}
