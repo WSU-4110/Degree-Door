@@ -6,6 +6,26 @@ import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import { db } from '../../firebase'
+import { useAuthContext } from '../../context/AuthContext'
+export default function DegreeHome({name, description, initFavState}) {
+  const router = useRouter()
+  const { user } = useAuthContext()
+
+  async function handleFavorites() {
+    const docRef = doc(db,`Users/${user.uid}/Favorites`,`${router.query.degreeID}`)
+    const docSnap = await getDoc(docRef)
+    if (!docSnap.exists()) {
+      const favoriteData = {
+        degreeName: name,
+        description: description
+      }
+      await setDoc(docRef, favoriteData)
+      return true;
+    }
+
+    await deleteDoc(docRef)
+    return false;
+  }
 
 export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
@@ -13,19 +33,19 @@ export default function DegreeHome({info, initFavState}) {
   return (
     <ProtectedRoute>
       <div className="degree-home font-Inter">
-      {/* begin nav bar for degree name */}
-      <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
+        {/* begin nav bar for degree name */}
+        <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
           <div class="container flex flex-wrap justify-between items-center mx-auto">
-              <ul className="m-auto md:text-sm md:bg-[#292c2c]">
-                <li>
-                  <p className="text-white md:p-0 uppercase">
-                  <b>{info.degreeName}</b>
-                  </p>
-                </li>
-              </ul>
+            <ul className="m-auto md:text-sm md:bg-[#292c2c]">
+              <li>
+                <p className="text-white md:p-0 uppercase">
+                <b>{info.degreeName}</b>
+                </p>
+              </li>
+            </ul>
           </div>
-        </nav>
-        {/* end nav bar for degree name */}
+         </nav>
+         {/* end nav bar for degree name */}
 
         {/* begin nav bar */}
         <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
@@ -70,15 +90,15 @@ export default function DegreeHome({info, initFavState}) {
 
         {/* begin component that dislays degree name/description */}
         <div class="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
-            <div>
-              <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
-                  {info.degreeName}
-              </div>
-              <p className="text-lg text-white uppercase text-center mb-20">
-                  {info.description}
-              </p>
+          <div>
+            <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
+              {info.degreeName}
             </div>
-            {/* end degree name/description component */}
+            <p className="text-lg text-white uppercase text-center mb-20">
+              {info.description}
+            </p>
+          </div>
+          {/* end degree name/description component */}
 
           {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">

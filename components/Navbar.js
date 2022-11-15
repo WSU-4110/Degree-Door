@@ -11,14 +11,25 @@ export default function Navbar({ user, links, children }) {
     router.push("/login")
   }
 
+
+  
   return(
     <nav className="fixed z-50 w-full top-0 flex justify-between h-16 items-center bg-[#242526] text-white shadow font-Inter" bg="light" variant="light">
+      {user !== "" ?
       <Link href={{pathname: "/", query: {userID: user}}}>
         <div className="navbar-brand cursor-pointer flex ml-4">
           Degree Door
           <img src="https://i.imgur.com/wvQkgzH.png"></img>
         </div>
       </Link>
+      :
+      <Link href="/login">
+        <div className="navbar-brand cursor-pointer flex ml-4">
+          Degree Door
+          <img src="https://i.imgur.com/wvQkgzH.png"></img>
+        </div>
+      </Link>
+      }
       <div className="navbar-links flex gap-4 mr-4">
         {/* We will map each link in the links array and map a
           different link to the Link component's href attribute */}
