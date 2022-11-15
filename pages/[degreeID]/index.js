@@ -33,7 +33,7 @@ export default function DegreeHome({info, initFavState}) {
                   </p>
                 </li>
                 <li>
-                  <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: name}}}>
+                  <Link href={{pathname: `/${router.query.degreeID}/reviews`, query: {userID: `${router.query.userID}`, degreeName: `${info.degreeName}`}}}>
                     <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
                       <b>REVIEWS</b>
                     </p>
