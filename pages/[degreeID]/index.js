@@ -6,30 +6,10 @@ import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import { db } from '../../firebase'
-import { useAuthContext } from '../../context/AuthContext'
-export default function DegreeHome({name, description, initFavState}) {
-  const router = useRouter()
-  const { user } = useAuthContext()
-
-  async function handleFavorites() {
-    const docRef = doc(db,`Users/${user.uid}/Favorites`,`${router.query.degreeID}`)
-    const docSnap = await getDoc(docRef)
-    if (!docSnap.exists()) {
-      const favoriteData = {
-        degreeName: name,
-        description: description
-      }
-      await setDoc(docRef, favoriteData)
-      return true;
-    }
-
-    await deleteDoc(docRef)
-    return false;
-  }
 
 export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
-  
+
   return (
     <ProtectedRoute>
       <div className="degree-home font-Inter">
