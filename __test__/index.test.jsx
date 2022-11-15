@@ -5,7 +5,6 @@ import '@testing-library/jest-dom'
 // Before running tests, render the mock component
 beforeEach(() => render(<MockRegister />))
 
-
 describe('Register UI Testing', () => {
 
   it('The Registration Page should render a heading that says "Sign up for Degree Door!"', () => {
