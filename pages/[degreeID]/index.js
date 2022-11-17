@@ -69,7 +69,7 @@ export default function DegreeHome({info, initFavState}) {
         {/* end nav bar */}
 
         {/* begin component that dislays degree name/description */}
-        <div className="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
+        <div className="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')] bg-no-repeat bg-cover">
           <div>
             <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
               {info.degreeName}
