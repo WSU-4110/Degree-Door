@@ -104,7 +104,7 @@ export default function Post({initFavState}) {
               </Link>
             </li>
             <li>
-              <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+              <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                 <b>POST A REVIEW</b>
               </p>
             </li>
