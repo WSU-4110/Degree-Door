@@ -10,7 +10,7 @@ describe('Degree Home Page UI Testing', () => {
         const degreeHeader = screen.getByText('Mock Degree Header')
         expect(degreeHeader).toBeInTheDocument()
     })
-    //Unite Test 2
+    //Unit Test 2
     it('The Degree Home page should render the degree logo at the top of the page', () => {
         const degreeImg = screen.getAllByRole('img' )
         expect(degreeImg).toBeInTheDocument()
