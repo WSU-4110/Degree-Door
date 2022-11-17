@@ -91,7 +91,7 @@ export default function MockDegreeHome({}) {
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
               <a target="_blank" href="https://engineering.wayne.edu/computer-science" rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
-                  Click here for more information about Wayne State's Computer Science Program!
+                  Click here for more information about Wayne States Computer Science Program!
                 </div>
               </a>
             </div>
