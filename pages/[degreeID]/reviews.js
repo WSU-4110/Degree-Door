@@ -50,7 +50,7 @@ export default function Reviews({reviews, initFavState}) {
           </div>
         </Link>
         <div className="flex md:order-2">
-            <Dropdown />
+          <Dropdown color="#292c2c"/>
         </div>
         <div className="md:flex md:w-auto">
           <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
@@ -91,7 +91,7 @@ export default function Reviews({reviews, initFavState}) {
           <div className="relative transform overflow-hidden rounded-lg shadow-xl w-full max-w-sm">
               <div className="bg-gray-50 p-4 pb-4 flex">
                 <div className="m-auto text-center">
-                  <svg aria-hidden="true" class="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <svg aria-hidden="true" className="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLineJoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <h3 className="mt-2 font-semibold text-gray-800">WARNING</h3>
                   <div>
                     <p className="mt-2 text-sm text-gray-500">Do you want to delete this review?</p>
@@ -122,8 +122,8 @@ export default function Reviews({reviews, initFavState}) {
       
     <div className="reviews-container flex flex-col mt-4 justify-center items-center">
       {/* Map over every review document and create a review component to display on the review page */}
-      {reviewData.map((review) => (
-        <div className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+      {reviewData.map((review, index) => (
+        <div key={index} className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
           <div className="flex items-center justify-between pb-4">
             <p className="course-name text-gray-700 font-bold uppercase">{review.course}</p>
             {/* begin button to delete reviews */}
@@ -151,7 +151,7 @@ export default function Reviews({reviews, initFavState}) {
               <div className="bg-white border-r-4 border-green-700 w-full p-4">
                 <div>
                   <p className="text-green-700 font-bold">PROS</p>
-                  <p className="text-gray-600 text-sm"><p>{review.pros}</p></p>
+                  <p className="text-gray-600 text-sm">{review.pros}</p>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Reviews({reviews, initFavState}) {
               <div className="bg-white border-r-4 border-[#de9b61] w-full p-4 mt-3">
                 <div>
                   <p className="text-[#de9b61] font-bold">CONS</p>
-                  <p className="text-gray-600 text-sm"><p>{review.cons}</p></p>
+                  <p className="text-gray-600 text-sm">{review.cons}</p>
                 </div>
               </div>
             </div>
