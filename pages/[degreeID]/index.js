@@ -82,22 +82,22 @@ export default function DegreeHome({info, initFavState}) {
 
           {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
-            <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href="https://engineering.wayne.edu/computer-science" rel="noreferrer"> 
+            <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
+              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
-                  Artificial intelligence, wireless sensors, bioinformatics, video game design — these are just a few of the exciting fields computer science graduates can enter. The Department of Computer Science in Wayne State's College of Engineering offers an innovative education focused on the fundamentals of computer science while emphasizing new technologies, so our graduates are ready to step right into careers. The department is closely aligned with other academic areas, including business and medicine, to give students interdisciplinary options. Our students get jobs immediately in this promising field - a field that continues to grow and evolve.
+                  {info.summary}
                 </div>
               </a>
             </div>
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href="https://engineering.wayne.edu/computer-science" rel="noreferrer"> 
+              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
-                  At Wayne State's College of Engineering, you'll learn from nationally renowned faculty experts and benefit from our High Impact Practices of Student Success: team-based learning, global perspective, undergraduate research, internships and co-ops, and community service.
+                  {info.summary2}
                 </div>
               </a>
             </div>
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href="https://engineering.wayne.edu/computer-science" rel="noreferrer"> 
+              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   Click here for more information about Wayne State's {info.degreeName} Program!
                 </div>
