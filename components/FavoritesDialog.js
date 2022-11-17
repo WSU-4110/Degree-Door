@@ -32,7 +32,7 @@ export default function FavoritesDialog({degree, initFavState}) {
       return true;
     }
 
-    await deleteDoc(docRef)
+    await deleteDoc(favRef)
     return false;
   }
 
