@@ -122,8 +122,8 @@ export default function Reviews({reviews, initFavState}) {
       
     <div className="reviews-container flex flex-col mt-4 justify-center items-center">
       {/* Map over every review document and create a review component to display on the review page */}
-      {reviewData.map((review) => (
-        <div className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
+      {reviewData.map((review, index) => (
+        <div key={index} className="review-component w-2/3 p-5 mb-4 bg-[#f9f9f9] rounded-lg border border-gray-100 dark:bg-gray-800 dark:border-gray-700">
           <div className="flex items-center justify-between pb-4">
             <p className="course-name text-gray-700 font-bold uppercase">{review.course}</p>
             {/* begin button to delete reviews */}
@@ -151,7 +151,7 @@ export default function Reviews({reviews, initFavState}) {
               <div className="bg-white border-r-4 border-green-700 w-full p-4">
                 <div>
                   <p className="text-green-700 font-bold">PROS</p>
-                  <p className="text-gray-600 text-sm"><p>{review.pros}</p></p>
+                  <p className="text-gray-600 text-sm">{review.pros}</p>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@ export default function Reviews({reviews, initFavState}) {
               <div className="bg-white border-r-4 border-[#de9b61] w-full p-4 mt-3">
                 <div>
                   <p className="text-[#de9b61] font-bold">CONS</p>
-                  <p className="text-gray-600 text-sm"><p>{review.cons}</p></p>
+                  <p className="text-gray-600 text-sm">{review.cons}</p>
                 </div>
               </div>
             </div>
