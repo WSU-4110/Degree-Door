@@ -11,7 +11,7 @@ export default function MockDegreeHome({}) {
             <ul className="m-auto md:text-sm md:bg-[#292c2c]">
               <li>
                 <p className="text-white md:p-0 uppercase">
-                <b>Mock Degree</b>
+                Mock Degree Header
                 </p>
               </li>
             </ul>
