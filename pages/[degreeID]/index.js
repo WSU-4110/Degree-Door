@@ -82,27 +82,27 @@ export default function DegreeHome({info, initFavState}) {
 
           {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
-            <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.website} rel="noreferrer"> 
+            <a target="_blank" href={info.website} rel="noreferrer"> 
+              <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   {info.summary}
                 </div>
-              </a>
-            </div>
-            <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.website} rel="noreferrer"> 
+              </div>
+            </a>
+            <a target="_blank" href={info.website} rel="noreferrer"> 
+              <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   {info.summary2}
                 </div>
-              </a>
-            </div>
-            <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.website} rel="noreferrer"> 
+              </div>
+            </a>
+            <a target="_blank" href={info.website} rel="noreferrer"> 
+              <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   Click here for more information about Wayne State's {info.degreeName} Program!
-                </div>
-              </a>
-            </div>
+                </div> 
+              </div>
+            </a>
           </div>
           {/* end grid */}
         </div>
