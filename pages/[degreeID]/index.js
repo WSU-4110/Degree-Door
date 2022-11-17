@@ -41,7 +41,7 @@ export default function DegreeHome({info, initFavState}) {
             <div className="md:flex md:w-auto">
               <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
                 <li>
-                  <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+                  <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                     <b>OVERVIEW</b>
                   </p>
                 </li>
@@ -83,21 +83,21 @@ export default function DegreeHome({info, initFavState}) {
           {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             <div className="cursor-pointer min-h-[20rem] flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
+              <a target="_blank" href={info.website} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   {info.summary}
                 </div>
               </a>
             </div>
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
+              <a target="_blank" href={info.website} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   {info.summary2}
                 </div>
               </a>
             </div>
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
-              <a target="_blank" href={info.websiteLink} rel="noreferrer"> 
+              <a target="_blank" href={info.website} rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
                   Click here for more information about Wayne State's {info.degreeName} Program!
                 </div>
@@ -127,7 +127,7 @@ export async function getServerSideProps(context) {
   return {
     props: { 
       initFavState: initFavState,
-      info: degreeInfo,
+      info: degreeInfo
     }
   };
 }
