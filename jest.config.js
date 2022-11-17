@@ -18,7 +18,11 @@ const customJestConfig = {
   testPathIgnorePatterns: ['<rootDir>/node_modules/', '<rootDir>/.next/', '<rootDir>/functions'],
   transform: { '\\.m?[jt]sx?$': ['babel-jest', { presets: ['next/babel'] }] },
   transformIgnorePatterns: ['/node_modules/(?!(firebase)/)', '^.+\\.module\\.(css|sass|scss)$'],
+  "modulePaths": [
+    "<rootDir>"
+  ],
 }
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 module.exports = createJestConfig(customJestConfig)
+

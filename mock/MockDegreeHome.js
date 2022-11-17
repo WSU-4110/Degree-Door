@@ -20,7 +20,7 @@ export default function MockDegreeHome({}) {
          {/* end nav bar for degree name */}
 
         {/* begin nav bar */}
-        <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
+        <nav data-testid="nav" className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
             <a href={{pathname: "/", query: {userID: "user1234"}}}>
               <div className="navbar-brand cursor-pointer flex">
@@ -61,7 +61,7 @@ export default function MockDegreeHome({}) {
         {/* end nav bar */}
 
         {/* begin component that dislays degree name/description */}
-        <div className="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
+        <div data-testid='degreenamedescription' className="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')]">
           <div>
             <div className="display-degree-name font-bold text-white uppercase text-5xl text-center mt-[120px]">
               Mock Degree
@@ -73,7 +73,7 @@ export default function MockDegreeHome({}) {
           {/* end degree name/description component */}
 
           {/* begin grid to display degree info */}
-          <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
+          <div data-testid='degreegridinfo' className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             <div className="cursor-pointer flex items-center justify-center rounded-md p-4 mb-4 shadow-md border-t-4 border-[#de9b61] bg-[#f9f9f9] transition hover:scale-90 duration-200 ease-in-out">
               <a target="_blank" href="https://engineering.wayne.edu/computer-science" rel="noreferrer"> 
                 <div className="ml-3 text-sm font-medium text-[#292c2c]">
