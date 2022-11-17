@@ -36,7 +36,7 @@ export default function DegreeHome({info, initFavState}) {
               </div>
             </Link>
             <div className="flex md:order-2">
-                <Dropdown />
+              <Dropdown color="#292c2c"/>
             </div>
             <div className="md:flex md:w-auto">
               <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
