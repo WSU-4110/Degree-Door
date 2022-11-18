@@ -1,5 +1,5 @@
 import { useState } from 'react'
-
+import { IoMdThumbsUp, IoMdThumbsDown } from 'react-icons/io';
 
 export default function Reviews() {
   const [reviewData, setReviewData] = useState()
@@ -28,7 +28,7 @@ export default function Reviews() {
       <div class="container flex flex-wrap justify-between items-center mx-auto">
         <a href={{pathname: "/", query: {userID: "user"}}}>
           <div className="navbar-brand cursor-pointer flex">
-            <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+            <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>DegreeDoor</b>
           </div>
         </a>
         <div className="flex md:order-2">
