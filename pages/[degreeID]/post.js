@@ -85,7 +85,7 @@ export default function Post({initFavState}) {
           </div>
         </Link>
         <div className="flex md:order-2">
-            <Dropdown />
+          <Dropdown color="#292c2c"/>
         </div>
         <div className="md:flex md:w-auto">
           <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
@@ -104,7 +104,7 @@ export default function Post({initFavState}) {
               </Link>
             </li>
             <li>
-              <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
+              <p className="cursor-pointer block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
                 <b>POST A REVIEW</b>
               </p>
             </li>
@@ -127,7 +127,7 @@ export default function Post({initFavState}) {
           <div className="relative transform overflow-hidden rounded-lg shadow-xl w-full max-w-sm">
               <div className="bg-gray-50 p-4 pb-4 flex">
                 <div className="mt-0 ml-10 text-center">
-                  <svg aria-hidden="true" class="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <svg aria-hidden="true" class="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                   <h3 className="mt-2 font-semibold text-gray-800">WARNING</h3>
                   <div>
                       <p className="mt-2 text-sm text-gray-500">Please fill out all fields before submitting!</p>

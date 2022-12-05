@@ -1,18 +1,7 @@
 import Link from 'next/link'
-import { useRouter } from 'next/router'
-import { auth } from '../firebase'
 
 export default function Navbar({ user, links, children }) {
 
-  const router = useRouter()
-
-  async function handleClick() {
-    await auth.signOut()
-    router.push("/login")
-  }
-
-
-  
   return(
     <nav className="fixed z-50 w-full top-0 flex justify-between h-16 items-center bg-[#242526] text-white shadow font-Inter" bg="light" variant="light">
       {user !== "" ?
