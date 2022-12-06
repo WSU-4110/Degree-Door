@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Dropdown from '../components/Dropdown'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
-import Footer from './Footer';
+import Footer from '../components/Footer'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
 import { db } from '../firebase'
 
