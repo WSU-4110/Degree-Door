@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm test:once:group:no-integration && next build",
+    "build": "yarn test:once:group:no-integration && next build",
     "start": "next start",
     "lint": "next lint",
     "test": "jest --watchAll"
