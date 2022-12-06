@@ -90,7 +90,7 @@ describe('Login UI', () => {
 // Majeda Ullah's Unit Testing
 describe('Create Post UI Testing', () => {
   beforeEach(() => render(<MockPost />))
-  
+
   it('The Create Post page should render a top label that says the name of the degree', () => {
     const degreeName = screen.getByText("Mock Degree")
 
@@ -126,4 +126,40 @@ describe('Create Post UI Testing', () => {
 
     expect(goBackButton).toBeInTheDocument()
   })
+})
+
+// Zwar Ahmed's Unit Testing
+describe('Register UI Testing', () => {
+  beforeEach(() => render(<MockRegister />))
+
+  it('The Registration Page should render a heading that says "Sign up for Degree Door!"', () => {
+    const signUpHeading = screen.getByRole('heading', {name: /Sign up for Degree Door\!/i})
+    expect(signUpHeading).toBeInTheDocument()
+  })
+
+  it('The Registration Page should render a label that says "First Name" above the first name section', () => {
+    const firstNameHeading = screen.getByText("First Name")
+    expect(firstNameHeading).toBeInTheDocument()
+  })
+
+  it('The Registration Page should render a label that says "Last Name" above the last name section', () => {
+    const lastNameHeading = screen.getByText("Last Name")
+    expect(lastNameHeading).toBeInTheDocument()
+  })
+
+  it('The Registration Page should render a label that says "Email" above the Email section', () => {
+    const emailHeading = screen.getByText("Email")
+    expect(emailHeading).toBeInTheDocument()
+  })
+
+  it('The Registeration Form should render a sign up button', () => {
+    const signUpButton = screen.getByRole('button', {name: /Sign-up\!/i})
+    expect(signUpButton).toBeInTheDocument()
+  })
+
+  it('The Registeration Form should render a log in button', () => {
+    const returnToLoginButton = screen.getByRole('button', {name: /Return to login\!/i})
+    expect(returnToLoginButton).toBeInTheDocument()
+  })
+
 })
