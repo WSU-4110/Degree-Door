@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import Dropdown from '../components/Dropdown'
 import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
+import Footer from './Footer';
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
 import { db } from '../firebase'
 
@@ -42,6 +43,9 @@ export default function Home({degreeDocs, favDegrees}) {
               </Link>
             </div>
             ))}
+            <div>
+              <Footer />
+            </div>
           </div>
         </div>
       </div>
