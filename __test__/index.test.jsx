@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import MockDegreeHome from '../mock/MockDegreeHome'
+import { MockDegreeHome, MockLogin, MockPost,
+MockRegister, MockResetPassword, MockReview } from '../mock'
 
 // Ali Farhat's Unit Testing
 describe('Degree Home Page UI Testing', () => {
