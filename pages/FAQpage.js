@@ -32,7 +32,33 @@ export default function FAQs(){
 
             <div className="border-b mb-8"></div>
 
-            
+            <div className="p-4 bg-white rounded-lg border border-gray-200 mb-6">
+              <div className="justify-between items-center mb-3 sm:flex">
+                  <a href="#" className="text-sm font-semibold text-gray-900">What is DegreeDoor?</a>
+              </div>
+              <div className="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+
+            <div className="p-4 bg-white rounded-lg border border-gray-200 mb-6">
+              <div className="justify-between items-center mb-3 sm:flex">
+                  <a href="#" className="text-sm font-semibold text-gray-900">Lorem ipsum dolor sit amet?</a>
+              </div>
+              <div class="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+            </div>
+
+            <div className="p-4 bg-white rounded-lg border border-gray-200 mb-6">
+              <div className="justify-between items-center mb-3 sm:flex">
+                  <a href="#" className="text-sm font-semibold text-gray-900">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore aliqua?</a>
+              </div>
+              <div className="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+            </div>
+
+            <div className="p-4 bg-white rounded-lg border border-gray-200 mb-6">
+              <div className="justify-between items-center mb-3 sm:flex">
+                  <a href="#" className="text-sm font-semibold text-gray-900">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur?</a>
+              </div>
+              <div className="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+            </div>
           </div>
         </div>
       </div>
