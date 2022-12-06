@@ -10,8 +10,8 @@ export default function Reviews() {
   return (
     <div className="degree-home bg-white font-Inter relative">
     {/* begin nav bar for degree name */}
-    <nav class="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
-      <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <nav className="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
+      <div className="container flex flex-wrap justify-between items-center mx-auto">
         <ul className="m-auto md:text-sm md:bg-[#292c2c]">
           <li>
             <p className="text-white md:p-0 uppercase">
@@ -24,11 +24,11 @@ export default function Reviews() {
     {/* end nav bar for degree name */}
 
     {/* begin nav bar */}
-    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-      <div class="container flex flex-wrap justify-between items-center mx-auto">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
+      <div className="container flex flex-wrap justify-between items-center mx-auto">
         <a href={{pathname: "/", query: {userID: "user"}}}>
           <div className="navbar-brand cursor-pointer flex">
-            <img class="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>DegreeDoor</b>
+            <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>DegreeDoor</b>
           </div>
         </a>
         <div className="flex md:order-2">
@@ -56,7 +56,7 @@ export default function Reviews() {
             </a>
             </li>
             <li>
-                <p>STAR</p>
+              <p>STAR</p>
               {/* <FavoritesDialog degree={router.query.degreeID} initFavState={initFavState}/> */}
             </li>
           </ul>
