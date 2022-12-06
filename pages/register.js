@@ -14,7 +14,7 @@ export default function Register() {
   const { auth, db } = useAuthContext()
 
   // Keep style of input elements in the register page as one variable
-  const commonInputStyle = "field-input border-2 border-slate-200 outline-0 rounded-md w-full mt-2 p-4 hover:shadow duration-200 ease-in-out"
+  const commonInputStyle = "field-input border-2 border-gray-400 outline-0 rounded-md w-full mt-2 p-4 hover:shadow duration-200 ease-in-out"
 
   // Keep track of state to show an alert
   const [showAlert, setShowAlert] = useState(false)
@@ -97,7 +97,7 @@ export default function Register() {
   return (
     <>
       <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
-      <div className="register-page min-h-screen min-w-screen bg-gray-100">
+      <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">
           {/* The following component is a Material UI component that will
@@ -115,7 +115,7 @@ export default function Register() {
           </Zoom>
             <h1 className="signup-h1 mb-4 text-2xl">Sign up for Degree Door!</h1>
             <h6 className="signup-h6 mb-8 text-gray-500">Let's get you set up so you can start reviewing degrees.</h6>
-            <div className="form-wrapper bg-white rounded shadow-md px-6 py-8">
+            <div className="form-wrapper bg-white rounded shadow-float px-6 py-8">
               <form className="form-section grid grid-cols-2 text-xl gap-8" onSubmit={handleSubmit}>
                 {/*
                   Each field-wrapper div will resize itself to fit within the grid
@@ -212,12 +212,14 @@ export default function Register() {
                 >
                   Sign-up!
                 </button>
-                <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
-                  ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
-                  type="button"
-                >
-                  <Link href="/login">Return to login!</Link>
-                </button>
+                <Link href="/login">
+                  <button className="signup-submit-button bg-green-600 hover:bg-green-500 hover:scale-90 duration-300
+                    ease-in-out text-white rounded-full mt-6 p-4 cursor-pointer justify-between items-center"
+                    type="button"
+                  >
+                    Return to login!
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
