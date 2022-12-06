@@ -43,12 +43,12 @@ export default function Home({degreeDocs, favDegrees}) {
               </Link>
             </div>
             ))}
-            <div>
-              <Footer />
-            </div>
           </div>
         </div>
       </div>
+    <div>
+              <Footer />
+    </div>
     </ProtectedRoute>
   )
 }
