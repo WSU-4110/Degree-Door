@@ -2,6 +2,8 @@ import Dropdown from "../components/Dropdown"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
+import Footer from "../components/Footer"
+
 export default function FAQs(){
   const router = useRouter()
   return(
@@ -14,15 +16,11 @@ export default function FAQs(){
               <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
             </div>
           </Link>
-            <div className='flex ml-[225px] text-green-700'>
-              <b>FAQs</b>
-            </div>
-          <div className="flex md:order-2">
-            <Dropdown color="#292c2c"/>
+          <div className='text-green-700 mr-[4.5rem]'>
+            <b>FAQs</b>
           </div>
-          <div className="md:flex md:w-auto">
-            <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
-            </ul>
+          <div className="flex md:order-2">
+            {router.query.userID && <Dropdown color="#292c2c"/> }
           </div>
         </div>
       </nav>
@@ -67,7 +65,7 @@ export default function FAQs(){
           </div>
         </div>
       </div>
+      <Footer userID={router.query.userID} />
     </div>
-
   )
 }
