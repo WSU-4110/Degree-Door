@@ -32,7 +32,7 @@ export default function Home({degreeDocs, favDegrees}) {
       <div className="relative h-[200px] mt-5 mb-14 w-auto bg-white">
         {/* <img src='https://i.imgur.com/FVOB96X.png' className='h-20 w-20'></img> */}
         <h1 className="absolute text-4xl top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">Welcome to DegreeDoor</h1>
-        <p className="absolute top-[110px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-3 font-light text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
+        <p className="absolute top-[110px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-3 font-light text-center text-gray-500 dark:text-gray-400">A collaborative space allowing students and faculty to share their experiences with upcoming students.  Providing information of courses, degrees, and work loads in a forum like style allowing access to inside information. The one stop shop for all things college, course, and degree related!</p>
         <p className='absolute top-[180px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black'>
           <button type="button" class="text-white bg-green-900 hover:bg-green-800 font-medium rounded-md text-sm px-4 py-2 text-center inline-flex">
             Learn More
