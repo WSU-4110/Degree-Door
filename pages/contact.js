@@ -12,25 +12,22 @@ export default function Contact(){
   return(
     <div>
       {/* begin nav bar */}
-      <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <Link href={router.query.userID !== "" ? {pathname: "/", query: {userID: router.query.userID}} : "/"}>
+      <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 dark:bg-gray-900 shadow-md">
+        <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
+          <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
             <div className="navbar-brand cursor-pointer flex">
-              <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+              <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png%22%3E"/><b>egreeDoor</b>
             </div>
           </Link>
-            <div className='flex ml-[225px] text-green-700'>
-              <b>Contact Us</b>
-            </div>
-          <div className="flex md:order-2">
-            <Dropdown color="#292c2c"/>
+          <div className='text-white mr-[4.5rem]'>
+            <b>Contact Us</b>
           </div>
-          <div className="md:flex md:w-auto">
-            <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
-            </ul>
+          <div className="flex md:order-2">
+            {router.query.userID && <Dropdown color="#292c2c"/> }
           </div>
         </div>
       </nav>
+      {/* end nav bar */}
       { openSuccess && <ContactSuccessDialog setOpenSuccess={setOpenSuccess}/>}
       {/* end nav bar */}
       <div className="bg-[#f9f9f9] grid">
