@@ -5,6 +5,11 @@
 
 <!-- PROJECT LOGO -->
 <br />
+<p align="center">
+  <a href="https://degree-door.vercel.app/login">
+    <img src="https://i.imgur.com/PUIKaAn.png" alt="logo" width="300"/>
+  </a>
+</p>
 <div align="center">
   
 <h1 align="center">Degree Door</h1>
