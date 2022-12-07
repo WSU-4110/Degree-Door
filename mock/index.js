@@ -1,0 +1,6 @@
+export { default as MockDegreeHome } from './MockDegreeHome'
+export { default as MockLogin } from './MockLogin'
+export { default as MockPost } from './MockPost'
+export { default as MockRegister } from './MockRegister'
+export { default as MockResetPassword } from './MockResetPassword'
+export { default as MockReview } from './MockReview'
