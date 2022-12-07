@@ -1,18 +1,10 @@
-import Link from 'next/link'
 import Alert from '@mui/material/Alert';
-import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { sendPasswordResetEmail } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 
 import bg from '../public/oldMain.jpg'
-import Navbar from "../components/Navbar"
-import { useAuthContext } from '../context/AuthContext'
 
-export default function ResetPassword() {
-  // Gain auth from auth context
-  const { auth } = useAuthContext()
-
+export default function MockResetPassword() {
   // Keep track of state to show an alert.
   const [showAlert, setShowAlert] = useState(false)
 
@@ -45,18 +37,6 @@ export default function ResetPassword() {
   // Create a handleSubmit function for the data of the form.
   async function handleSubmit(event) {
     event.preventDefault() // Prevent page from refreshing.
-
-    try {
-      await sendPasswordResetEmail(auth, formData.email.trim())
-      setAlertSeverity("success")
-      setAlertMessage("Email sent successfully")
-    } catch (error) {
-      // If reset-pass failed, display error message in the form
-      // of an alert dialog.
-      setAlertSeverity("error")
-      setAlertMessage("Wrong email/password")
-    }
-    setShowAlert(true)
   }
 
   return (
@@ -66,7 +46,7 @@ export default function ResetPassword() {
       to which send the password reset email to.
     */ 
     <>
-      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      {/* <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/> */}
       <div 
         className="reset-pass-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
         style={{backgroundImage: `url(${bg.src})`}}
@@ -93,7 +73,7 @@ export default function ResetPassword() {
                 {alertMessage}
               </Alert>
             </Zoom>
-            <form className="form-wrapper p-10 bg-white m-auto rounded-xl min-w-2/3 shadow-float" onSubmit={handleSubmit}>
+            <form data-testid="resetForm" className="form-wrapper p-10 bg-white m-auto rounded-xl min-w-2/3 shadow-float" onSubmit={handleSubmit}>
               <div className="form-text mb-4 flex flex-col items-center">
                 <h2 className="font-bold text-2xl mb-4">Reset Password</h2>
                 <p>Enter the email that is associated with your Degree Door account</p>
@@ -115,14 +95,14 @@ export default function ResetPassword() {
               >
                 Send password reset email!
               </button>
-              <Link href="/login">
+              <a href="/login">
                 <button type="button" className="go-to-register-page-btn w-full justify-center bg-green-600 
                 hover:bg-green-400 hover:scale-90 text-gray-100 p-3 rounded-full tracking-wide 
                 font-semibold shadow-lg cursor-pointer transition ease-in-out duration-300"
                 >
                 Return to login page!
                 </button>
-              </Link>
+              </a>
             </form>
           </div>
         </div>
