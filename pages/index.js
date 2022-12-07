@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { collection, query, getDocs } from "firebase/firestore"
 import { useRouter } from 'next/router'
 
