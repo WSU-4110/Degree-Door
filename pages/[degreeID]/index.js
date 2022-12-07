@@ -25,8 +25,7 @@ export default function DegreeHome({info, initFavState}) {
             </ul>
           </div>
          </nav>
-         {/* end nav bar for degree name */}
-
+        {/* end nav bar for degree name */}
         {/* begin nav bar */}
         <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-[#292c2c]">
           <div className="container flex flex-wrap justify-between items-center mx-auto">
