@@ -42,7 +42,7 @@ export default function Home({degreeDocs, favDegrees}) {
       </div>
       <Carousel degrees={degreeDocs} user={router.query.userID}/>
 
-      <div className='font-mono mt-20 mb-10 mx-4'>
+      <div className='font-mono mt-[80px] mb-10 mx-4'>
         <div className="flex flex-col justify-center items-center">
           <h2 className="mb-4 text-2xl font-bold">Favorited Degrees</h2>   
           <div className='flex items-center justify-center gap-4 w-full h-full'>
