@@ -20,9 +20,9 @@ export default function Carousel({degrees}) {
         </div>
         <Link href={{pathname: `/${currentDegree.link}`, query: {userID: router.query.userID}}}>
           <div className="rounded-md carousel-item active relative w-10/12 h-[19rem] bg-no-repeat bg-cover
-            bg-[url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp')] flex justify-center flex-col items-center cursor-pointer"
+            bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')] flex justify-center flex-col items-center cursor-pointer"
           >
-            <p className="m-auto text-white text-8xl text-center">{currentDegree.name}</p>
+            <p className="m-auto text-white font-bold uppercase text-5xl text-center">{currentDegree.name}</p>
           </div>
         </Link>
         <div className="cursor-pointer hover:opacity-70" onClick={() => handleClick(currentIndex === degrees.length - 1 ? 0 : currentIndex+1)}>
