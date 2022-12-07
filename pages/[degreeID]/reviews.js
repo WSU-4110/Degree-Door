@@ -27,14 +27,13 @@ export default function Reviews({reviews, initFavState}) {
   return (
     <div className="degree-home bg-white font-Inter relative">
       <DegreeNavbar degreeName={router.query.degreeName} degreeID={router.query.degreeID} userID={router.query.userID} initFavState={initFavState} active="reviews" />
-
       {/* begin delete button dialog box */}
       {openDeletion && <DeleteReviewConfirmation toBeDeleted={toBeDeleted} handleDelete={handleDelete} setOpenDeletion={setOpenDeletion} />}
       {/* end delete button dialog box */}
       <div className="reviews-container flex flex-col mt-4 justify-center items-center">
         {/* Map over every review document and create a review component to display on the review page */}
         {reviewData.map((review, index) => (
-          <ReviewComponent key={index} review={review} currentUserID={router.query.userID} handleClick={confirmDelete} />
+        <ReviewComponent key={index} review={review} currentUserID={router.query.userID} handleClick={confirmDelete} />
         ))}
       </div>
     </div>
