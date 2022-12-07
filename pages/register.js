@@ -7,6 +7,7 @@ import { Zoom } from '@mui/material'
 import { doc, setDoc } from 'firebase/firestore'
 
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { useAuthContext } from '../context/AuthContext';
 
 export default function Register() {
@@ -96,7 +97,7 @@ export default function Register() {
   // Render the following onto the register page
   return (
     <>
-      <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
       <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">
@@ -228,6 +229,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer userID=""/>
     </>
   )
 }
