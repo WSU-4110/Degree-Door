@@ -1,9 +1,6 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { doc, getDoc } from 'firebase/firestore'
 
-import Dropdown from '../../components/Dropdown'
-import FavoritesDialog from '../../components/FavoritesDialog'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import DegreeNavbar from '../../components/DegreeNavBar'
 import { db } from '../../firebase'
