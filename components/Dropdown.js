@@ -31,7 +31,7 @@ export default function Dropdown({ color }) {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button 
-            className={`text-[white] bg-transparent hover:bg-transparent rounded-lg text-sm px-2.5 py-2.5`}
+            className={`text-[${color}] bg-transparent hover:bg-transparent rounded-lg text-sm px-2.5 py-2.5`}
           >
             <BsFillGearFill className="text-lg"/>
           </Menu.Button>

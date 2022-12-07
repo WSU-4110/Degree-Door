@@ -1,9 +1,7 @@
-import Link from 'next/link'
 import { collection, query, getDocs } from "firebase/firestore"
 import { useRouter } from 'next/router'
 
 import Dropdown from '../components/Dropdown'
-import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
 import Footer from '../components/Footer'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
