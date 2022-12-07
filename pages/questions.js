@@ -9,14 +9,14 @@ export default function FAQs(){
   return(
     <div>
       {/* begin nav bar */}
-      <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 dark:bg-gray-900 shadow-md">
+        <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
           <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
             <div className="navbar-brand cursor-pointer flex">
-              <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+              <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
             </div>
           </Link>
-          <div className='text-green-700 mr-[4.5rem]'>
+          <div className='text-white mr-[4.5rem]'>
             <b>FAQs</b>
           </div>
           <div className="flex md:order-2">
