@@ -2,13 +2,16 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { collection, query, getDocs, getDoc, orderBy, deleteDoc, doc } from "firebase/firestore"
 
-import DegreeNavbar from '../../components/DegreeNavBar'
+import DegreeNavbar from '../../components/DegreeNavbar'
 import ReviewComponent from '../../components/ReviewComponent'
 import DeleteReviewConfirmation from '../../components/Dialogs/DeleteReviewConfirmation'
 import { db } from '../../firebase' 
+import ProtectedRoute from '../../components/HOC/ProtectedRoute'
+import Footer from '../../components/Footer'
 
 export default function Reviews({reviews, initFavState}) {
   const router = useRouter()
+  const { degreeName, degreeID, userID } = router.query
   const [reviewData, setReviewData] = useState(reviews)
   const [toBeDeleted, setToBeDeleted] = useState("")
   const [openDeletion, setOpenDeletion] = useState(false)
@@ -25,18 +28,21 @@ export default function Reviews({reviews, initFavState}) {
   }
 
   return (
-    <div className="degree-home bg-white font-Inter relative">
-      <DegreeNavbar degreeName={router.query.degreeName} degreeID={router.query.degreeID} userID={router.query.userID} initFavState={initFavState} active="reviews" />
-      {/* begin delete button dialog box */}
-      {openDeletion && <DeleteReviewConfirmation toBeDeleted={toBeDeleted} handleDelete={handleDelete} setOpenDeletion={setOpenDeletion} />}
-      {/* end delete button dialog box */}
-      <div className="reviews-container flex flex-col mt-4 justify-center items-center">
-        {/* Map over every review document and create a review component to display on the review page */}
-        {reviewData.map((review, index) => (
-        <ReviewComponent key={index} review={review} currentUserID={router.query.userID} handleClick={confirmDelete} />
-        ))}
+    <ProtectedRoute>
+      <div className="degree-home bg-white font-Inter relative">
+        <DegreeNavbar degreeName={degreeName} degreeID={degreeID} userID={userID} initFavState={initFavState} active="reviews" />
+        {/* begin delete button dialog box */}
+        {openDeletion && <DeleteReviewConfirmation toBeDeleted={toBeDeleted} handleDelete={handleDelete} setOpenDeletion={setOpenDeletion} />}
+        {/* end delete button dialog box */}
+        <div className="reviews-container flex flex-col mt-4 justify-center items-center">
+          {/* Map over every review document and create a review component to display on the review page */}
+          {reviewData.map((review, index) => (
+          <ReviewComponent key={index} review={review} currentUserID={userID} handleClick={confirmDelete} />
+          ))}
+        </div>
+        <Footer userID={userID}/>
       </div>
-    </div>
+    </ProtectedRoute>
   )
 }
 
