@@ -1,9 +1,5 @@
-import React from 'react';
-//import '../styles/Footer.css';
-
-function Footer() {
-  return (
-    
+export default function Footer() {
+  return ( 
     <footer class="p-4 bg-white sm:p-6 dark:bg-gray-900">
     	<div class="md:flex md:justify-between">
         <div class="mb-6 md:mb-0">
@@ -61,5 +57,3 @@ function Footer() {
     </footer>
   )
 }
-
-export default Footer
