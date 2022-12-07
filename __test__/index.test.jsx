@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, cleanup } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import { MockDegreeHome, MockLogin, MockPost,
 MockRegister, MockResetPassword, MockReview } from '../mock'
@@ -6,6 +6,7 @@ MockRegister, MockResetPassword, MockReview } from '../mock'
 // Ali Farhat's Unit Testing
 describe('Degree Home Page UI Testing', () => {
     beforeEach(() => render(<MockDegreeHome />))
+    afterEach(cleanup)
 
     //Unit Test 1
     it('The Degree Home page should render the degree header at the top of the page', () => {
@@ -41,6 +42,7 @@ describe('Degree Home Page UI Testing', () => {
 // Patrick Ducusin's Unit Testing
 describe('Login UI', () => {
   beforeEach(() => render(<MockLogin />))
+  afterEach(cleanup)
 
   it('The login page should render a heading that says "Welcome to Degree Door" ', () => {
 
@@ -91,6 +93,7 @@ describe('Login UI', () => {
 // Majeda Ullah's Unit Testing
 describe('Create Post UI Testing', () => {
   beforeEach(() => render(<MockPost />))
+  afterEach(cleanup)
 
   it('The Create Post page should render a top label that says the name of the degree', () => {
     const degreeName = screen.getByText("Mock Degree")
@@ -132,6 +135,7 @@ describe('Create Post UI Testing', () => {
 // Zwar Ahmed's Unit Testing
 describe('Register UI Testing', () => {
   beforeEach(() => render(<MockRegister />))
+  afterEach(cleanup)
 
   it('The Registration Page should render a heading that says "Sign up for Degree Door!"', () => {
     const signUpHeading = screen.getByRole('heading', {name: /Sign up for Degree Door\!/i})
@@ -168,6 +172,7 @@ describe('Register UI Testing', () => {
 // Elijah Adeniji's Unit Testing
 describe('Reset Password Page UI Testing', () => {
   beforeEach(() => render(<MockResetPassword />))
+  afterEach(cleanup)
 
   it('The Reset Password page should render a header that says "Reset Your Password!"', () => {
       const resetHeader = screen.getByRole('heading', {name: /Reset Your Password\!/i})
@@ -203,6 +208,7 @@ describe('Reset Password Page UI Testing', () => {
 // Grey Slatina's Unit Testing
 describe('Review Page UI Testing', () => {
   beforeEach(() => render(<MockReview />))
+  afterEach(cleanup)
 
   it('Review Page should render a label at the top that says the degree', () => {
       const reviewDegreeLabel = screen.getByText("Mock Degree")
