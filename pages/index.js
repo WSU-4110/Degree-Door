@@ -27,7 +27,7 @@ export default function Home({degreeDocs, favDegrees}) {
           <h2 className="mb-4 text-2xl font-bold">Favorited Degrees</h2>   
           <div className='flex gap-4 mx-auto w-full h-full'>
             {favDegrees && favDegrees.map((degree, index) => (
-              <FavoriteDegree degree={degree} user={router.query.userID} />
+              <FavoriteDegree key={index} degree={degree} user={router.query.userID} />
             ))}
           </div>
         </div>
