@@ -33,9 +33,7 @@ export default function Home({degreeDocs, favDegrees}) {
           </div>
         </div>
       </div>
-    <div>
-              <Footer />
-    </div>
+      <Footer userID={userID}/>
     </ProtectedRoute>
   )
 }
