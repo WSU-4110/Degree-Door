@@ -1,36 +1,51 @@
-import React, { useState } from "react";
+import { useState } from "react"
+import { db } from "../firebase"
 
-const FORM_ENDPOINT = ""; // TODO - fill on the later step
+export default function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  })
 
-const ContactForm = () => {
-  const [submitted, setSubmitted] = useState(false);
-  const handleSubmit = () => {
-    setTimeout(() => {
-      setSubmitted(true);
-    }, 100);
-  };
-
-  if (submitted) {
-    return (
-      <>
-        <div className="text-2xl">Thank you!</div>
-        <div className="text-md">We'll be in touch soon.</div>
-      </>
-    );
+  function handleChange(event) {
+    const { name, value } = event.target
+    setFormData(prevFormData => {
+      return {
+        ...prevFormData,
+        [name]: value
+      }
+    })
+  }
+  
+  const handleSubmit = async () => {
+    const contactRef = collection(db, `ContactMessages`)
+    const contactData = {
+      timeStamp: serverTimestamp(),
+      course: formData.course,
+      pros: formData.pros,
+      cons: formData.cons,
+      userID: router.query.userID
+    }
+    await addDoc(contactRef, contactData)
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    })
   }
 
   return (
     <form
-      action={FORM_ENDPOINT}
       onSubmit={handleSubmit}
-      method="POST"
-      target="_blank"
     >
       <div className="mb-3 pt-0">
         <input
           type="text"
           placeholder="Your name"
           name="name"
+          value={formData.name}
+          onChange={handleChange}
           className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
           required
         />
@@ -40,6 +55,8 @@ const ContactForm = () => {
           type="email"
           placeholder="Email"
           name="email"
+          value={formData.email}
+          onChange={handleChange}
           className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
           required
         />
@@ -48,6 +65,8 @@ const ContactForm = () => {
         <textarea
           placeholder="Your message"
           name="message"
+          value={formData.message}
+          onChange={handleChange}
           className="px-3 py-3 placeholder-gray-400 text-gray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
           required
         />
@@ -61,7 +80,5 @@ const ContactForm = () => {
         </button>
       </div>
     </form>
-  );
-};
-
-export default ContactForm;
+  )
+}
