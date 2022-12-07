@@ -29,7 +29,7 @@ export default function Home({degreeDocs, favDegrees}) {
         </div>
       </nav>
 
-      <div className="relative h-[200px] mb-8 w-auto bg-white">
+      <div className="relative h-[200px] mt-5 mb-14 w-auto bg-white">
         {/* <img src='https://i.imgur.com/FVOB96X.png' className='h-20 w-20'></img> */}
         <h1 className="absolute text-4xl top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">Welcome to DegreeDoor</h1>
         <p className="absolute top-[110px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-3 font-light text-center text-gray-500 dark:text-gray-400">Track work across the enterprise through an open, collaborative platform. Link issues across Jira and ingest data from other software development tools, so your IT support and operations teams have richer contextual information to rapidly respond to requests, incidents, and changes.</p>
@@ -42,7 +42,7 @@ export default function Home({degreeDocs, favDegrees}) {
       </div>
       <Carousel degrees={degreeDocs} user={router.query.userID}/>
 
-      <div className='font-mono mt-80 mb-10 mx-4'>
+      <div className='font-mono mt-20 mb-10 mx-4'>
         <div className="flex flex-col">
           <h2 className="mb-4 text-2xl font-bold">Favorited Degrees</h2>   
           <div className='flex gap-4 mx-auto w-full h-full'>
