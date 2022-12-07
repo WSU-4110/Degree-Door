@@ -7,7 +7,7 @@
     "build": "next build && npm run test",
     "start": "next start",
     "lint": "next lint",
-    "test": "NODE_ENV=test jest --watchAll "
+    "test": "jest --env=test"
   },
   "dependencies": {
     "@emotion/react": "^11.10.4",
