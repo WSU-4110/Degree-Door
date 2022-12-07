@@ -33,7 +33,7 @@ export default function Home({degreeDocs, favDegrees}) {
           </div>
         </div>
       </div>
-      <Footer userID={userID}/>
+      <Footer userID={router.query.userID}/>
     </ProtectedRoute>
   )
 }
