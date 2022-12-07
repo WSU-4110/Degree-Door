@@ -9,7 +9,7 @@ export default function Footer() {
     	<div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
           <Link href={{pathname: "/", query: {userID: router.query.userID}}}   className="flex items-center">
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Degree Door</span>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white cursor-pointer">Degree Door</span>
           </Link>
         </div>
 				<div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
@@ -17,17 +17,17 @@ export default function Footer() {
 						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
 						<ul className="text-gray-600 dark:text-gray-400">
 							<li className="mb-4">
-								<Link href="#"><p className="hover:underline">Contact Us</p></Link>
+								<Link href="#"><p className="hover:underline cursor-pointer">Contact Us</p></Link>
 							</li>
 							<li>
-								<Link href="#"><p className="hover:underline">FAQ</p></Link>
+								<Link href="#"><p className="hover:underline cursor-pointer">FAQ</p></Link>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
 			<div className="sm:flex sm:items-center sm:justify-between">
-				<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2022 <Link href={{pathname: "/", query: {userID: router.query.userID}}}><p className="hover:underline">Degree Door™</p></Link> All Rights Reserved.
+				<span className="text-sm text-gray-500 sm:text-center dark:text-gray-400 flex">© 2022 Degree Door™ All Rights Reserved.
 				</span>
 				<div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
 					<a href="https://github.com/WSU-4110/Degree-Door" className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
