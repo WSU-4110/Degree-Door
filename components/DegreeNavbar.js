@@ -1,4 +1,4 @@
-import FavoritesDialog from "./FavoritesDialog"
+import FavoritesDialog from "./Dialogs/FavoritesDialog"
 import Dropdown from "./Dropdown"
 import Link from "next/link"
 
