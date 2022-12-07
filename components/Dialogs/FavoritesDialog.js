@@ -4,8 +4,8 @@ DialogContentText, DialogTitle, useMediaQuery, useTheme } from '@mui/material'
 import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore'
 
-import { useAuthContext } from '../context/AuthContext'
-import { db } from '../firebase'
+import { useAuthContext } from '../../context/AuthContext'
+import { db } from '../../firebase'
 
 export default function FavoritesDialog({degree, initFavState}) {
   const { user } = useAuthContext()
