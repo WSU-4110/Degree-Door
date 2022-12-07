@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { doc, getDoc } from 'firebase/firestore'
 
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
-import DegreeNavbar from '../../components/DegreeNavBar'
+import DegreeNavbar from '../../components/DegreeNavbar'
 import { db } from '../../firebase'
 
 export default function DegreeHome({info, initFavState}) {
