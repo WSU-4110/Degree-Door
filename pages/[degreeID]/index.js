@@ -4,14 +4,15 @@ import { doc, getDoc } from 'firebase/firestore'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import DegreeNavbar from '../../components/DegreeNavbar'
 import { db } from '../../firebase'
+import Footer from '../../components/Footer'
 
 export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
-
+  const { degreeID, userID } = router.query
   return (
     <ProtectedRoute>
       <div className="degree-home font-Inter">
-        <DegreeNavbar degreeName={info.degreeName} degreeID={router.query.degreeID} userID={router.query.userID} initFavState={initFavState} active="overview"/>
+        <DegreeNavbar degreeName={info.degreeName} degreeID={degreeID} userID={userID} initFavState={initFavState} active="overview"/>
         {/* begin component that dislays degree name/description */}
         <div className="p-8 h-[400px] bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')] bg-no-repeat bg-cover">
           <div>
@@ -48,6 +49,7 @@ export default function DegreeHome({info, initFavState}) {
             </a>
           </div>
           {/* end grid */}
+          <Footer userID={userID}/>
         </div>
       </div>
     </ProtectedRoute>
