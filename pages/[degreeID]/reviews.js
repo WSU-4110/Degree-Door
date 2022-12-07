@@ -6,6 +6,7 @@ import { collection, query, getDocs, getDoc, orderBy, deleteDoc, doc } from "fir
 
 import Dropdown from '../../components/Dropdown'
 import FavoritesDialog from '../../components/FavoritesDialog'
+import DegreeNavbar from '../../components/DegreeNavBar';
 import { db } from '../../firebase' 
 
 export default function Reviews({reviews, initFavState}) {
@@ -27,60 +28,7 @@ export default function Reviews({reviews, initFavState}) {
 
   return (
     <div className="degree-home bg-white font-Inter relative">
-    {/* begin nav bar for degree name */}
-    <nav className="bg-[#292c2c] px-2 sm:px-4 py-30 pt-0.5 pb-0.5 m-auto items-center">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <ul className="m-auto md:text-sm md:bg-[#292c2c]">
-          <li>
-            <p className="text-white md:p-0 uppercase">
-              <b>{router.query.degreeName}</b>
-            </p>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    {/* end nav bar for degree name */}
-
-    {/* begin nav bar */}
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-      <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
-          <div className="navbar-brand cursor-pointer flex">
-            <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
-          </div>
-        </Link>
-        <div className="flex md:order-2">
-          <Dropdown color="#292c2c"/>
-        </div>
-        <div className="md:flex md:w-auto">
-          <ul className="flex flex-col p-2 mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
-            <li>
-              <Link href={{pathname: `/${router.query.degreeID}/`, query: {userID: `${router.query.userID}`}}}>
-                <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
-                  <b>OVERVIEW</b>
-                </p>
-              </Link>
-            </li>
-            <li>
-              <p className="block py-2 pr-4 pl-3 text-white bg-green-700 rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white" aria-current="page">
-                <b>REVIEWS</b>
-              </p>
-            </li>
-            <li>
-            <Link href={{pathname: `/${router.query.degreeID}/post`, query: {userID: `${router.query.userID}`, degreeName: `${router.query.degreeName}`}}}>
-              <p className="cursor-pointer block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400">
-                <b>POST A REVIEW</b>
-              </p>
-            </Link>
-            </li>
-            <li>
-              <FavoritesDialog degree={router.query.degreeID} initFavState={initFavState}/>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    {/* end nav bar */}
+      <DegreeNavbar degreeName={router.query.degreeName} degreeID={router.query.degreeID} userID={router.query.userID} initFavState={initFavState} active="reviews" />
 
     {/* begin delete button dialog box */}
     {openDeletion && 
