@@ -10,9 +10,6 @@ import Navbar from "../components/Navbar"
 import { useAuthContext } from '../context/AuthContext'
 
 export default function ResetPassword() {
-  // Use router in ResetPassword page in case we need to redirect to home page.
-  const router = useRouter()
-
   // Gain auth from auth context
   const { auth } = useAuthContext()
 
