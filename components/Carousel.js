@@ -15,6 +15,9 @@ export default function Carousel({degrees}) {
   return (
     <div className="carousel slide relative">
       <div className="carousel-inner m-auto relative w-4/5 rounded-md overflow-hidden flex justify-center items-center">
+        <div className="cursor-pointer hover:opacity-70" onClick={() => handleClick(currentIndex === 0 ? degrees.length - 1 : currentIndex-1)}>
+          <HiChevronLeft className="h-12 w-auto"/>
+        </div>
         <Link href={{pathname: `/${currentDegree.link}`, query: {userID: router.query.userID}}}>
           <div className="rounded-md carousel-item active relative w-10/12 h-[19rem] bg-no-repeat bg-cover
             bg-[url('https://mdbcdn.b-cdn.net/img/new/slides/041.webp')] flex justify-center flex-col items-center cursor-pointer"
@@ -22,6 +25,9 @@ export default function Carousel({degrees}) {
             <p className="m-auto text-white text-8xl text-center">{currentDegree.name}</p>
           </div>
         </Link>
+        <div className="cursor-pointer hover:opacity-70" onClick={() => handleClick(currentIndex === degrees.length - 1 ? 0 : currentIndex+1)}>
+          <HiChevronRight className="h-12 w-auto" />
+        </div>
       </div>
     </div>
   )
