@@ -1,17 +1,20 @@
-
 import Dropdown from "../components/Dropdown"
 import Link from "next/link"
-import ContactForm from "../components/ContactForm";
+import ContactForm from "../components/ContactForm"
 import { useRouter } from "next/router"
+import { useState } from "react"
+import { ContactSuccessDialog } from "../components/Dialogs"
+import Footer from "../components/Footer"
 
 export default function Contact(){
+  const [openSuccess, setOpenSuccess] = useState(false)
   const router = useRouter()
   return(
     <div>
       {/* begin nav bar */}
       <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
-          <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+          <Link href={router.query.userID !== "" ? {pathname: "/", query: {userID: router.query.userID}} : "/"}>
             <div className="navbar-brand cursor-pointer flex">
               <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
             </div>
@@ -28,6 +31,7 @@ export default function Contact(){
           </div>
         </div>
       </nav>
+      { openSuccess && <ContactSuccessDialog setOpenSuccess={setOpenSuccess}/>}
       {/* end nav bar */}
       <div className="bg-[#f9f9f9] grid">
         <div className="w-6/12 mx-auto rounded mt-10">
@@ -36,17 +40,14 @@ export default function Contact(){
             <p className="text-sm font-light text-gray-600 my-3 text-center">
             Email us with any questions or inquiries or call 1-800-DegreeD. We would be happy to answer your questions! 
             </p>
-
             <div className="border-b mb-8"></div>
-
             <div className="py-6">
-
-            <ContactForm />
+            <ContactForm setOpenSuccess={setOpenSuccess}/>
             </div>
           </div>
         </div>
       </div>
+      <Footer userID={router.query.userID !== "" ? router.query.userID : ""}/>
     </div>
-
   )
 }

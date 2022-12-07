@@ -2,7 +2,7 @@ import { useState } from "react"
 import { db } from "../firebase"
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
-export default function ContactForm({ setOpenSuccess }) {
+export default function ContactForm({ setOpenSuccess, userID }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,10 +24,9 @@ export default function ContactForm({ setOpenSuccess }) {
     const contactRef = collection(db, `ContactMessages`)
     const contactData = {
       timeStamp: serverTimestamp(),
-      course: formData.course,
-      pros: formData.pros,
-      cons: formData.cons,
-      userID: router.query.userID
+      course: formData.name,
+      pros: formData.email,
+      cons: formData.message,
     }
     await addDoc(contactRef, contactData)
     setFormData({
