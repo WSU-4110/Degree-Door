@@ -1,14 +1,19 @@
 import Dropdown from "../components/Dropdown"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 export default function FAQs(){
+  const router = useRouter()
   return(
     <div>
       {/* begin nav bar */}
       <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
+          <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
             <div className="navbar-brand cursor-pointer flex">
               <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
             </div>
+          </Link>
             <div className='flex ml-[225px] text-green-700'>
               <b>FAQs</b>
             </div>
