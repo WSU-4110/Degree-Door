@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { collection, query, getDocs, getDoc, orderBy, deleteDoc, doc } from "firebase/firestore"
 
-import DegreeNavbar from '../../components/DegreeNavBar'
+import DegreeNavbar from '../../components/DegreeNavbar'
 import ReviewComponent from '../../components/ReviewComponent'
 import DeleteReviewConfirmation from '../../components/Dialogs/DeleteReviewConfirmation'
 import { db } from '../../firebase' 

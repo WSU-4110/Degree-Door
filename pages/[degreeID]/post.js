@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useState } from 'react'
 import { addDoc, collection, serverTimestamp, getDoc, doc } from 'firebase/firestore'
 
-import DegreeNavbar from '../../components/DegreeNavBar'
+import DegreeNavbar from '../../components/DegreeNavbar'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import {  LeavePageDialog, PostReviewErrorDialog, 
   PostReviewSuccessDialog, SubmitPostDialog } from '../../components/Dialogs'
