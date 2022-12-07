@@ -72,8 +72,8 @@ For the technology stack, the project utilizes React.js and Tailwind CSS for the
 <!-- ROADMAP -->
 ## Roadmap
 
-[Sprint 1](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-Plan-1)
-[Sprint 2](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-2-Plan)
+* [Sprint 1](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-Plan-1)
+* [Sprint 2](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-2-Plan)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
