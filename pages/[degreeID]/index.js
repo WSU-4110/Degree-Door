@@ -23,7 +23,6 @@ export default function DegreeHome({info, initFavState}) {
             </p>
           </div>
           {/* end degree name/description component */}
-
           {/* begin grid to display degree info */}
           <div className="grid grid-cols-3 gap-8 m-auto w-[1150px]">
             <a target="_blank" href={info.website} rel="noreferrer"> 
