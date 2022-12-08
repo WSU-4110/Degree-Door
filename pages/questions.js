@@ -10,7 +10,7 @@ export default function FAQs(){
     <div>
       {/* begin nav bar */}
       <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
+        <div className="container flex text-white flex-wrap justify-between items-center mx-auto">
           <Link href={router.query.userID !== undefined ? {pathname: "/", query: {userID: router.query.userID}} :"/login"}>
             <div className="navbar-brand cursor-pointer flex">
               <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
