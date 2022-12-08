@@ -1,18 +1,34 @@
+import { collection, query, getDocs } from "firebase/firestore"
 import Dropdown from "../components/Dropdown"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
+import FavoriteDegree from '../components/FavoriteDegree'
+import { db } from '../firebase'
 
-export default function Profile(){
-  const router = useRouter()
-  return (
-    <div>
-    {/* begin nav bar */}
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-    <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
-        <div className="navbar-brand cursor-pointer flex">
-            <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+export default function Profile({favDegrees}){
+    const router = useRouter()
+
+    return (
+        <div>
+        {/* begin nav bar */}
+        <nav className="bg-[#292828] border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
+        <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
+            <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+            <div className="navbar-brand cursor-pointer flex">
+                <img className="w-6 h-6 ml-2 text-[#FFFFFF]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
+            </div>
+            </Link>
+            <div className="flex ml-[190px] text-white">
+                <b>Profile Settings</b>
+            </div>
+            <div className="flex md:order-2">
+            <Dropdown color="#FFFFFF"/>
+            </div>
+            <div className="md:flex md:w-auto">
+            <ul className="mt-4 items-center bg-gray-50 border border-gray-100 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:border-0 md:bg-white">
+            </ul>
+            </div>
         </div>
         </Link>
         <div className="flex ml-[225px] text-green-700">
@@ -28,7 +44,6 @@ export default function Profile(){
     </div>
     </nav>
     {/* end nav bar */}
-
     <div className="mt-10"> 
       <div className="m-auto w-full max-w-sm">
         <div className="flex flex-col items-center pb-10">
@@ -37,7 +52,6 @@ export default function Profile(){
         </div>
       </div>
     </div>
-
     <div className="mt-2 mx-96 border shadow-md rounded-md p-10">
       <form>
         <div className="grid gap-6 mb-6 md:grid-cols-2">
@@ -81,10 +95,6 @@ export default function Profile(){
         </div> 
         <button type="Save" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
       </form>
-    </div>
-    <h2 className="my-10 mb-4 ml-96 text-2xl font-bold">Favorited Degrees</h2>  
-    <div className="my-10 mx-96 mb-30 border shadow-md rounded-md p-10">
-      {/* Placeholder for Favorites Function */}
     </div>
   </div>
   )
