@@ -2,18 +2,7 @@ import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { BsFillGearFill } from 'react-icons/bs'
-
 import { auth } from '../firebase'
-// const MyLink = forwardRef((props, ref) => {
-//   let { href, children, ...rest } = props
-//   return (
-//     <Link href={href}>
-//       <a ref={ref} {...rest}>
-//         {children}
-//       </a>
-//     </Link>
-//   )
-// })
 
 export default function Dropdown({ color }) {
   const router = useRouter()
