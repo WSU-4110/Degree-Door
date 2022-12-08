@@ -9,7 +9,7 @@ export default function FAQs(){
   return(
     <div>
       {/* begin nav bar */}
-      <nav className="bg-white border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
+      <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
         <div className="container flex flex-wrap justify-between items-center mx-auto">
           <Link href={router.query.userID !== undefined ? {pathname: "/", query: {userID: router.query.userID}} :"/login"}>
             <div className="navbar-brand cursor-pointer flex">
@@ -20,7 +20,7 @@ export default function FAQs(){
             <b>FAQs</b>
           </div>
           <div className="flex md:order-2">
-            {router.query.userID && <Dropdown color="#292c2c"/> }
+            {router.query.userID && <Dropdown color="#FFFFFF"/> }
           </div>
         </div>
       </nav>
