@@ -2,8 +2,9 @@ import Dropdown from "../components/Dropdown"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
-import React from "react"
+import React, {Component} from "react"
 import { getRouteMatcher } from "next/dist/shared/lib/router/utils/route-matcher"
+import { View, Stylesheet } from 'react-native'
 
 export default function about()
 {
@@ -30,8 +31,33 @@ export default function about()
             </div>
             </nav>
             {/* end nav bar */}
+            <div>
             
+            </div>
         </div>
     )
 
 }
+
+const flex = () => {
+    return (
+        <View style = {Stylesheet.container}>
+            <View style = {Stylesheet.textBox} />
+        </View>
+    )
+}
+
+const styles = StyleSheet.create ({
+    container: {
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        height: '500'
+    },
+    textBox: {
+        width: '100',
+        height: '100',
+        backgroundColor: 'white'
+    }
+})
