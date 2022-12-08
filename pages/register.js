@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Alert from '@mui/material/Alert';
 import { useState } from 'react'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 import { doc, setDoc } from 'firebase/firestore'
 
@@ -67,6 +67,7 @@ export default function Register() {
     } else {
       try { // Try and register an account with Firebase and store information in Cloud Firestore
         const newUser = await createUserWithEmailAndPassword(auth, userEmail, userPass)
+        sendEmailVerification(newUser.user)
 
         const docRef = doc(db, "Users", newUser.user.uid) // Make a document reference to the new user
         const userData = { // Set user data using the form data 
@@ -82,7 +83,7 @@ export default function Register() {
 
         // Set alert states to indicate a successful registration
         setAlertSeverity("success")
-        setAlertMessage("Registration successful! Return to login page.")
+        setAlertMessage("Registration successful! A verification email will be sent")
 
       } catch(error) {
 
