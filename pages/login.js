@@ -7,6 +7,7 @@ import { Zoom } from '@mui/material'
 
 import bg from '../public/oldMain.jpg'
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 import { useAuthContext } from '../context/AuthContext'
 
 export default function Login() {
@@ -152,6 +153,7 @@ export default function Login() {
           </div>
         </div>
       </div>
+      <Footer userID=""/>
     </>  
   )
 }
