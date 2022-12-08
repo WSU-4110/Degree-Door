@@ -1,10 +1,15 @@
+import { collection, query, getDocs } from "firebase/firestore"
 import Dropdown from "../components/Dropdown"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
+import FavoriteDegree from '../components/FavoriteDegree'
+import { db } from '../firebase'
 
-export default function Profile(){
+
+export default function Profile({favDegrees}){
     const router = useRouter()
+
     return (
         <div>
         {/* begin nav bar */}
@@ -82,10 +87,40 @@ export default function Profile(){
                 <button type="Save" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
             </form>
         </div>
-        <h2 className="my-10 mb-4 ml-96 text-2xl font-bold">Favorited Degrees</h2>  
-        <div className="my-10 mx-96 mb-30 border shadow-md rounded-md p-10">
-            {/* Placeholder for Favorites Function */}
+        <h2 className="my-10 mb-4 ml-96 text-2xl font-bold">Favorited Degrees</h2>
+        <div className='flex gap-4 mx-96 w-full h-full'>
+            {favDegrees && favDegrees.map((degree, index) => (
+              <FavoriteDegree key={index} degree={degree} user={router.query.userID} />
+            ))}  
         </div>
     </div>
     )
 }
+
+export async function getServerSideProps(context) {
+    const collectionRef = query(collection(db, "Degrees")); // Create collection reference
+    const degreesSnapshot = await getDocs(collectionRef); // Get document snapshots from firestore
+  
+    const favoritesRef = query(collection(db,`Users/${context.query.userID}/Favorites`))
+    const favoritesSnapshot = await getDocs(favoritesRef)
+  
+    // Get both degree name and description from the document.
+    const degreesData = degreesSnapshot.docs.map((doc) => ({
+      link: doc.id,
+      name: doc.data().degreeName
+    }))
+  
+  
+    const favDegreesData = favoritesSnapshot.docs.map((doc) => ({
+      link: doc.id,
+      name: doc.data().degreeName,
+      description: doc.data().description
+    }))
+    // Return server side props
+    return {
+      props: { 
+        degreeDocs: degreesData,
+        favDegrees: favDegreesData
+      }
+    };
+  }
