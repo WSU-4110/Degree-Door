@@ -1,7 +1,9 @@
+import { collection, query, getDocs } from "firebase/firestore"
 import Dropdown from "../components/Dropdown"
 import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
+import FavoriteDegree from '../components/FavoriteDegree'
 import { doc, setDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
 import { db } from "../firebase"
 import { GeneralSuccessDialog } from "../components/Dialogs"
@@ -44,18 +46,17 @@ export default function Profile({ userData, favDegreesData }){
     await setDoc(docRef, userData, { merge: true }) // Create the new user document
     setOpenSuccess(true)
   }
-  
-  return (
-    <div>
-    {/* begin nav bar */}
-    { openSuccess && <GeneralSuccessDialog setOpenSuccess={setOpenSuccess} message="Profile was successfully updated!"/>}
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
-    <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
-        <div className="navbar-brand cursor-pointer flex">
-            <img className="w-6 h-6 ml-2" src="https://i.imgur.com/jooFjXL.png"></img><b>egreeDoor</b>
+    return (
+        <div>
+        {/* begin nav bar */}
+        <nav className="bg-[#292828] border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-md">
+        <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
+            <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
+            <div className="navbar-brand cursor-pointer flex">
+                <img className="w-6 h-6 ml-2 text-[#FFFFFF]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
+            </div>
+            </Link>
         </div>
-        </Link>
         <div className="flex ml-[225px] text-green-700">
           <b>Profile Settings</b>
         </div>
@@ -118,10 +119,6 @@ export default function Profile({ userData, favDegreesData }){
         </div> 
         <button type="Save" className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
       </form>
-    </div>
-    <h2 className="my-10 mb-4 ml-96 text-2xl font-bold">Favorited Degrees</h2>  
-    <div className="my-10 mx-96 mb-30 border shadow-md rounded-md p-10">
-      {/* Placeholder htmlFor Favorites Function */}
     </div>
   </div>
   )
