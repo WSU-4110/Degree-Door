@@ -3,7 +3,7 @@ import Link from "next/link"
 import ContactForm from "../components/ContactForm"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { ContactSuccessDialog } from "../components/Dialogs"
+import { GeneralSuccessDialog } from "../components/Dialogs"
 import Footer from "../components/Footer"
 
 export default function Contact(){
@@ -28,7 +28,7 @@ export default function Contact(){
         </div>
       </nav>
       {/* end nav bar */}
-      { openSuccess && <ContactSuccessDialog setOpenSuccess={setOpenSuccess}/>}
+      { openSuccess && <GeneralSuccessDialog setOpenSuccess={setOpenSuccess} message="Message was sent successfully!"/>}
       {/* end nav bar */}
       <div className="bg-[#f9f9f9] grid">
         <div className="w-6/12 mx-auto rounded mt-10">
