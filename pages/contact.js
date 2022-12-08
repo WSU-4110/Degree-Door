@@ -10,7 +10,8 @@ export default function Contact(){
   const [openSuccess, setOpenSuccess] = useState(false)
   const router = useRouter()
   return(
-    <div className="bg-[#f9f9f9] h-[100vh]">
+    <>
+    <div className="bg-[#f9f9f9] min-h-screen">
       {/* begin nav bar */}
       <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 dark:bg-gray-900 shadow-md">
         <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
@@ -23,7 +24,7 @@ export default function Contact(){
             <b>Contact Us</b>
           </div>
           <div className="flex md:order-2">
-            {router.query.userID && <Dropdown color="#292c2c"/> }
+            {router.query.userID && <Dropdown color="#FFFFFF"/> }
           </div>
         </div>
       </nav>
@@ -44,9 +45,10 @@ export default function Contact(){
           </div>
         </div>
       </div>
-      <div className="absolute bottom-0 min-w-full">
-        <Footer userID={router.query.userID !== undefined ? router.query.userID : ""}/>
-      </div>
     </div>
+    <div className="min-w-full">
+      <Footer userID={router.query.userID !== undefined ? router.query.userID : ""}/>
+    </div>
+    </>
   )
 }
