@@ -3,14 +3,14 @@ import Link from "next/link"
 import ContactForm from "../components/ContactForm"
 import { useRouter } from "next/router"
 import { useState } from "react"
-import { ContactSuccessDialog } from "../components/Dialogs"
+import { GeneralSuccessDialog } from "../components/Dialogs"
 import Footer from "../components/Footer"
 
 export default function Contact(){
   const [openSuccess, setOpenSuccess] = useState(false)
   const router = useRouter()
   return(
-    <div>
+    <div className="bg-[#f9f9f9] h-[100vh]">
       {/* begin nav bar */}
       <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 dark:bg-gray-900 shadow-md">
         <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
@@ -28,23 +28,25 @@ export default function Contact(){
         </div>
       </nav>
       {/* end nav bar */}
-      { openSuccess && <ContactSuccessDialog setOpenSuccess={setOpenSuccess}/>}
+      { openSuccess && <GeneralSuccessDialog setOpenSuccess={setOpenSuccess} message="Message was sent successfully!"/>}
       {/* end nav bar */}
-      <div className="bg-[#f9f9f9] grid">
+      <div className="bg-[#f9f9f9]">
         <div className="w-6/12 mx-auto rounded mt-10">
           <div className="bg-white p-10 shadow-sm mb-10">
             <h3 className="text-lg font-medium text-gray-800 text-center">Contact</h3>
             <p className="text-sm font-light text-gray-600 my-3 text-center">
             Email us with any questions or inquiries or call 1-800-DegreeD. We would be happy to answer your questions! 
             </p>
-            <div className="border-b mb-8"></div>
+            <div className="border-b mb-8" />
             <div className="py-6">
             <ContactForm setOpenSuccess={setOpenSuccess}/>
             </div>
           </div>
         </div>
       </div>
-      <Footer userID={router.query.userID !== undefined ? router.query.userID : ""}/>
+      <div className="absolute bottom-0 min-w-full">
+        <Footer userID={router.query.userID !== undefined ? router.query.userID : ""}/>
+      </div>
     </div>
   )
 }
