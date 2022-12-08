@@ -2,11 +2,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Alert from '@mui/material/Alert';
 import { useState } from 'react'
-import { createUserWithEmailAndPassword } from 'firebase/auth'
+import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 import { doc, setDoc } from 'firebase/firestore'
 
 import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
 import { useAuthContext } from '../context/AuthContext';
 
 export default function Register() {
@@ -66,6 +67,7 @@ export default function Register() {
     } else {
       try { // Try and register an account with Firebase and store information in Cloud Firestore
         const newUser = await createUserWithEmailAndPassword(auth, userEmail, userPass)
+        sendEmailVerification(newUser.user)
 
         const docRef = doc(db, "Users", newUser.user.uid) // Make a document reference to the new user
         const userData = { // Set user data using the form data 
@@ -81,7 +83,7 @@ export default function Register() {
 
         // Set alert states to indicate a successful registration
         setAlertSeverity("success")
-        setAlertMessage("Registration successful! Return to login page.")
+        setAlertMessage("Registration successful! A verification email will be sent")
 
       } catch(error) {
 
@@ -96,7 +98,7 @@ export default function Register() {
   // Render the following onto the register page
   return (
     <>
-      <Navbar links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
       <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">
@@ -228,6 +230,7 @@ export default function Register() {
           </div>
         </div>
       </div>
+      <Footer userID=""/>
     </>
   )
 }

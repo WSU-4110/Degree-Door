@@ -6,7 +6,7 @@ export default function Footer({userID}) {
 			<hr className="my-4 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-4" />
     	<div className="md:flex md:justify-between">
         <div className="mb-6 md:mb-0">
-          <Link href={userID !== "" ? {pathname: "/", query: {userID: userID}} : "/"}   className="flex items-center">
+          <Link href={userID !== "" ? {pathname: "/", query: {userID: userID}} : "/login"}   className="flex items-center">
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white cursor-pointer">Degree Door</span>
           </Link>
         </div>
@@ -14,11 +14,14 @@ export default function Footer({userID}) {
 					<div>
 						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
 						<ul className="text-gray-600 dark:text-gray-400">
-							<li className="mb-4">
-								<Link href={{pathname: "/contact", query: {userID: userID}}}><p className="hover:underline cursor-pointer">Contact Us</p></Link>
+							<li className="mb-2">
+								<Link href={userID !== "" ? {pathname: "/contact", query: {userID: userID}} : "/contact"}><p className="hover:underline cursor-pointer">Contact Us</p></Link>
+							</li>
+							<li className="mb-2">
+								<Link href={userID !== "" ? {pathname: "/questions", query: {userID: userID}} : "/questions"}><p className="hover:underline cursor-pointer">FAQ</p></Link>
 							</li>
 							<li>
-								<Link href={userID !== "" ? {pathname: "/questions", query: {userID: userID}} : "/questions"}><p className="hover:underline cursor-pointer">FAQ</p></Link>
+								<Link href={userID !== "" ? {pathname: "/about", query: {userID: userID}} : "/about"}><p className="hover:underline cursor-pointer">About Us</p></Link>
 							</li>
 						</ul>
 					</div>

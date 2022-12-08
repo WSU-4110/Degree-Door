@@ -14,6 +14,19 @@ export default function Dropdown({ color }) {
   function handleFAQsClick() {
     router.push({pathname: "/questions", query: {userID: router.query.userID}})
   }
+  
+  function handleProfileClick() {
+    router.push({pathname: "/profile", query: {userID: router.query.userID}})
+  }
+  
+
+  function handleContactClick() {
+    router.push({pathname: "/contact", query: {userID: router.query.userID}})
+  }
+
+  function handleAboutClick() {
+    router.push({pathname: "/about", query: {userID: router.query.userID}})
+  }
 
   return (
     <div className="top-16 text-right font-Inter">
@@ -36,6 +49,30 @@ export default function Dropdown({ color }) {
         >
           <Menu.Items className="absolute right-0 mt-2 w-40 z-50 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-green-800 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={handleContactClick}
+                  >
+                    Contact Us
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-green-800 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={handleAboutClick}
+                  >
+                    About Us
+                  </button>
+                )}
+              </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
                   <button
