@@ -1,50 +1,59 @@
-import Link from 'next/link'
-import { collection, query, getDocs } from "firebase/firestore";
+import { collection, query, getDocs } from "firebase/firestore"
 import { useRouter } from 'next/router'
+import Link from "next/link"
 
 import Dropdown from '../components/Dropdown'
-import Navbar from '../components/Navbar'
 import Searchbar from '../components/Searchbar'
+import Footer from '../components/Footer'
 import ProtectedRoute from '../components/HOC/ProtectedRoute'
+import FavoriteDegree from '../components/FavoriteDegree'
 import { db } from '../firebase'
+import Carousel from '../components/Carousel'
 
 export default function Home({degreeDocs, favDegrees}) {
   const router = useRouter()
 
   return(
     <ProtectedRoute>
-      <Navbar user={router.query.userID}>
-        <Dropdown />
-      </Navbar>
-      <div className="relative">
-        <img src='homepage2.png' alt='waynestate-banner'/>
-        <h1 className="absolute text-5xl top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-black font-bold">Degree Door</h1>
+      {/* begin nav bar */}
+      <nav className="bg-[#292828] px-2 py-2.5">
+        <div className="container flex text-[#FFFFFF] justify-between items-center ">
+          <div className="navbar-brand flex">
+            <img className="w-6 h-6 ml-2 text-[#FFFFFF]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
+          </div>
+          <Searchbar degrees={degreeDocs} user={router.query.userID}/>
+          <div className="flex">
+            <Dropdown color="#FFFFFF"/>
+          </div>
+        </div>
+      </nav>
+
+      <div className="relative h-[200px] mt-5 mb-14 w-auto bg-white">
+        {/* <img src='https://i.imgur.com/FVOB96X.png' className='h-20 w-20'></img> */}
+        <h1 className="absolute text-4xl top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">Welcome to DegreeDoor</h1>
+        <p className="absolute top-[110px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 mb-3 font-light text-center text-gray-500 dark:text-gray-400">A collaborative space allowing students and faculty to share their experiences with upcoming students.  Providing information of courses, degrees, and work loads in a forum like style allowing access to inside information. The one stop shop for all things college, course, and degree related!</p>
+        <p className='absolute top-[180px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black'>
+          <Link href={{pathname: "/about", query: {userID: router.query.userID}}}>
+            <button type="button" class="text-white bg-green-900 hover:bg-green-800 font-medium rounded-md text-sm px-4 py-2 text-center inline-flex">
+              Learn More
+              <svg aria-hidden="true" class="ml-2 -mr-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </button>
+          </Link>
+        </p>
       </div>
-      <Searchbar degrees={degreeDocs} user={router.query.userID}/>
-      <div className='font-mono mt-80 mb-10 mx-4'>
-        <div className="flex flex-col">
+      <Carousel degrees={degreeDocs} user={router.query.userID}/>
+
+      <div className='font-mono mt-[80px] mb-10 mx-4'>
+        <div className="flex flex-col justify-center items-center">
           <h2 className="mb-4 text-2xl font-bold">Favorited Degrees</h2>   
-          <div className='flex gap-4 mx-auto w-full h-full'>
+          <div className='flex items-center justify-center gap-4 w-full h-full'>
             {favDegrees && favDegrees.map((degree, index) => (
-            <div key={index} className="mt-4 w-1/3 flex flex-col gap-4 items-start rounded-xl bg-white p-4 shadow-lg">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-blue-100 bg-blue-50">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                </svg>
-              </div>
-              <div className="w-full h-full">
-                <p className="text-align: right-5 text-center">{degree.name}</p>
-                Info: 
-                <p className="mt-2 text-sm text-gray-500">{degree.description}</p>
-              </div>
-              <Link href={{pathname: `/${degree.link}`, query: {userID: router.query.userID}}} key={index}>
-                <button type="button" className="inline-grid px-6 py-2.5 bg-lime-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-lime-700 hover:shadow-lg focus:bg-lime-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Visit</button>
-              </Link>
-            </div>
+              <FavoriteDegree key={index} degree={degree} user={router.query.userID} />
             ))}
           </div>
         </div>
       </div>
+      <Footer userID={router.query.userID}/>
     </ProtectedRoute>
   )
 }
