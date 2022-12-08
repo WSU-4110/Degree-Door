@@ -4,10 +4,9 @@ import { useRouter } from "next/router"
 import { useState } from 'react'
 import React, {Component} from "react"
 import { getRouteMatcher } from "next/dist/shared/lib/router/utils/route-matcher"
-import { View, Stylesheet } from 'react-native'
+import { View, StyleSheet } from 'react'
 
-export default function about()
-{
+export default function about(){
     const router = useRouter()
     return (
         <div>
@@ -31,33 +30,10 @@ export default function about()
             </div>
             </nav>
             {/* end nav bar */}
-            <div>
             
+            <div className="form-wrapper w-2/3 h-[600px] mt-[70px] m-auto border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8">
+            <img src="https://i.imgur.com/6MeOx1A.jpg" className="w-[400px] h-[530px] ml-[570px]"></img>
             </div>
         </div>
     )
-
 }
-
-const flex = () => {
-    return (
-        <View style = {Stylesheet.container}>
-            <View style = {Stylesheet.textBox} />
-        </View>
-    )
-}
-
-const styles = StyleSheet.create ({
-    container: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
-        height: '500'
-    },
-    textBox: {
-        width: '100',
-        height: '100',
-        backgroundColor: 'white'
-    }
-})
