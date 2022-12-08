@@ -14,11 +14,14 @@ export default function Footer({userID}) {
 					<div>
 						<h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
 						<ul className="text-gray-600 dark:text-gray-400">
-							<li className="mb-4">
+							<li className="mb-2">
 								<Link href={userID !== "" ? {pathname: "/contact", query: {userID: userID}} : "/contact"}><p className="hover:underline cursor-pointer">Contact Us</p></Link>
 							</li>
-							<li>
+							<li className="mb-2">
 								<Link href={userID !== "" ? {pathname: "/questions", query: {userID: userID}} : "/questions"}><p className="hover:underline cursor-pointer">FAQ</p></Link>
+							</li>
+							<li>
+								<Link href={userID !== "" ? {pathname: "/about", query: {userID: userID}} : "/about"}><p className="hover:underline cursor-pointer">About Us</p></Link>
 							</li>
 						</ul>
 					</div>
