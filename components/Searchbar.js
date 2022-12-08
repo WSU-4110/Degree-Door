@@ -21,27 +21,22 @@ export default function Searchbar({degrees, user}) {
   
   return (
     <div className="searchbar-wrapper flex flex-col min-w-full">
-      <div className="search-inputs flex items-center justify-center z-[2] text-gray-600 mt-[-1.5rem]">
+      <div className="search-inputs flex items-center justify-center z-[2] text-gray-600">
         <input 
           type="search" 
           name="search" 
           placeholder="Search" 
           value={inputData}
-          className="bg-white border-2 border-neutral-600 w-[36rem]
-          h-12 px-5 pr-10 rounded-full text-sm focus:outline-none font-Inter" 
+          className="bg-white w-[20rem] h-8 px-5 pr-10 rounded-full text-sm focus:outline-none font-Inter" 
           onChange={handleFilter}
         />
-        <BsSearch className="text-black relative left-[-2.5rem]"/>
+        <BsSearch className="text-black relative left-[-2rem]"/>
       </div>
       {filteredData.length != 0 && (
-        <div className="degree-result w-full flex flex-col items-center mt-8 h-2/5
-        bg-white overflow-x-hidden overflow-y-auto &::-webkit-scrollbar
-        absolute">
-          {filteredData.slice(0,10).map((degree, index) => {
-            return (
+        <div className="degree-result flex flex-col items-center mt-9 h-2/5 overflow-x-hidden overflow-y-auto
+           left-0 right-0 &::-webkit-scrollbar absolute mr-[50px]"> {filteredData.slice(0,10).map((degree, index) => {return (
               <Link href={{pathname: `/${degree.link}`, query: {userID: user}}} key={index}>
-                <a className="degree-item w-[36rem] h-[50px] flex items-center p-4 text-black border-2
-                border-gray-600">
+                <a className="degree-item bg-white z-50 w-[20rem] h-[30px] flex items-center p-4 text-black border-b-2 border-gray-600">
                   <p>{degree.name}</p>
                 </a>
               </Link>
