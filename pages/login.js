@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Alert from '@mui/material/Alert';
 import { useRouter } from 'next/router'
 import { useState } from 'react'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword, sendEmailVerification } from 'firebase/auth'
 import { Zoom } from '@mui/material'
 
 import bg from '../public/oldMain.jpg'
@@ -49,10 +49,16 @@ export default function Login() {
 
     try {
       const UserCredential = await signInWithEmailAndPassword(auth, formData.email.trim(), formData.password.trim())
-      router.push({
-        pathname: '/',
-        query: { userID: UserCredential.user.uid },
-      }) // Push to home page after successful login
+      if (UserCredential.user.emailVerified) {
+        router.push({
+          pathname: '/',
+          query: { userID: UserCredential.user.uid },
+        }) // Push to home page after successful login
+      } else {
+        setAlertMessage("Please verify your email before logging in! An email will be sent")
+        setShowAlert(true)
+        sendEmailVerification(UserCredential.user)
+      }
     } catch (error) {
       // If login failed, display error message in the form
       // of an alert dialog.
