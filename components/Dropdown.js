@@ -36,6 +36,10 @@ export default function Dropdown({ color }) {
     router.push({pathname: "/contact", query: {userID: router.query.userID}})
   }
 
+  function handleAboutClick() {
+    router.push({pathname: "/about", query: {userID: router.query.userID}})
+  }
+
   return (
     <div className="top-16 text-right font-Inter">
       <Menu as="div" className="relative inline-block text-left">
@@ -78,6 +82,18 @@ export default function Dropdown({ color }) {
                     onClick={handleContactClick}
                   >
                     Contact Us
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={`${
+                      active ? 'bg-green-800 text-white' : 'text-gray-900'
+                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={handleAboutClick}
+                  >
+                    About Us
                   </button>
                 )}
               </Menu.Item>
