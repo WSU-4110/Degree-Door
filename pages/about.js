@@ -31,8 +31,17 @@ export default function about(){
             </nav>
             {/* end nav bar */}
             
-            <div className="form-wrapper w-2/3 h-[600px] mt-[70px] m-auto border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8">
-            <img src="https://i.imgur.com/6MeOx1A.jpg" className="w-[400px] h-[530px] ml-[570px]"></img>
+            <div className="w-2/3 h-[600px] mt-[70px] m-auto border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8">
+                <h1 className="absolute text-4xl ml-[180px] mt-[20px] transform text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">
+                    DegreeDoor
+                </h1>
+                <h1 className="absolute right-2/4 text-md justify-left ml-[315px] mt-[80px] font-light text-justify text-gray-500">
+                    Sed ut perspiciatis perspiciatis voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+                </h1>
+                <h1 className="absolute mt-[460px] ml-[250px]">
+                    <img src="https://i.imgur.com/FVOB96X.png" className="w-[50px] h-[50px]"></img>
+                </h1>
+                <img src="https://i.imgur.com/6MeOx1A.jpg" className="w-[400px] h-[530px] ml-[570px]"></img>
             </div>
         </div>
     )
