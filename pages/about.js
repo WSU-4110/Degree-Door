@@ -7,9 +7,7 @@ export default function About(){
   const { userID } = router.query
   return (
     <div className="min-h-screen">
-      {/* begin nav bar */}
       <NewNavbar pageTitle="ABOUT US" userID={userID} />
-      {/* end nav bar */}
       <div className="w-2/3 h-[600px] mt-[70px] mb-8 m-auto border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8 flex justify-between">
         <div>
           <h1 className="absolute text-4xl ml-[180px] mt-[20px] transform text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">
