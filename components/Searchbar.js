@@ -34,7 +34,7 @@ export default function Searchbar({degrees, user}) {
       </div>
       {filteredData.length != 0 && (
         <div className="degree-result flex flex-col items-center mt-9 h-2/5 overflow-x-hidden overflow-y-auto
-           left-0 right-0 &::-webkit-scrollbar absolute ml-8"> {filteredData.slice(0,10).map((degree, index) => {return (
+            &::-webkit-scrollbar fixed z-50"> {filteredData.slice(0,10).map((degree, index) => {return (
               <Link href={{pathname: `/${degree.link}`, query: {userID: user}}} key={index}>
                 <a className="degree-item bg-white z-50 w-[20rem] h-[30px] flex items-center p-4 text-black border-b-2 border-gray-600">
                   <p>{degree.name}</p>
