@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Dropdown from "./Dropdown"
-export default function Navbar({ pageTitle, userID }) {
+export default function Navbar({ pageTitle, userID, children }) {
   return (
     <nav className="bg-[#292828] px-2 sm:px-4 py-2.5 shadow-md">
       <div className="container text-white flex flex-wrap justify-between items-center mx-auto h-10">
@@ -10,7 +10,7 @@ export default function Navbar({ pageTitle, userID }) {
           </div>
         </Link>
         <div className='text-white text-lg mr-28'>
-          <b>{pageTitle}</b>
+          {children ? children : <b>{pageTitle}</b>}
         </div>
         <div className="flex md:order-2">
           {userID && <Dropdown color="#FFFFFF"/> }
