@@ -3,7 +3,6 @@ import Dropdown from "./Dropdown"
 import Link from "next/link"
 
 export default function DegreeNavbar({ degreeName, degreeID, userID, initFavState, active }) {
-  console.log(active)
   const defaultStyle = "cursor-pointer block py-2 pr-4 pl-3 text-[#292c2c] rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-green-700 md:p-0 md:dark:hover:text-white dark:text-gray-400"
   const activeStyle = "cursor-pointer block py-2 pr-4 pl-3 text-white rounded md:bg-transparent md:text-green-700 md:p-0 dark:text-white"
   return (
