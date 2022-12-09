@@ -2,7 +2,7 @@ import Link from "next/link"
 import Dropdown from "../components/Dropdown"
 export default function NewNavbar({ pageTitle, userID }) {
   return (
-    <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 shadow-md absolute top-0 min-w-full min-h-fit">
+    <nav className="bg-[#292828] px-2 sm:px-4 py-2.5 shadow-md">
       <div className="container text-white flex flex-wrap justify-between items-center mx-auto h-10">
         <Link href={userID ? {pathname: "/", query: {userID: userID}} :"/login"}>
           <div className="navbar-brand cursor-pointer flex">
