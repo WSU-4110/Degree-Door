@@ -66,7 +66,7 @@ export default function ResetPassword() {
       to which send the password reset email to.
     */ 
     <>
-      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      <Navbar pageTitle="Reset Password"/>
       <div 
         className="reset-pass-page-background flex justify-center min-w-screen min-h-screen bg-no-repeat bg-cover bg-center relative font-Inter" 
         style={{backgroundImage: `url(${bg.src})`}}
