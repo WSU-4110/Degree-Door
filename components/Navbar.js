@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Dropdown from "../components/Dropdown"
+import Dropdown from "./Dropdown"
 export default function Navbar({ pageTitle, userID }) {
   return (
     <nav className="bg-[#292828] px-2 sm:px-4 py-2.5 shadow-md">
