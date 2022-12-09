@@ -27,7 +27,7 @@ export default function FAQs(){
               <div className="justify-between items-center mb-3 sm:flex">
                 <a href="#" className="text-sm font-semibold text-gray-900">Lorem ipsum dolor sit amet?</a>
               </div>
-              <div class="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
+              <div className="p-3 text-xs italic font-normal text-gray-500 bg-[#f9f9f9] rounded-lg border border-gray-200">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
             </div>
             <div className="p-4 bg-white rounded-lg border border-gray-200 mb-6">
               <div className="justify-between items-center mb-3 sm:flex">
