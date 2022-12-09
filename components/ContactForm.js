@@ -24,9 +24,9 @@ export default function ContactForm({ setOpenSuccess, userID }) {
     const contactRef = collection(db, `ContactMessages`)
     const contactData = {
       timeStamp: serverTimestamp(),
-      course: formData.name,
-      pros: formData.email,
-      cons: formData.message,
+      name: formData.name,
+      email: formData.email,
+      message: formData.message,
     }
     await addDoc(contactRef, contactData)
     setFormData({
