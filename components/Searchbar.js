@@ -1,6 +1,7 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import { useState } from 'react'
 import { BsSearch } from 'react-icons/bs'
+
 export default function Searchbar({degrees, user}) {
   const [filteredData, setFilteredData] = useState([])
   const [inputData, setInputData] = useState("")
