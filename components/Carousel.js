@@ -19,7 +19,7 @@ export default function Carousel({degrees}) {
           <HiChevronLeft className="h-12 w-auto"/>
         </div>
         <Link href={{pathname: `/${currentDegree.link}`, query: {userID: router.query.userID}}}>
-          <div className="rounded-md carousel-item active relative w-10/12 h-[19rem] bg-no-repeat bg-cover
+          <div className="rounded-md carousel-item active relative w-10/12 h-[19rem] bg-no-repeat bg-cover hover:scale-90 duration-500
             bg-[url('https://www.csustan.edu/sites/default/files/styles/media_1440x352/public/2022-08/cs_grant.png?itok=ufO-IZWB')] flex justify-center flex-col items-center cursor-pointer"
           >
             <p className="m-auto text-white font-bold uppercase text-5xl text-center">{currentDegree.name}</p>
