@@ -1,6 +1,6 @@
+import Link from 'next/link'
 import { HiChevronLeft, HiChevronRight } from 'react-icons/hi'
 import { useState } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 export default function Carousel({degrees}) {
