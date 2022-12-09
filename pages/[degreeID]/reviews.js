@@ -29,7 +29,7 @@ export default function Reviews({reviews, initFavState}) {
 
   return (
     <ProtectedRoute>
-      <div className="degree-home bg-white font-Inter relative">
+      <div className="degree-home bg-white font-Inter relative min-h-screen">
         <DegreeNavbar degreeName={degreeName} degreeID={degreeID} userID={userID} initFavState={initFavState} active="reviews" />
         {/* begin delete button dialog box */}
         {openDeletion && <DeleteReviewConfirmation toBeDeleted={toBeDeleted} handleDelete={handleDelete} setOpenDeletion={setOpenDeletion} />}
@@ -40,6 +40,8 @@ export default function Reviews({reviews, initFavState}) {
           <ReviewComponent key={index} review={review} currentUserID={userID} handleClick={confirmDelete} />
           ))}
         </div>
+      </div>
+      <div className="min-w-screen">
         <Footer userID={userID}/>
       </div>
     </ProtectedRoute>

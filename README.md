@@ -5,6 +5,11 @@
 
 <!-- PROJECT LOGO -->
 <br />
+<p align="center">
+  <a href="https://degree-door.vercel.app/login">
+    <img src="https://i.imgur.com/PUIKaAn.png" alt="logo" width="300"/>
+  </a>
+</p>
 <div align="center">
   
 <h1 align="center">Degree Door</h1>
@@ -15,6 +20,8 @@
     <a href="https://github.com/WSU-4110/Degree-Door"><strong>Check out the docs »</strong></a>
     <br />
     <br />
+    <a href="https://degree-door.vercel.app/login">Live Demo</a>
+    ·
     <a href="https://github.com/WSU-4110/Degree-Door/issues">Review Requirements</a>
     ·
     <a href="https://github.com/WSU-4110/Degree-Door/wiki">See wiki page</a>
@@ -50,6 +57,8 @@ at Wayne State University. Users will be able to register an account to access t
 users can see forums with reviews posted by current students, past students, alumni, or professors that have some insight
 on a degree.
 
+For the technology stack, the project utilizes React.js and Tailwind CSS for the frontend. The backend frameworks include Next.js and Firebase.
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -68,7 +77,8 @@ on a degree.
 <!-- ROADMAP -->
 ## Roadmap
 
-[Sprint 1](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-Plan-1)
+* [Sprint 1](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-Plan-1)
+* [Sprint 2](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-2-Plan)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
