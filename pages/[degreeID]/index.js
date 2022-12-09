@@ -3,8 +3,8 @@ import { doc, getDoc } from 'firebase/firestore'
 
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import DegreeNavbar from '../../components/DegreeNavbar'
-import { db } from '../../firebase'
 import Footer from '../../components/Footer'
+import { db } from '../../firebase'
 
 export default function DegreeHome({info, initFavState}) {
   const router = useRouter()
@@ -61,12 +61,12 @@ export async function getServerSideProps(context) {
   const favRef = doc(db,`Users/${context.query.userID}/Favorites`,`${context.params.degreeID}`)
   const favSnap = await getDoc(favRef)
 
-  const docRef = doc(db, "Degrees", `${context.params.degreeID}`); // Create doc reference
+  const docRef = doc(db, "Degrees", `${context.params.degreeID}`) // Create doc reference
   const docSnap = await getDoc(docRef); // Get document snapshot from firestore
 
   // Get both degree name and description from the document.
-  const initFavState = favSnap.exists();
-  const degreeInfo = docSnap.data();
+  const initFavState = favSnap.exists()
+  const degreeInfo = docSnap.data()
 
   // Return server side props
   return {

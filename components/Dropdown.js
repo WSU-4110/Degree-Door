@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { BsFillGearFill } from 'react-icons/bs'
+
 import { auth } from '../firebase'
 
 export default function Dropdown({ color }) {

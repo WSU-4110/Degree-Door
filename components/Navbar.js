@@ -1,41 +1,21 @@
-import Link from 'next/link'
+import Link from "next/link"
+import Dropdown from "./Dropdown"
 
-export default function Navbar({ user, links, children }) {
-
-  return(
-    <nav className="fixed z-50 w-full top-0 flex justify-between h-16 items-center bg-[#242526] text-white shadow font-Inter" bg="light" variant="light">
-      {user !== "" ?
-      <Link href={{pathname: "/", query: {userID: user}}}>
-        <div className="navbar-brand cursor-pointer flex ml-4">
-          Degree Door
-          <img src="https://i.imgur.com/wvQkgzH.png"></img>
+export default function Navbar({ pageTitle, userID, children }) {
+  return (
+    <nav className="bg-[#292828] px-2 sm:px-4 py-2.5 shadow-md">
+      <div className="container text-white flex flex-wrap justify-between items-center mx-auto h-10">
+        <Link href={userID ? {pathname: "/", query: {userID: userID}} :"/login"}>
+          <div className="navbar-brand cursor-pointer flex">
+            <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
+          </div>
+        </Link>
+        <div className='text-white text-lg mr-[4.5rem]'>
+          {children ? children : <b>{pageTitle}</b>}
         </div>
-      </Link>
-      :
-      <Link href="/login">
-        <div className="navbar-brand cursor-pointer flex ml-4">
-          Degree Door
-          <img src="https://i.imgur.com/wvQkgzH.png"></img>
+        <div className="flex md:order-2">
+          {userID && <Dropdown color="#FFFFFF"/> }
         </div>
-      </Link>
-      }
-      <div className="navbar-links flex gap-4 mr-4">
-        {/* We will map each link in the links array and map a
-          different link to the Link component's href attribute */}
-        {links && links.map((link, index) => (
-          <Link href={link.route} key={index}>
-            <button 
-              key={index} 
-              className="justify-center rounded-md bg-slate-300 bg-opacity-20 px-4 py-2 text-sm font-medium 
-              text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white 
-              focus-visible:ring-opacity-75 hover:scale-90 ease-in-out duration-300"
-            >
-              {link.name}
-            </button>
-          </Link>
-        ))}
-        {/*We render the dropdown component here*/}
-        {children}
       </div>
     </nav>
   )
