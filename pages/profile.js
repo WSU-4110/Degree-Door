@@ -1,11 +1,10 @@
-import Dropdown from "../components/Dropdown"
-import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
 import { doc, setDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+
+import Footer from "../components/Footer"
 import { db } from "../firebase"
 import { GeneralSuccessDialog } from "../components/Dialogs"
-import Footer from "../components/Footer"
 
 export default function Profile({ userData }){
   const router = useRouter()
