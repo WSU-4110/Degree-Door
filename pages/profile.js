@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { doc, setDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
 
 import Footer from "../components/Footer"
-import NewNavbar from "../components/NewNavbar"
+import Navbar from "../components/Navbar"
 import { db } from "../firebase"
 import { GeneralSuccessDialog } from "../components/Dialogs"
 
@@ -48,7 +48,7 @@ export default function Profile({ userData }){
   }
   return (
   <div>
-    <NewNavbar pageTitle="Profile" userID={userID} />
+    <Navbar pageTitle="Profile" userID={userID} />
     <div className="mt-10"> 
       <div className="m-auto w-full max-w-sm">
         <div className="flex flex-col items-center pb-10">

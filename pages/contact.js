@@ -3,7 +3,7 @@ import { useState } from "react"
 
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
-import NewNavbar from "../components/NewNavbar"
+import Navbar from "../components/Navbar"
 import { GeneralSuccessDialog } from "../components/Dialogs"
 
 export default function Contact(){
@@ -13,7 +13,7 @@ export default function Contact(){
   return(
     <>
       <div className="bg-[#f9f9f9] min-h-screen">
-        <NewNavbar pageTitle="Contact Us" userID={userID} />
+        <Navbar pageTitle="Contact Us" userID={userID} />
         { openSuccess && <GeneralSuccessDialog setOpenSuccess={setOpenSuccess} message="Message was sent successfully!"/>}
         <div className="bg-[#f9f9f9]">
           <div className="w-6/12 mx-auto rounded mt-10">

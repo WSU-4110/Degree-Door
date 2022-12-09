@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Dropdown from "../components/Dropdown"
-export default function NewNavbar({ pageTitle, userID }) {
+export default function Navbar({ pageTitle, userID }) {
   return (
     <nav className="bg-[#292828] px-2 sm:px-4 py-2.5 shadow-md">
       <div className="container text-white flex flex-wrap justify-between items-center mx-auto h-10">

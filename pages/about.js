@@ -1,13 +1,13 @@
 import { useRouter } from "next/router"
 import Footer from "../components/Footer"
-import NewNavbar from "../components/NewNavbar"
+import Navbar from "../components/Navbar"
 
 export default function About(){
   const router = useRouter()
   const { userID } = router.query
   return (
     <div className="min-h-screen">
-      <NewNavbar pageTitle="ABOUT US" userID={userID} />
+      <Navbar pageTitle="ABOUT US" userID={userID} />
       <div className="w-2/3 h-[600px] mt-[70px] mb-8 m-auto border-[0.5px] bg-[#f9f9f9] rounded shadow-sm py-8 flex justify-between">
         <div>
           <h1 className="absolute text-4xl ml-[180px] mt-[20px] transform text-transparent font-bold bg-clip-text bg-gradient-to-r from-green-700 to-green-900">

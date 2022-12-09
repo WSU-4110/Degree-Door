@@ -98,7 +98,7 @@ export default function Register() {
   // Render the following onto the register page
   return (
     <>
-      <Navbar user="" links={[{route: "/register", name: "Register"}, {route:"/login", name: "Login"}]}/>
+      <Navbar pageTitle="Register" />
       <div className="register-page min-h-screen min-w-screen bg-gray-100 font-Inter">
         <div className="register-wrapper flex">
           <div className="register-left p-20 w-3/5 relative">

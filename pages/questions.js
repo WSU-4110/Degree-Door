@@ -1,14 +1,14 @@
 import { useRouter } from "next/router"
 
 import Footer from "../components/Footer"
-import NewNavbar from "../components/NewNavbar"
+import Navbar from "../components/Navbar"
 
 export default function FAQs(){
   const router = useRouter()
   const { userID } = router.query
   return(
     <div>
-      <NewNavbar pageTitle="FAQ" userID={userID} />
+      <Navbar pageTitle="FAQ" userID={userID} />
       <div className="bg-[#f9f9f9] grid">
         <div className="w-6/12 mx-auto rounded mt-10">
           <div className="bg-white p-10 shadow-sm mb-10">
