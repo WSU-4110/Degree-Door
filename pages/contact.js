@@ -3,6 +3,7 @@ import { useState } from "react"
 
 import ContactForm from "../components/ContactForm"
 import Footer from "../components/Footer"
+import NewNavbar from "../components/NewNavbar"
 import { GeneralSuccessDialog } from "../components/Dialogs"
 
 export default function Contact(){
