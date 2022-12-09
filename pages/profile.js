@@ -52,7 +52,7 @@ export default function Profile({ userData }){
     <div className="mt-10"> 
       <div className="m-auto w-full max-w-sm">
         <div className="flex flex-col items-center pb-10">
-          <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://static01.nyt.com/images/2021/07/28/us/28xp-arthur/28xp-arthur-mediumSquareAt3X.png" alt="Arthur"/>
+          <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="Arthur"/>
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{userData.firstName} {userData.lastName}</h5>
         </div>
       </div>
