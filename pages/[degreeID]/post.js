@@ -4,10 +4,10 @@ import { addDoc, collection, serverTimestamp, getDoc, doc } from 'firebase/fires
 
 import DegreeNavbar from '../../components/DegreeNavbar'
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
+import Footer from '../../components/Footer'
+import { db } from '../../firebase'
 import {  LeavePageDialog, PostReviewErrorDialog, 
   PostReviewSuccessDialog, SubmitPostDialog } from '../../components/Dialogs'
-import { db } from '../../firebase'
-import Footer from '../../components/Footer'
 
 export default function Post({initFavState}) {
   const router = useRouter()
