@@ -1,6 +1,5 @@
 import Link from 'next/link'
-import Alert from '@mui/material/Alert';
-import { useRouter } from 'next/router'
+import Alert from '@mui/material/Alert'
 import { useState } from 'react'
 import { sendPasswordResetEmail } from 'firebase/auth'
 import { Zoom } from '@mui/material'
