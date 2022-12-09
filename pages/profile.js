@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { doc, setDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
 
 import Footer from "../components/Footer"
+import NewNavbar from "../components/NewNavbar"
 import { db } from "../firebase"
 import { GeneralSuccessDialog } from "../components/Dialogs"
 
