@@ -1,14 +1,15 @@
-import Dropdown from "../components/Dropdown"
-import Link from 'next/link'
 import { useRouter } from "next/router"
 import { useState } from 'react'
 import { doc, setDoc, collection, getDocs, getDoc, query } from 'firebase/firestore'
+
+import Footer from "../components/Footer"
+import Navbar from "../components/Navbar"
 import { db } from "../firebase"
 import { GeneralSuccessDialog } from "../components/Dialogs"
-import Footer from "../components/Footer"
 
 export default function Profile({ userData }){
   const router = useRouter()
+  const { userID } = router.query
   const [openSuccess, setOpenSuccess] = useState(false)
   const [formData, setFormData] = useState(
     {
@@ -34,7 +35,7 @@ export default function Profile({ userData }){
     const userLastName = formData.lastName.trim()
 
     event.preventDefault() // Prevent page from refreshing
-    const docRef = doc(db, "Users", router.query.userID) // Make a document reference to the new user
+    const docRef = doc(db, "Users", userID) // Make a document reference to the new user
     const userData = { // Set user data using the form data 
       firstName: userFirstName,
       lastName: userLastName,
@@ -47,27 +48,11 @@ export default function Profile({ userData }){
   }
   return (
   <div>
-    {/* begin nav bar */}
-    <nav className="bg-[#292828] border-gray-200 border-b-2 px-2 sm:px-4 py-2.5 shadow-md">
-      <div className="container text-white flex flex-wrap justify-between items-center mx-auto">
-        <Link href={{pathname: "/", query: {userID: router.query.userID}}}>
-          <div className="navbar-brand cursor-pointer flex">
-            <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
-          </div>
-        </Link>
-        <div className='text-white mr-[4.5rem]'>
-          <b>Profile</b>
-        </div>
-        <div className="flex md:order-2">
-          {router.query.userID && <Dropdown color="#FFFFFF"/> }
-        </div>
-      </div>
-    </nav>
-      {/* end nav bar */}
+    <Navbar pageTitle="Profile" userID={userID} />
     <div className="mt-10"> 
       <div className="m-auto w-full max-w-sm">
         <div className="flex flex-col items-center pb-10">
-          <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://static01.nyt.com/images/2021/07/28/us/28xp-arthur/28xp-arthur-mediumSquareAt3X.png" alt="Arthur"/>
+          <img className="w-24 h-24 mb-3 rounded-full shadow-lg" src="https://cdn-icons-png.flaticon.com/512/1177/1177568.png" alt="Arthur"/>
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">{userData.firstName} {userData.lastName}</h5>
         </div>
       </div>
@@ -115,7 +100,7 @@ export default function Profile({ userData }){
         <button type="Save" className="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
       </form>
     </div>
-    <Footer userID={router.query.userID}/>
+    <Footer userID={userID}/>
   </div>
   )
 }

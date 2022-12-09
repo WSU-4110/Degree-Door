@@ -10,7 +10,7 @@ export default function LeavePageDialog({ setOpenCancellation }) {
             <div className="relative transform overflow-hidden rounded-lg shadow-xl w-full max-w-sm">
                 <div className="bg-gray-50 p-4 pb-4 flex">
                   <div className="mt-0 ml-10 text-center">
-                    <svg aria-hidden="true" class="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <svg aria-hidden="true" className="mx-auto mb-2 w-8 h-8 text-[#de9b61]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                     <h3 className="mt-2 font-semibold text-gray-800">WARNING</h3>
                     <div>
                       <p className="mt-2 text-sm text-gray-500">Are you sure you want to leave this page?</p>

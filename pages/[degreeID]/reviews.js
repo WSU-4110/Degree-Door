@@ -5,9 +5,9 @@ import { collection, query, getDocs, getDoc, orderBy, deleteDoc, doc } from "fir
 import DegreeNavbar from '../../components/DegreeNavbar'
 import ReviewComponent from '../../components/ReviewComponent'
 import DeleteReviewConfirmation from '../../components/Dialogs/DeleteReviewConfirmation'
-import { db } from '../../firebase' 
 import ProtectedRoute from '../../components/HOC/ProtectedRoute'
 import Footer from '../../components/Footer'
+import { db } from '../../firebase' 
 
 export default function Reviews({reviews, initFavState}) {
   const router = useRouter()
@@ -55,8 +55,8 @@ export async function getServerSideProps(context) {
   const favSnap = await getDoc(favRef)
 
   // Get a query on the sub collection for degree page reviews, sorting each review by timestamp
-  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp", "desc"));
-  const reviewsSnapshot = await getDocs(reviewsQuery);
+  const reviewsQuery = query(collection(db, `Degrees/${context.params.degreeID}/Reviews`), orderBy("timeStamp", "desc"))
+  const reviewsSnapshot = await getDocs(reviewsQuery)
 
   // Make an array of each review object and its data
   const reviewData = reviewsSnapshot.docs.map((doc) => ({
