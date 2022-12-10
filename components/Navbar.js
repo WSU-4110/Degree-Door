@@ -10,9 +10,14 @@ export default function Navbar({ pageTitle, userID, children }) {
             <img className="w-6 h-6 ml-2 text-[#ffffff]" src="https://i.imgur.com/PUIKaAn.png"></img><b>egreeDoor</b>
           </div>
         </Link>
-        <div className='text-white text-lg mr-[4.5rem]'>
-          {children ? children : <b>{pageTitle}</b>}
-        </div>
+        {userID ? 
+          <div className='text-white text-lg mr-[4.5rem]'>
+          {children ? children : <b>{pageTitle}</b>} 
+          </div>
+          :
+          <div className='text-white text-lg mr-[7rem]'>
+          {children ? children : <b>{pageTitle}</b>} 
+          </div>}
         <div className="flex md:order-2">
           {userID && <Dropdown color="#FFFFFF"/> }
         </div>
