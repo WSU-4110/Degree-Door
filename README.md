@@ -79,6 +79,7 @@ For the technology stack, the project utilizes React.js and Tailwind CSS for the
 
 * [Sprint 1](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-Plan-1)
 * [Sprint 2](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-2-Plan)
+* [Sprint 3](https://github.com/WSU-4110/Degree-Door/wiki/Sprint-3-Plan)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
